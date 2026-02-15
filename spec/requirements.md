@@ -32,7 +32,7 @@
 ### 2.5 競合・期限切れ・認証
 - `LS-CC-001`: Acquire は lock_key 単位で原子的
 - `LS-EXP-001`: 期限切れ処理は冪等
-- `LS-AUTH-001`: owner_id は原則トークン起点
+- `LS-AUTH-001`: owner_id はトークン起点（`x-owner-id` 必須、body不一致は401）
 
 ### 2.6 フェンシング・受入
 - `LS-FENCE-001`: 下流で token の新旧比較により古い要求を拒否可能

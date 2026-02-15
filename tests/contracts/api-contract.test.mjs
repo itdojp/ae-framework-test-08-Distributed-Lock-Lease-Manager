@@ -101,6 +101,20 @@ test("Contract: エラー応答はErrorResponse準拠", async (t) => {
   assert.equal(ownerMismatch.response.status, 401);
   assertSchema("schema/error-response.schema.json", ownerMismatch.data);
 
+  const missingOwnerHeader = await api(port, "/leases/acquire", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      tenant_id: "tenantA",
+      request_id: "req-contract-missing-header",
+      lock_key: "order:missing-owner",
+      owner_id: "workerA",
+      ttl_seconds: 30
+    })
+  });
+  assert.equal(missingOwnerHeader.response.status, 401);
+  assertSchema("schema/error-response.schema.json", missingOwnerHeader.data);
+
   const forbidden = await api(port, "/locks/order%3Amissing-admin/force-release", {
     method: "POST",
     headers: { "content-type": "application/json" },

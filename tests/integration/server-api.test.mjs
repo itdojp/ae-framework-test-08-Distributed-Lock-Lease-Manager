@@ -23,7 +23,7 @@ test("API integration: acquire -> get -> release", async (t) => {
 
   const acq = await api(port, "/leases/acquire", {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: { "content-type": "application/json", "x-owner-id": "workerA" },
     body: JSON.stringify({
       tenant_id: "tenantA",
       request_id: "req-1",
@@ -42,7 +42,7 @@ test("API integration: acquire -> get -> release", async (t) => {
 
   const rel = await api(port, `/leases/${encodeURIComponent(acq.data.lease_id)}/release`, {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: { "content-type": "application/json", "x-owner-id": "workerA" },
     body: JSON.stringify({
       request_id: "req-rel-1",
       owner_id: "workerA"
@@ -80,14 +80,14 @@ test("API integration: lock held時は409", async (t) => {
 
   const first = await api(port, "/leases/acquire", {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: { "content-type": "application/json", "x-owner-id": "workerA" },
     body: JSON.stringify(payloadA)
   });
   assert.equal(first.response.status, 201);
 
   const second = await api(port, "/leases/acquire", {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: { "content-type": "application/json", "x-owner-id": "workerB" },
     body: JSON.stringify(payloadB)
   });
   assert.equal(second.response.status, 409);
@@ -126,7 +126,7 @@ test("API integration: force-release は ADMIN のみ許可", async (t) => {
 
   const acq = await api(port, "/leases/acquire", {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: { "content-type": "application/json", "x-owner-id": "workerA" },
     body: JSON.stringify({
       tenant_id: "tenantA",
       request_id: "req-force-auth-1",
@@ -170,7 +170,7 @@ test("API integration: 同時acquireで成功は1件のみ", async (t) => {
   const attempts = Array.from({ length: 10 }, (_, index) =>
     api(port, "/leases/acquire", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: { "content-type": "application/json", "x-owner-id": `worker-${index}` },
       body: JSON.stringify({
         tenant_id: "tenantA",
         request_id: `req-race-${index}`,

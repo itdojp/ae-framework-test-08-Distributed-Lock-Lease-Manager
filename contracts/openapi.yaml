@@ -185,11 +185,11 @@ components:
     OwnerHeader:
       name: x-owner-id
       in: header
-      required: false
+      required: true
       schema:
         type: string
       description: |
-        認証トークン由来の owner を運ぶヘッダ。指定時は request body の owner_id と一致が必要。
+        認証トークン由来の owner を運ぶ必須ヘッダ。request body の owner_id と一致が必要。
     AdminRoleHeader:
       name: x-role
       in: header

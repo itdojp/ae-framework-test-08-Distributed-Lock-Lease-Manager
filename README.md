@@ -37,7 +37,8 @@
 - 契約テスト雛形生成: `npm run contracts:generate`
 
 ## API認可補足
-- `x-owner-id` を指定した場合、`owner_id` と一致しない要求は `401 OWNER_TOKEN_MISMATCH`
+- `acquire/renew/release` は `x-owner-id` 必須（不足時 `401 OWNER_TOKEN_REQUIRED`）
+- `x-owner-id` と `owner_id` が不一致の場合は `401 OWNER_TOKEN_MISMATCH`
 - `POST /locks/{lock_key}/force-release` は `x-role: ADMIN` が必須（不足時 `403 FORBIDDEN`）
 
 ## 前提バージョン

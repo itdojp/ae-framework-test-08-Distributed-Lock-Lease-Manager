@@ -115,11 +115,14 @@ function requireInteger(value, field) {
  */
 function resolveOwnerId(req, body) {
   const tokenOwner = headerOwner(req.headers);
+  if (!tokenOwner) {
+    throw new LeaseManagerError("x-owner-id header is required", "OWNER_TOKEN_REQUIRED", 401);
+  }
   const requestedOwner = requireString(body.owner_id, "owner_id");
-  if (tokenOwner && requestedOwner !== tokenOwner) {
+  if (requestedOwner !== tokenOwner) {
     throw new LeaseManagerError("owner_id does not match authenticated identity", "OWNER_TOKEN_MISMATCH", 401);
   }
-  return tokenOwner ?? requestedOwner;
+  return tokenOwner;
 }
 
 /**
