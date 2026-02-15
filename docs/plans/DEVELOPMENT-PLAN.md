@@ -107,3 +107,10 @@
 15. 自動実行ループ抑止:
 - `CI Basic` / `AE Eval Fast` の `push(main)` に `paths-ignore: artifacts/runs/**` を追加
 - artifact-only commit では workflow を起動せず、証跡保存のための連鎖実行を防止
+16. optional `pbt` 失敗時の互換フォールバックを追加:
+- `scripts/run-ae-eval.sh` に `AE_PBT_COMPAT_MODE` を追加（既定 `1`）
+- `pbt` が `tests/property/vitest.config.ts` 欠落で失敗した場合、`pbt_compat_test_property`（`pnpm run test:property`）を追加実行
+- `metadata.json` に `optional_results` と `pbt_compat_triggered` / `pbt_compat_recovered` を記録
+17. GHA成果物同期の自動化:
+- `scripts/sync-gha-artifacts.sh` を追加し、workflow名（`AE Eval Fast`/`AE Eval Full`/`CI Basic`）から最新成功runを自動解決して取り込み
+- `npm run artifacts:sync-gha` を追加し、手動run ID指定を不要化

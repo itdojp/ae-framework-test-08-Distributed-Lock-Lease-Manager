@@ -55,9 +55,13 @@ jobs:
             STATUS="$(jq -r '.status // "unknown"' "${META_FILE}")"
             EXIT_CODE="$(jq -r '.exit_code // "n/a"' "${META_FILE}")"
             OPTIONAL_FAIL_COUNT="$(jq -r '.optional_fail_count // 0' "${META_FILE}")"
+            PBT_COMPAT_TRIGGERED="$(jq -r '.pbt_compat_triggered // 0' "${META_FILE}")"
+            PBT_COMPAT_RECOVERED="$(jq -r '.pbt_compat_recovered // 0' "${META_FILE}")"
             echo "- status: \`${STATUS}\`" >> "$GITHUB_STEP_SUMMARY"
             echo "- exit_code: \`${EXIT_CODE}\`" >> "$GITHUB_STEP_SUMMARY"
             echo "- optional_fail_count: \`${OPTIONAL_FAIL_COUNT}\`" >> "$GITHUB_STEP_SUMMARY"
+            echo "- pbt_compat_triggered: \`${PBT_COMPAT_TRIGGERED}\`" >> "$GITHUB_STEP_SUMMARY"
+            echo "- pbt_compat_recovered: \`${PBT_COMPAT_RECOVERED}\`" >> "$GITHUB_STEP_SUMMARY"
             if [ "${OPTIONAL_FAIL_COUNT}" != "0" ]; then
               echo "- optional_failures:" >> "$GITHUB_STEP_SUMMARY"
               jq -r '.optional_failures[]? | "  - \(.step) (exit=\(.exit_code))"' "${META_FILE}" >> "$GITHUB_STEP_SUMMARY"

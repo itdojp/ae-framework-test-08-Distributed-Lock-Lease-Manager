@@ -16,7 +16,8 @@
     "test:all": "npm run test:unit && npm run test:contract && npm run test:integration && npm run test:acceptance && npm run test:property && npm run test:mbt",
     "contracts:generate": "node scripts/generate-contract-tests.mjs --openapi contracts/openapi.yaml --out-dir tests/contracts/generated --summary-dir artifacts/generated-contract-tests --force",
     "traceability:generate": "node scripts/generate-traceability-report.mjs",
-    "artifacts:import-gha": "bash scripts/import-gha-artifact.sh"
+    "artifacts:import-gha": "bash scripts/import-gha-artifact.sh",
+    "artifacts:sync-gha": "bash scripts/sync-gha-artifacts.sh"
   },
   "engines": {
     "node": ">=20.11 <23"

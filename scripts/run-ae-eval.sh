@@ -7,10 +7,15 @@ RUN_DIR="${PWD}/artifacts/runs/${RUN_ID}"
 LOG_DIR="${RUN_DIR}/logs"
 RUN_START_MARKER="${RUN_DIR}/.run-start.marker"
 AE_RUN_OPTIONAL="${AE_RUN_OPTIONAL:-1}"
+AE_PBT_COMPAT_MODE="${AE_PBT_COMPAT_MODE:-1}"
 CURRENT_STEP=""
 REQUIRED_COMPLETED=0
 SCRIPT_RC=0
 OPTIONAL_FAILURES=()
+OPTIONAL_RESULTS=()
+LAST_OPTIONAL_RC=0
+PBT_COMPAT_TRIGGERED=0
+PBT_COMPAT_RECOVERED=0
 
 mkdir -p "${LOG_DIR}"
 : > "${RUN_START_MARKER}"
@@ -39,6 +44,7 @@ run_optional() {
   local step_name="$1"
   shift
 
+  echo "[optional] ${step_name}"
   set +e
   (
     cd "${AE_FRAMEWORK_ROOT}"
@@ -47,9 +53,33 @@ run_optional() {
   local rc=${PIPESTATUS[0]}
   set -e
 
+  LAST_OPTIONAL_RC="${rc}"
+  OPTIONAL_RESULTS+=("${step_name}:${rc}")
+
   if [ "${rc}" -ne 0 ]; then
     OPTIONAL_FAILURES+=("${step_name}:${rc}")
     echo "[optional] ${step_name} failed (exit=${rc})" | tee -a "${RUN_DIR}/summary.md"
+  fi
+}
+
+run_optional_pbt_compat() {
+  if [ "${AE_PBT_COMPAT_MODE}" != "1" ]; then
+    return
+  fi
+
+  if [ ! -f "${LOG_DIR}/pbt.log" ]; then
+    return
+  fi
+
+  if ! grep -q "tests/property/vitest.config.ts" "${LOG_DIR}/pbt.log"; then
+    return
+  fi
+
+  PBT_COMPAT_TRIGGERED=1
+  echo "[optional] pbt compatibility fallback triggered: pnpm run test:property" | tee -a "${RUN_DIR}/summary.md"
+  run_optional "pbt_compat_test_property" pnpm run test:property
+  if [ "${LAST_OPTIONAL_RC}" -eq 0 ]; then
+    PBT_COMPAT_RECOVERED=1
   fi
 }
 
@@ -108,6 +138,8 @@ finalize_run() {
   local failed_step
   local optional_fail_count
   local optional_failures_json
+  local optional_step_count
+  local optional_results_json
 
   ae_commit="$(git -C "${AE_FRAMEWORK_ROOT}" rev-parse HEAD 2>/dev/null || echo unknown)"
   ae_branch="$(git -C "${AE_FRAMEWORK_ROOT}" rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
@@ -117,7 +149,9 @@ finalize_run() {
   run_status="success"
   failed_step=""
   optional_fail_count="${#OPTIONAL_FAILURES[@]}"
+  optional_step_count="${#OPTIONAL_RESULTS[@]}"
   optional_failures_json="[]"
+  optional_results_json="[]"
 
   if [ "${optional_fail_count}" -gt 0 ]; then
     optional_failures_json="["
@@ -135,6 +169,26 @@ finalize_run() {
     optional_failures_json+="]"
   fi
 
+  if [ "${optional_step_count}" -gt 0 ]; then
+    optional_results_json="["
+    local first_result=1
+    local result_entry
+    for result_entry in "${OPTIONAL_RESULTS[@]}"; do
+      local result_step="${result_entry%%:*}"
+      local result_exit="${result_entry##*:}"
+      local result_status="success"
+      if [ "${result_exit}" -ne 0 ]; then
+        result_status="failed"
+      fi
+      if [ "${first_result}" -eq 0 ]; then
+        optional_results_json+=", "
+      fi
+      optional_results_json+="{\"step\":\"${result_step}\",\"status\":\"${result_status}\",\"exit_code\":${result_exit}}"
+      first_result=0
+    done
+    optional_results_json+="]"
+  fi
+
   if [ "${final_rc}" -ne 0 ]; then
     run_status="failed"
     failed_step="${CURRENT_STEP:-unknown}"
@@ -148,8 +202,13 @@ finalize_run() {
   "status": "${run_status}",
   "exit_code": ${final_rc},
   "failed_step": "${failed_step}",
+  "optional_step_count": ${optional_step_count},
   "optional_fail_count": ${optional_fail_count},
   "optional_failures": ${optional_failures_json},
+  "optional_results": ${optional_results_json},
+  "pbt_compat_mode": "${AE_PBT_COMPAT_MODE}",
+  "pbt_compat_triggered": ${PBT_COMPAT_TRIGGERED},
+  "pbt_compat_recovered": ${PBT_COMPAT_RECOVERED},
   "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
   "spec_issue": 1,
   "runtime_issue": 2,
@@ -178,7 +237,11 @@ META
     echo "- required steps failed at: ${CURRENT_STEP:-unknown}" >> "${RUN_DIR}/summary.md"
   fi
   echo "- optional steps enabled: ${AE_RUN_OPTIONAL}" >> "${RUN_DIR}/summary.md"
+  echo "- optional executed steps: ${optional_step_count}" >> "${RUN_DIR}/summary.md"
   echo "- optional failed steps: ${optional_fail_count}" >> "${RUN_DIR}/summary.md"
+  echo "- pbt compat mode: ${AE_PBT_COMPAT_MODE}" >> "${RUN_DIR}/summary.md"
+  echo "- pbt compat triggered: ${PBT_COMPAT_TRIGGERED}" >> "${RUN_DIR}/summary.md"
+  echo "- pbt compat recovered: ${PBT_COMPAT_RECOVERED}" >> "${RUN_DIR}/summary.md"
   if [ "${optional_fail_count}" -gt 0 ]; then
     local item
     for item in "${OPTIONAL_FAILURES[@]}"; do
@@ -230,6 +293,7 @@ REQUIRED_COMPLETED=1
 if [ "${AE_RUN_OPTIONAL}" = "1" ]; then
   run_optional "mbt" pnpm run mbt
   run_optional "pbt" pnpm run pbt
+  run_optional_pbt_compat
   run_optional "mutation_quick" env STRYKER_TIME_LIMIT=0 pnpm run pipelines:mutation:quick
   run_optional "verify_csp" pnpm run verify:csp -- --file spec/csp/cspx-smoke.cspm --mode typecheck
   run_optional "verify_tla" pnpm run verify:tla -- --engine=tlc --file spec/tla/DomainSpec.tla

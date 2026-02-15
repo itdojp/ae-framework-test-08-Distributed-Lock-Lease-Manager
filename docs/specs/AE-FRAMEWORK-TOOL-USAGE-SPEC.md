@@ -30,11 +30,15 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
   - `CODEX_SKIP_QUALITY=0`
   - `CODEX_TOLERANT=0`
   - `AE_RUN_OPTIONAL=1`（標準）、`0` で optional ステップを省略
+  - `AE_PBT_COMPAT_MODE=1`（標準）、`pbt` 設定不整合時に互換フォールバックを許可
 - 実行入口: `scripts/run-ae-eval.sh`
 - CI成果物のリポジトリ保存: `scripts/import-gha-artifact.sh <run_id>`
+- CI成果物の最新一括同期: `scripts/sync-gha-artifacts.sh`（workflow名から最新成功runを自動解決）
 - 実行結果の保存先: `artifacts/runs/<UTC timestamp>/`
 - 成果物コピー方針: 実行開始後に更新された `ae-framework` 側ファイルのみを保存
 - optional ステップ失敗は non-blocking で継続し、`metadata.json` の `optional_failures` に記録する
+- `pbt` が `tests/property/vitest.config.ts` 欠落で失敗した場合、`AE_PBT_COMPAT_MODE=1` では `pnpm run test:property` を `pbt_compat_test_property` として追加実行する
+- `metadata.json` に `optional_step_count` / `optional_results` / `pbt_compat_triggered` / `pbt_compat_recovered` を記録する
 - GitHub Actions:
   - `AE Eval Fast`（`AE_RUN_OPTIONAL=0`）: `push(main)` と `workflow_dispatch`
   - `AE Eval Full`（`AE_RUN_OPTIONAL=1`）: `workflow_dispatch`

@@ -19,10 +19,12 @@
 ## 自動化実行
 - 実行スクリプト: `scripts/run-ae-eval.sh`
 - GHA成果物取り込み: `scripts/import-gha-artifact.sh`
+- GHA最新成果物の一括同期: `scripts/sync-gha-artifacts.sh`
 - 生成成果物の保存先: `artifacts/runs/<UTC timestamp>/`
 - 既定挙動: 実行開始後に更新された `ae-framework` 側成果物のみコピー
 - オプション:
   - `AE_RUN_OPTIONAL=0` で optional ステップ（mbt/pbt/mutation/formal）をスキップ
+  - `AE_PBT_COMPAT_MODE=1`（既定）で `pbt` 設定不整合時に `test:property` を補助実行し、`metadata.json` に互換実行の結果を記録
 
 ## GitHub Actions
 - `CI Basic` (`.github/workflows/ci-basic.yml`):
@@ -45,6 +47,7 @@
 - 契約テスト雛形生成: `npm run contracts:generate`
 - トレーサビリティレポート生成: `npm run traceability:generate`
 - GitHub Actions artifact 取り込み: `npm run artifacts:import-gha -- <run_id> [--artifact <artifact_name>]`
+- GitHub Actions 最新artifact一括同期: `npm run artifacts:sync-gha -- [--workflow \"AE Eval Full\"]`
 
 ## API認可補足
 - `acquire/renew/release` は `x-owner-id` 必須（不足時 `401 OWNER_TOKEN_REQUIRED`）

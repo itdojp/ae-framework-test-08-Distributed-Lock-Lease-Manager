@@ -12,7 +12,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 - ルート: `artifacts/runs/`
 - 実行単位: `artifacts/runs/<YYYYMMDDTHHMMSSZ>/`
 - 必須ファイル:
-  - `metadata.json`（実行日時、コミット、ツールバージョン、Issue参照、`status`/`exit_code`/`failed_step`/`optional_fail_count`/`optional_failures`）
+  - `metadata.json`（実行日時、コミット、ツールバージョン、Issue参照、`status`/`exit_code`/`failed_step`/`optional_step_count`/`optional_fail_count`/`optional_failures`/`optional_results`/`pbt_compat_*`）
   - `summary.md`（実行結果サマリ）
   - `logs/*.log`（各コマンド標準出力/標準エラー）
 - 任意保存:
@@ -25,6 +25,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 2. コミットメッセージは `artifacts: run <timestamp> <result>` 形式を推奨。
 3. 大容量バイナリは原則避け、必要時は圧縮の上で保存理由を `summary.md` に記載する。
 4. GitHub Actions artifact を取り込む場合は `scripts/import-gha-artifact.sh <run_id>` を使用し、`artifacts/runs/gha-<run_id>-<attempt>/` に保存する。
+5. 最新の成功runを定期同期する場合は `scripts/sync-gha-artifacts.sh` を使用し、run ID の手入力を排除する。
 
 ## 5. 参照規約
 - 各Issue/PRには対象実行ディレクトリへのパスを明記する。
@@ -35,3 +36,4 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 2. `logs/` に失敗ステップのログを必ず残す。
 3. 一時marker（`.run-start.marker`）は成功/失敗を問わず削除する。
 4. optional ステップ失敗は non-blocking としつつ、`metadata.json` の `optional_failures` に必ず記録する。
+5. `pbt` 失敗時に互換フォールバックを実行した場合は、`metadata.json` の `pbt_compat_triggered` / `pbt_compat_recovered` で判定できる状態で保存する。
