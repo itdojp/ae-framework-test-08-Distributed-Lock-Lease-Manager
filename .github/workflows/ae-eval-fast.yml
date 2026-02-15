@@ -1,0 +1,49 @@
+name: AE Eval Fast
+
+on:
+  workflow_dispatch:
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout target repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Setup pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.0.0 --activate
+          pnpm --version
+
+      - name: Install target dependencies
+        run: npm install
+
+      - name: Clone ae-framework
+        run: git clone --depth 1 https://github.com/itdojp/ae-framework.git .cache/ae-framework
+
+      - name: Install ae-framework dependencies
+        run: |
+          cd .cache/ae-framework
+          pnpm install
+
+      - name: Run ae-framework eval (fast)
+        env:
+          AE_FRAMEWORK_ROOT: ${{ github.workspace }}/.cache/ae-framework
+          AE_RUN_OPTIONAL: "0"
+          RUN_ID: gha-${{ github.run_id }}-${{ github.run_attempt }}
+        run: ./scripts/run-ae-eval.sh
+
+      - name: Upload eval artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ae-eval-fast-artifacts
+          path: artifacts/runs/

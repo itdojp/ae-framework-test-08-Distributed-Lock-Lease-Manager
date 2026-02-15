@@ -73,3 +73,6 @@
 - `AE_RUN_OPTIONAL=0` で optional ステップをスキップ可能に変更
 6. 改善後の実行証跡:
 - `artifacts/runs/20260215T111100Z-eval-fast/*`
+7. CI自動化を追加:
+- `.github/workflows/ci-basic.yml`
+- `.github/workflows/ae-eval-fast.yml`
