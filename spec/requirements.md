@@ -64,7 +64,7 @@
 | LS-CC-001 | `src/lease-manager.mjs` | `tests/mbt/lease-state-model.mbt.test.mjs` |
 | LS-CC-001（SQLite） | `src/sqlite-lease-manager.mjs` | `tests/integration/sqlite-lease-manager.test.mjs` |
 | LS-EXP-001 | `src/lease-manager.mjs` | `tests/unit/lease-manager.test.mjs` |
-| LS-FENCE-001 | `src/lease-manager.mjs` | `tests/unit/lease-manager.test.mjs` |
+| LS-FENCE-001 | `src/lease-manager.mjs`, `src/fenced-resource.mjs` | `tests/unit/lease-manager.test.mjs`, `tests/unit/fenced-resource.test.mjs` |
 | LS-AUTH-001 | `src/server.mjs` | `tests/integration/server-api.test.mjs` |
 | LS-AUTH-001（ADMIN force-release） | `src/server.mjs` | `tests/integration/server-api.test.mjs`, `tests/contracts/api-contract.test.mjs` |
 | API契約整合 | `contracts/openapi.yaml`, `schema/*.json` | `tests/contracts/api-contract.test.mjs` |

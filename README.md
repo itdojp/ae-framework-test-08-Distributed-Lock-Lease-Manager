@@ -47,3 +47,7 @@
 ## SQLite実装補足
 - `src/sqlite-lease-manager.mjs` は `node:sqlite` を使用（Node 22系では experimental warning が出る）
 - SQLiteバックエンドを実行する場合は Node.js 22 以上が必要（Node 20系では `SQLITE_UNSUPPORTED` を返す）
+
+## フェンシング利用サンプル
+- `src/fenced-resource.mjs` は下流更新時に `fencing_token` の単調増加を強制する最小実装
+- 古い token は `409 STALE_FENCING_TOKEN` で拒否（`tests/unit/fenced-resource.test.mjs`）
