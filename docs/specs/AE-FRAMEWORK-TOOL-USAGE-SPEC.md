@@ -33,6 +33,7 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
 - 実行入口: `scripts/run-ae-eval.sh`
 - 実行結果の保存先: `artifacts/runs/<UTC timestamp>/`
 - 成果物コピー方針: 実行開始後に更新された `ae-framework` 側ファイルのみを保存
+- optional ステップ失敗は non-blocking で継続し、`metadata.json` の `optional_failures` に記録する
 - GitHub Actions:
   - `AE Eval Fast`（`AE_RUN_OPTIONAL=0`）: `push(main)` と `workflow_dispatch`
   - `AE Eval Full`（`AE_RUN_OPTIONAL=1`）: `workflow_dispatch`

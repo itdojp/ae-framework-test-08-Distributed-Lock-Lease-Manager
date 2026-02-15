@@ -10,6 +10,7 @@ AE_RUN_OPTIONAL="${AE_RUN_OPTIONAL:-1}"
 CURRENT_STEP=""
 REQUIRED_COMPLETED=0
 SCRIPT_RC=0
+OPTIONAL_FAILURES=()
 
 mkdir -p "${LOG_DIR}"
 : > "${RUN_START_MARKER}"
@@ -47,6 +48,7 @@ run_optional() {
   set -e
 
   if [ "${rc}" -ne 0 ]; then
+    OPTIONAL_FAILURES+=("${step_name}:${rc}")
     echo "[optional] ${step_name} failed (exit=${rc})" | tee -a "${RUN_DIR}/summary.md"
   fi
 }
@@ -104,6 +106,8 @@ finalize_run() {
   local codex_version
   local run_status
   local failed_step
+  local optional_fail_count
+  local optional_failures_json
 
   ae_commit="$(git -C "${AE_FRAMEWORK_ROOT}" rev-parse HEAD 2>/dev/null || echo unknown)"
   ae_branch="$(git -C "${AE_FRAMEWORK_ROOT}" rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
@@ -112,6 +116,24 @@ finalize_run() {
   codex_version="$(codex --version 2>/dev/null || echo unknown)"
   run_status="success"
   failed_step=""
+  optional_fail_count="${#OPTIONAL_FAILURES[@]}"
+  optional_failures_json="[]"
+
+  if [ "${optional_fail_count}" -gt 0 ]; then
+    optional_failures_json="["
+    local first=1
+    local entry
+    for entry in "${OPTIONAL_FAILURES[@]}"; do
+      local opt_step="${entry%%:*}"
+      local opt_exit="${entry##*:}"
+      if [ "${first}" -eq 0 ]; then
+        optional_failures_json+=", "
+      fi
+      optional_failures_json+="{\"step\":\"${opt_step}\",\"exit_code\":${opt_exit}}"
+      first=0
+    done
+    optional_failures_json+="]"
+  fi
 
   if [ "${final_rc}" -ne 0 ]; then
     run_status="failed"
@@ -126,6 +148,8 @@ finalize_run() {
   "status": "${run_status}",
   "exit_code": ${final_rc},
   "failed_step": "${failed_step}",
+  "optional_fail_count": ${optional_fail_count},
+  "optional_failures": ${optional_failures_json},
   "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
   "spec_issue": 1,
   "runtime_issue": 2,
@@ -154,6 +178,15 @@ META
     echo "- required steps failed at: ${CURRENT_STEP:-unknown}" >> "${RUN_DIR}/summary.md"
   fi
   echo "- optional steps enabled: ${AE_RUN_OPTIONAL}" >> "${RUN_DIR}/summary.md"
+  echo "- optional failed steps: ${optional_fail_count}" >> "${RUN_DIR}/summary.md"
+  if [ "${optional_fail_count}" -gt 0 ]; then
+    local item
+    for item in "${OPTIONAL_FAILURES[@]}"; do
+      local opt_name="${item%%:*}"
+      local opt_code="${item##*:}"
+      echo "  - ${opt_name} (exit=${opt_code})" >> "${RUN_DIR}/summary.md"
+    done
+  fi
   echo "- optional step logs: ${RUN_DIR}/logs" >> "${RUN_DIR}/summary.md"
   echo "- copied artifacts: ${RUN_DIR}/ae-framework-artifacts" >> "${RUN_DIR}/summary.md"
   echo "- copied reports: ${RUN_DIR}/ae-framework-reports" >> "${RUN_DIR}/summary.md"

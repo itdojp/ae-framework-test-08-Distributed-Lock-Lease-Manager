@@ -93,3 +93,6 @@
 11. 自動化拡張:
 - `AE Eval Fast` を `push(main)` でも自動実行するよう更新
 - `AE Eval Full`（optional含む）workflow を追加し、手動で全量評価を実行可能化
+12. optional失敗の機械可読化:
+- `scripts/run-ae-eval.sh` の `metadata.json` に `optional_fail_count` / `optional_failures` を追加
+- non-blocking失敗（例: pbt設定欠落）を自動集計可能な形式で保存
