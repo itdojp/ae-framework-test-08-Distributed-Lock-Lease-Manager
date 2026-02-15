@@ -18,6 +18,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 - 任意保存:
   - `ae-framework-artifacts/`（ae-framework 側成果物コピー）
   - `ae-framework-reports/`（比較レポート等）
+  - `artifacts/traceability/latest.json` / `latest.md`（要件トレーサビリティ自動検証結果）
 
 ## 4. コミット規約
 1. 実行単位ディレクトリを丸ごと `git add` する。

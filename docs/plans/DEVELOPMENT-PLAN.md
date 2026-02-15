@@ -77,3 +77,7 @@
 7. CI自動化を追加:
 - `.github/workflows/ci-basic.yml`
 - `.github/workflows/ae-eval-fast.yml`
+8. トレーサビリティ自動化を追加:
+- `scripts/generate-traceability-report.mjs`
+- `artifacts/traceability/latest.json`
+- `artifacts/traceability/latest.md`

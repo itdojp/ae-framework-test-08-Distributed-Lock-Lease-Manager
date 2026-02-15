@@ -35,6 +35,7 @@
 - 契約テストのみ: `npm run test:contract`
 - 状態永続化テスト: `node --test tests/unit/state-persistence.test.mjs`
 - 契約テスト雛形生成: `npm run contracts:generate`
+- トレーサビリティレポート生成: `npm run traceability:generate`
 
 ## API認可補足
 - `acquire/renew/release` は `x-owner-id` 必須（不足時 `401 OWNER_TOKEN_REQUIRED`）

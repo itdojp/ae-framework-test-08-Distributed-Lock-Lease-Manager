@@ -13,7 +13,8 @@
     "test:property": "node --test tests/property/*.test.mjs",
     "test:mbt": "node --test tests/mbt/*.test.mjs",
     "test:all": "npm run test:unit && npm run test:contract && npm run test:integration && npm run test:property && npm run test:mbt",
-    "contracts:generate": "node scripts/generate-contract-tests.mjs --openapi contracts/openapi.yaml --out-dir tests/contracts/generated --summary-dir artifacts/generated-contract-tests --force"
+    "contracts:generate": "node scripts/generate-contract-tests.mjs --openapi contracts/openapi.yaml --out-dir tests/contracts/generated --summary-dir artifacts/generated-contract-tests --force",
+    "traceability:generate": "node scripts/generate-traceability-report.mjs"
   },
   "engines": {
     "node": ">=20.11 <23"

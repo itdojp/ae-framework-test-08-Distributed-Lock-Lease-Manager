@@ -21,6 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Generate traceability report
+        run: |
+          mkdir -p artifacts/ci
+          npm run traceability:generate | tee artifacts/ci/traceability.log
+
       - name: Run tests
         run: |
           mkdir -p artifacts/ci

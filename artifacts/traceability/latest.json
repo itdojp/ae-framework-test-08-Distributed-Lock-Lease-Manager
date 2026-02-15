@@ -1,0 +1,277 @@
+{
+  "source": "spec/requirements.md",
+  "generatedAt": "2026-02-15T12:56:16.368Z",
+  "summary": {
+    "totalRows": 15,
+    "fullMappedRows": 15,
+    "failedRows": 0,
+    "coveragePercent": 100
+  },
+  "rows": [
+    {
+      "requirementId": "LS-INV-001",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/property/lease-invariants.property.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-INV-002",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/unit/lease-manager.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-INV-002（再起動後）",
+      "implementation": [
+        {
+          "path": "src/state-persistence.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/unit/state-persistence.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-INV-003",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/unit/lease-manager.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-INV-004",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/unit/lease-manager.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-ACQ-001..004",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/unit/lease-manager.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-RNW-001..003",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/unit/lease-manager.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-REL-001..003",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/unit/lease-manager.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-CC-001",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/mbt/lease-state-model.mbt.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-CC-001（SQLite）",
+      "implementation": [
+        {
+          "path": "src/sqlite-lease-manager.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/integration/sqlite-lease-manager.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-EXP-001",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/unit/lease-manager.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-FENCE-001",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        },
+        {
+          "path": "src/fenced-resource.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/unit/lease-manager.test.mjs",
+          "exists": true
+        },
+        {
+          "path": "tests/unit/fenced-resource.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-AUTH-001",
+      "implementation": [
+        {
+          "path": "src/server.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/integration/server-api.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-AUTH-001（ADMIN force-release）",
+      "implementation": [
+        {
+          "path": "src/server.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/integration/server-api.test.mjs",
+          "exists": true
+        },
+        {
+          "path": "tests/contracts/api-contract.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "API契約整合",
+      "implementation": [
+        {
+          "path": "contracts/openapi.yaml",
+          "exists": true
+        },
+        {
+          "path": "schema/*.json",
+          "exists": true,
+          "matches": [
+            "schema/audit-event.schema.json",
+            "schema/error-response.schema.json",
+            "schema/lease-acquire-request.schema.json",
+            "schema/lease-release-request.schema.json",
+            "schema/lease-renew-request.schema.json",
+            "schema/lease-response.schema.json",
+            "schema/lock-state-response.schema.json"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/contracts/api-contract.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    }
+  ]
+}
