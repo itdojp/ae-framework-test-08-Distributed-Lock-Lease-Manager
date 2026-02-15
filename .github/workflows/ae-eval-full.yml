@@ -1,18 +1,16 @@
-name: AE Eval Fast
+name: AE Eval Full
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
-  group: ae-eval-fast-${{ github.ref }}
+  group: ae-eval-full-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   eval:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - name: Checkout target repository
         uses: actions/checkout@v4
@@ -39,10 +37,10 @@ jobs:
           cd .cache/ae-framework
           pnpm install
 
-      - name: Run ae-framework eval (fast)
+      - name: Run ae-framework eval (full)
         env:
           AE_FRAMEWORK_ROOT: ${{ github.workspace }}/.cache/ae-framework
-          AE_RUN_OPTIONAL: "0"
+          AE_RUN_OPTIONAL: "1"
           RUN_ID: gha-${{ github.run_id }}-${{ github.run_attempt }}
         run: ./scripts/run-ae-eval.sh
 
@@ -50,5 +48,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ae-eval-fast-artifacts
+          name: ae-eval-full-artifacts
           path: artifacts/runs/gha-${{ github.run_id }}-${{ github.run_attempt }}/

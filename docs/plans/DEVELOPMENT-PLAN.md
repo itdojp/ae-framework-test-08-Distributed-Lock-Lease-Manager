@@ -90,3 +90,6 @@
   - `artifacts/runs/20260215T132609Z/`（依存未導入による失敗ログ）
   - `artifacts/runs/20260215T132700Z/`（ローカル fast 評価）
   - `artifacts/runs/20260215T133046Z/`（耐障害化後の再実行）
+11. 自動化拡張:
+- `AE Eval Fast` を `push(main)` でも自動実行するよう更新
+- `AE Eval Full`（optional含む）workflow を追加し、手動で全量評価を実行可能化

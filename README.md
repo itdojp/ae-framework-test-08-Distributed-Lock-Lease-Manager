@@ -27,7 +27,9 @@
 - `CI Basic` (`.github/workflows/ci-basic.yml`):
   - push/PR で `npm run test:all` を実行
 - `AE Eval Fast` (`.github/workflows/ae-eval-fast.yml`):
-  - `workflow_dispatch` で ae-framework をクローンし、`AE_RUN_OPTIONAL=0` で評価実行
+  - `push(main)` / `workflow_dispatch` で ae-framework をクローンし、`AE_RUN_OPTIONAL=0` で評価実行
+- `AE Eval Full` (`.github/workflows/ae-eval-full.yml`):
+  - `workflow_dispatch` で ae-framework をクローンし、`AE_RUN_OPTIONAL=1`（optional含む）で評価実行
 
 ## ローカル実装の実行
 - サーバー起動: `npm run start`
