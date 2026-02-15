@@ -3,6 +3,8 @@ name: AE Eval Fast
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "artifacts/runs/**"
   workflow_dispatch:
 
 concurrency:

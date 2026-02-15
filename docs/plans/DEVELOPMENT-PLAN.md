@@ -104,3 +104,6 @@
 - 取り込み実績:
   - `artifacts/runs/gha-22037101340-1/`（CI Basic logs）
   - `artifacts/runs/gha-22037101333-1/`（AE Eval Fast）
+15. 自動実行ループ抑止:
+- `CI Basic` / `AE Eval Fast` の `push(main)` に `paths-ignore: artifacts/runs/**` を追加
+- artifact-only commit では workflow を起動せず、証跡保存のための連鎖実行を防止

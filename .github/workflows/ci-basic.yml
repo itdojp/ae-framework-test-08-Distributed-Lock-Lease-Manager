@@ -3,6 +3,8 @@ name: CI Basic
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "artifacts/runs/**"
   pull_request:
 
 jobs:
