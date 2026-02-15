@@ -6,6 +6,7 @@
 ## 参照 Issue
 - 仕様書: https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/issues/1
 - 開発開始時点の Codex 実行情報: https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/issues/2
+- 開発計画と ae-framework 活用仕様: https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/issues/3
 
 ## 主要ドキュメント
 - 開発計画: `docs/plans/DEVELOPMENT-PLAN.md`
