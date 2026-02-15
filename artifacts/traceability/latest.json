@@ -1,9 +1,9 @@
 {
   "source": "spec/requirements.md",
-  "generatedAt": "2026-02-15T13:00:22.653Z",
+  "generatedAt": "2026-02-15T13:24:43.264Z",
   "summary": {
-    "totalRows": 15,
-    "fullMappedRows": 15,
+    "totalRows": 19,
+    "fullMappedRows": 19,
     "failedRows": 0,
     "coveragePercent": 100
   },
@@ -239,6 +239,86 @@
         },
         {
           "path": "tests/contracts/api-contract.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-ACC-01",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        },
+        {
+          "path": "src/server.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/acceptance/ls-acceptance.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-ACC-02",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        },
+        {
+          "path": "src/server.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/acceptance/ls-acceptance.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-ACC-03",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        },
+        {
+          "path": "src/server.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/acceptance/ls-acceptance.test.mjs",
+          "exists": true
+        }
+      ],
+      "allPresent": true
+    },
+    {
+      "requirementId": "LS-ACC-04",
+      "implementation": [
+        {
+          "path": "src/lease-manager.mjs",
+          "exists": true
+        },
+        {
+          "path": "src/server.mjs",
+          "exists": true
+        }
+      ],
+      "tests": [
+        {
+          "path": "tests/acceptance/ls-acceptance.test.mjs",
           "exists": true
         }
       ],

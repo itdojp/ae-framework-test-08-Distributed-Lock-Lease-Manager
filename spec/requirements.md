@@ -67,4 +67,8 @@
 | LS-FENCE-001 | `src/lease-manager.mjs`, `src/fenced-resource.mjs` | `tests/unit/lease-manager.test.mjs`, `tests/unit/fenced-resource.test.mjs` |
 | LS-AUTH-001 | `src/server.mjs` | `tests/integration/server-api.test.mjs` |
 | LS-AUTH-001（ADMIN force-release） | `src/server.mjs` | `tests/integration/server-api.test.mjs`, `tests/contracts/api-contract.test.mjs` |
+| LS-ACC-01 | `src/lease-manager.mjs`, `src/server.mjs` | `tests/acceptance/ls-acceptance.test.mjs` |
+| LS-ACC-02 | `src/lease-manager.mjs`, `src/server.mjs` | `tests/acceptance/ls-acceptance.test.mjs` |
+| LS-ACC-03 | `src/lease-manager.mjs`, `src/server.mjs` | `tests/acceptance/ls-acceptance.test.mjs` |
+| LS-ACC-04 | `src/lease-manager.mjs`, `src/server.mjs` | `tests/acceptance/ls-acceptance.test.mjs` |
 | API契約整合 | `contracts/openapi.yaml`, `schema/*.json` | `tests/contracts/api-contract.test.mjs` |

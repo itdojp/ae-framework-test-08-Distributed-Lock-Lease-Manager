@@ -33,6 +33,7 @@
 - サーバー起動: `npm run start`
 - テスト一括: `npm run test:all`
 - 契約テストのみ: `npm run test:contract`
+- 受入テストのみ: `npm run test:acceptance`
 - 状態永続化テスト: `node --test tests/unit/state-persistence.test.mjs`
 - 契約テスト雛形生成: `npm run contracts:generate`
 - トレーサビリティレポート生成: `npm run traceability:generate`

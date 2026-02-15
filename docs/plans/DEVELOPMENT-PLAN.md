@@ -81,3 +81,5 @@
 - `scripts/generate-traceability-report.mjs`
 - `artifacts/traceability/latest.json`
 - `artifacts/traceability/latest.md`
+9. 受入基準LS-ACCの専用テストを追加:
+- `tests/acceptance/ls-acceptance.test.mjs`

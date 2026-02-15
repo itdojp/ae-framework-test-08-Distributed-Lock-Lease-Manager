@@ -10,9 +10,10 @@
     "test:unit": "node --test tests/unit/*.test.mjs",
     "test:contract": "node --test tests/contracts/*.test.mjs tests/contracts/generated/*.generated.test.mjs",
     "test:integration": "node --test tests/integration/*.test.mjs",
+    "test:acceptance": "node --test tests/acceptance/*.test.mjs",
     "test:property": "node --test tests/property/*.test.mjs",
     "test:mbt": "node --test tests/mbt/*.test.mjs",
-    "test:all": "npm run test:unit && npm run test:contract && npm run test:integration && npm run test:property && npm run test:mbt",
+    "test:all": "npm run test:unit && npm run test:contract && npm run test:integration && npm run test:acceptance && npm run test:property && npm run test:mbt",
     "contracts:generate": "node scripts/generate-contract-tests.mjs --openapi contracts/openapi.yaml --out-dir tests/contracts/generated --summary-dir artifacts/generated-contract-tests --force",
     "traceability:generate": "node scripts/generate-traceability-report.mjs"
   },
