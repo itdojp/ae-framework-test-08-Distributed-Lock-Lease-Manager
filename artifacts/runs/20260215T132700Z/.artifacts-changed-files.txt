@@ -1,0 +1,7 @@
+./verify-lite/verify-lite-run-summary.json
+./state-machines/order_estimate.mmd
+./codex/quickstart-formal.tla
+./codex/quickstart-openapi.yaml
+./codex/openapi-contract-tests.json
+./codex/quickstart-model-check.json
+./codex-quickstart-summary.md

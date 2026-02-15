@@ -7,28 +7,31 @@ RUN_DIR="${PWD}/artifacts/runs/${RUN_ID}"
 LOG_DIR="${RUN_DIR}/logs"
 RUN_START_MARKER="${RUN_DIR}/.run-start.marker"
 AE_RUN_OPTIONAL="${AE_RUN_OPTIONAL:-1}"
+CURRENT_STEP=""
+REQUIRED_COMPLETED=0
+SCRIPT_RC=0
 
 mkdir -p "${LOG_DIR}"
 : > "${RUN_START_MARKER}"
 
-if [ ! -d "${AE_FRAMEWORK_ROOT}" ]; then
-  echo "AE_FRAMEWORK_ROOT が存在しません: ${AE_FRAMEWORK_ROOT}" >&2
-  exit 1
-fi
-
-if ! command -v pnpm >/dev/null 2>&1; then
-  echo "pnpm が見つかりません。Node.js 20.11+ と pnpm 10.x を準備してください。" >&2
-  exit 1
-fi
-
 run_required() {
   local step_name="$1"
   shift
+  CURRENT_STEP="${step_name}"
   echo "[required] ${step_name}"
+  set +e
   (
     cd "${AE_FRAMEWORK_ROOT}"
     "$@"
   ) 2>&1 | tee "${LOG_DIR}/${step_name}.log"
+  local rc=${PIPESTATUS[0]}
+  set -e
+  if [ "${rc}" -ne 0 ]; then
+    SCRIPT_RC="${rc}"
+    echo "[required] ${step_name} failed (exit=${rc})" | tee -a "${RUN_DIR}/summary.md"
+    return "${rc}"
+  fi
+  CURRENT_STEP=""
 }
 
 run_optional() {
@@ -81,16 +84,115 @@ copy_changed_tree() {
   wc -l < "${list_file}" | tr -d " "
 }
 
+finalize_run() {
+  local rc="$1"
+  local final_rc="${rc}"
+  if [ "${SCRIPT_RC}" -ne 0 ]; then
+    final_rc="${SCRIPT_RC}"
+  fi
+
+  set +e
+
+  mkdir -p "${RUN_DIR}/ae-framework-artifacts" "${RUN_DIR}/ae-framework-reports"
+  artifacts_copied="$(copy_changed_tree "${AE_FRAMEWORK_ROOT}/artifacts" "${RUN_DIR}/ae-framework-artifacts" "artifacts")"
+  reports_copied="$(copy_changed_tree "${AE_FRAMEWORK_ROOT}/reports" "${RUN_DIR}/ae-framework-reports" "reports")"
+
+  local ae_commit
+  local ae_branch
+  local target_branch
+  local target_commit
+  local codex_version
+  local run_status
+  local failed_step
+
+  ae_commit="$(git -C "${AE_FRAMEWORK_ROOT}" rev-parse HEAD 2>/dev/null || echo unknown)"
+  ae_branch="$(git -C "${AE_FRAMEWORK_ROOT}" rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
+  target_branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
+  target_commit="$(git rev-parse HEAD 2>/dev/null || echo uncommitted)"
+  codex_version="$(codex --version 2>/dev/null || echo unknown)"
+  run_status="success"
+  failed_step=""
+
+  if [ "${final_rc}" -ne 0 ]; then
+    run_status="failed"
+    failed_step="${CURRENT_STEP:-unknown}"
+    echo "[run] failed at required step: ${failed_step} (exit=${final_rc})" | tee -a "${RUN_DIR}/summary.md"
+  fi
+
+  cat <<META > "${RUN_DIR}/metadata.json"
+{
+  "run_id": "${RUN_ID}",
+  "executed_at_utc": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "status": "${run_status}",
+  "exit_code": ${final_rc},
+  "failed_step": "${failed_step}",
+  "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
+  "spec_issue": 1,
+  "runtime_issue": 2,
+  "tool_versions": {
+    "codex": "${codex_version}",
+    "pnpm": "$(pnpm --version 2>/dev/null || echo unknown)",
+    "node": "$(node --version 2>/dev/null || echo unknown)"
+  },
+  "ae_framework": {
+    "root": "${AE_FRAMEWORK_ROOT}",
+    "branch": "${ae_branch}",
+    "commit": "${ae_commit}"
+  },
+  "target_repo": {
+    "branch": "${target_branch}",
+    "commit_before_run": "${target_commit}"
+  }
+}
+META
+
+  echo "" >> "${RUN_DIR}/summary.md"
+  echo "## status" >> "${RUN_DIR}/summary.md"
+  if [ "${REQUIRED_COMPLETED}" -eq 1 ]; then
+    echo "- required steps completed" >> "${RUN_DIR}/summary.md"
+  else
+    echo "- required steps failed at: ${CURRENT_STEP:-unknown}" >> "${RUN_DIR}/summary.md"
+  fi
+  echo "- optional steps enabled: ${AE_RUN_OPTIONAL}" >> "${RUN_DIR}/summary.md"
+  echo "- optional step logs: ${RUN_DIR}/logs" >> "${RUN_DIR}/summary.md"
+  echo "- copied artifacts: ${RUN_DIR}/ae-framework-artifacts" >> "${RUN_DIR}/summary.md"
+  echo "- copied reports: ${RUN_DIR}/ae-framework-reports" >> "${RUN_DIR}/summary.md"
+  echo "- copied artifacts files: ${artifacts_copied}" >> "${RUN_DIR}/summary.md"
+  echo "- copied reports files: ${reports_copied}" >> "${RUN_DIR}/summary.md"
+
+  rm -f "${RUN_START_MARKER}"
+
+  if [ "${final_rc}" -eq 0 ]; then
+    echo "run complete: ${RUN_DIR}"
+  else
+    echo "run failed: ${RUN_DIR} (exit=${final_rc})" >&2
+  fi
+  exit "${final_rc}"
+}
+
+trap 'finalize_run "$?"' EXIT
+
 : > "${RUN_DIR}/summary.md"
 echo "# ae-framework evaluation summary" >> "${RUN_DIR}/summary.md"
 echo "" >> "${RUN_DIR}/summary.md"
 echo "- run_id: ${RUN_ID}" >> "${RUN_DIR}/summary.md"
 echo "- ae_framework_root: ${AE_FRAMEWORK_ROOT}" >> "${RUN_DIR}/summary.md"
 
+if [ ! -d "${AE_FRAMEWORK_ROOT}" ]; then
+  echo "AE_FRAMEWORK_ROOT が存在しません: ${AE_FRAMEWORK_ROOT}" >&2
+  exit 1
+fi
+
+if ! command -v pnpm >/dev/null 2>&1; then
+  echo "pnpm が見つかりません。Node.js 20.11+ と pnpm 10.x を準備してください。" >&2
+  exit 1
+fi
+
 run_required "build" pnpm run build
 codex_env=(CODEX_RUN_FORMAL=1 CODEX_SKIP_QUALITY=0 CODEX_TOLERANT=0)
 run_required "codex_quickstart" env "${codex_env[@]}" pnpm run codex:quickstart
 run_required "verify_lite" pnpm run verify:lite
+REQUIRED_COMPLETED=1
 
 if [ "${AE_RUN_OPTIONAL}" = "1" ]; then
   run_optional "mbt" pnpm run mbt
@@ -101,51 +203,3 @@ if [ "${AE_RUN_OPTIONAL}" = "1" ]; then
 else
   echo "[optional] skipped by AE_RUN_OPTIONAL=${AE_RUN_OPTIONAL}" | tee -a "${RUN_DIR}/summary.md"
 fi
-
-mkdir -p "${RUN_DIR}/ae-framework-artifacts" "${RUN_DIR}/ae-framework-reports"
-artifacts_copied="$(copy_changed_tree "${AE_FRAMEWORK_ROOT}/artifacts" "${RUN_DIR}/ae-framework-artifacts" "artifacts")"
-reports_copied="$(copy_changed_tree "${AE_FRAMEWORK_ROOT}/reports" "${RUN_DIR}/ae-framework-reports" "reports")"
-
-AE_COMMIT="$(git -C "${AE_FRAMEWORK_ROOT}" rev-parse HEAD 2>/dev/null || echo unknown)"
-AE_BRANCH="$(git -C "${AE_FRAMEWORK_ROOT}" rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
-TARGET_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
-TARGET_COMMIT="$(git rev-parse HEAD 2>/dev/null || echo uncommitted)"
-CODEX_VERSION="$(codex --version 2>/dev/null || echo unknown)"
-
-cat <<META > "${RUN_DIR}/metadata.json"
-{
-  "run_id": "${RUN_ID}",
-  "executed_at_utc": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
-  "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
-  "spec_issue": 1,
-  "runtime_issue": 2,
-  "tool_versions": {
-    "codex": "${CODEX_VERSION}",
-    "pnpm": "$(pnpm --version 2>/dev/null || echo unknown)",
-    "node": "$(node --version 2>/dev/null || echo unknown)"
-  },
-  "ae_framework": {
-    "root": "${AE_FRAMEWORK_ROOT}",
-    "branch": "${AE_BRANCH}",
-    "commit": "${AE_COMMIT}"
-  },
-  "target_repo": {
-    "branch": "${TARGET_BRANCH}",
-    "commit_before_run": "${TARGET_COMMIT}"
-  }
-}
-META
-
-echo "" >> "${RUN_DIR}/summary.md"
-echo "## status" >> "${RUN_DIR}/summary.md"
-echo "- required steps completed" >> "${RUN_DIR}/summary.md"
-echo "- optional steps enabled: ${AE_RUN_OPTIONAL}" >> "${RUN_DIR}/summary.md"
-echo "- optional step logs: ${RUN_DIR}/logs" >> "${RUN_DIR}/summary.md"
-echo "- copied artifacts: ${RUN_DIR}/ae-framework-artifacts" >> "${RUN_DIR}/summary.md"
-echo "- copied reports: ${RUN_DIR}/ae-framework-reports" >> "${RUN_DIR}/summary.md"
-echo "- copied artifacts files: ${artifacts_copied}" >> "${RUN_DIR}/summary.md"
-echo "- copied reports files: ${reports_copied}" >> "${RUN_DIR}/summary.md"
-
-rm -f "${RUN_START_MARKER}"
-
-echo "run complete: ${RUN_DIR}"

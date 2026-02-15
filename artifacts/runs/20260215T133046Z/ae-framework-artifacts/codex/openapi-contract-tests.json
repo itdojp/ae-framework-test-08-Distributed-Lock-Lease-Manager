@@ -1,0 +1,15 @@
+{
+  "openapi": "artifacts/codex/quickstart-openapi.yaml",
+  "outDir": "tests/api/generated",
+  "files": 1,
+  "operations": [
+    {
+      "operationId": "healthCheck",
+      "method": "get",
+      "path": "/health",
+      "file": "tests/api/generated/healthCheck.test.ts"
+    }
+  ],
+  "mode": "templates",
+  "ts": "2026-02-15T13:31:41.249Z"
+}

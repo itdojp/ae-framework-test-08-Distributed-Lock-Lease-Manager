@@ -83,3 +83,10 @@
 - `artifacts/traceability/latest.md`
 9. 受入基準LS-ACCの専用テストを追加:
 - `tests/acceptance/ls-acceptance.test.mjs`
+10. 評価実行の耐障害化と証跡追加:
+- `scripts/run-ae-eval.sh` に `EXIT` トラップを追加し、失敗時も `metadata.json` / `summary.md` を保存
+- 異常終了時の `status` / `exit_code` / `failed_step` を `metadata.json` に記録
+- 実行証跡:
+  - `artifacts/runs/20260215T132609Z/`（依存未導入による失敗ログ）
+  - `artifacts/runs/20260215T132700Z/`（ローカル fast 評価）
+  - `artifacts/runs/20260215T133046Z/`（耐障害化後の再実行）

@@ -12,7 +12,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 - ルート: `artifacts/runs/`
 - 実行単位: `artifacts/runs/<YYYYMMDDTHHMMSSZ>/`
 - 必須ファイル:
-  - `metadata.json`（実行日時、コミット、ツールバージョン、Issue参照）
+  - `metadata.json`（実行日時、コミット、ツールバージョン、Issue参照、`status`/`exit_code`/`failed_step`）
   - `summary.md`（実行結果サマリ）
   - `logs/*.log`（各コマンド標準出力/標準エラー）
 - 任意保存:
@@ -28,3 +28,8 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 ## 5. 参照規約
 - 各Issue/PRには対象実行ディレクトリへのパスを明記する。
 - 仕様差分の議論では、`summary.md` と `metadata.json` を一次参照とする。
+
+## 6. 異常終了時の取り扱い
+1. 実行失敗時も `metadata.json` と `summary.md` を生成し、`status=failed` と失敗ステップを記録する。
+2. `logs/` に失敗ステップのログを必ず残す。
+3. 一時marker（`.run-start.marker`）は成功/失敗を問わず削除する。

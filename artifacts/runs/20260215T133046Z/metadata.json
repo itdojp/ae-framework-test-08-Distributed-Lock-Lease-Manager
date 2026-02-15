@@ -1,0 +1,24 @@
+{
+  "run_id": "20260215T133046Z",
+  "executed_at_utc": "2026-02-15T13:32:43Z",
+  "status": "success",
+  "exit_code": 0,
+  "failed_step": "",
+  "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
+  "spec_issue": 1,
+  "runtime_issue": 2,
+  "tool_versions": {
+    "codex": "codex-cli 0.101.0",
+    "pnpm": "10.17.1",
+    "node": "v22.19.0"
+  },
+  "ae_framework": {
+    "root": ".cache/ae-framework",
+    "branch": "main",
+    "commit": "6bdc3003c0d97eaebf026460cf6cfca866e72407"
+  },
+  "target_repo": {
+    "branch": "main",
+    "commit_before_run": "73c3e350a0f238c18e8508cd9c2079ecfb194500"
+  }
+}

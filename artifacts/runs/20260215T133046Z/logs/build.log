@@ -1,0 +1,22 @@
+
+> ae-framework@1.0.0 build /home/devuser/work/CodeX/ae-framework_exp08/.cache/ae-framework
+> pnpm build:spec-compiler && tsc -p configs/tsconfig/tsconfig.build.json && ( [ -f scripts/ci/ensure-bin-executables.mjs ] && node scripts/ci/ensure-bin-executables.mjs || true )
+
+
+> ae-framework@1.0.0 build:spec-compiler /home/devuser/work/CodeX/ae-framework_exp08/.cache/ae-framework
+> pnpm --filter @ae-framework/spec-compiler build
+
+
+> @ae-framework/spec-compiler@1.0.0 build /home/devuser/work/CodeX/ae-framework_exp08/.cache/ae-framework/packages/spec-compiler
+> tsc
+
+[bins] Already executable: ae
+[bins] Already executable: ae-framework
+[bins] Already executable: ae-phase
+[bins] Already executable: ae-approve
+[bins] Already executable: ae-slash
+[bins] Already executable: ae-ui
+[bins] Already executable: ae-sbom
+[bins] Already executable: ae-resilience
+[bins] Already executable: ae-benchmark
+[bins] Already executable: ae-server
