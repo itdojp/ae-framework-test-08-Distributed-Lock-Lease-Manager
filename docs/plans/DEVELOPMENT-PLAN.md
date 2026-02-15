@@ -59,6 +59,7 @@
 - `src/lease-manager.mjs`
 - `src/server.mjs`
 - `src/state-persistence.mjs`
+- `src/sqlite-lease-manager.mjs`
 3. 検証を追加:
 - `tests/unit/lease-manager.test.mjs`
 - `tests/contracts/api-contract.test.mjs`

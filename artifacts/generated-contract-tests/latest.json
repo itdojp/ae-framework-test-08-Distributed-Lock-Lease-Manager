@@ -1,0 +1,66 @@
+{
+  "openapiPath": "contracts/openapi.yaml",
+  "outDir": "tests/contracts/generated",
+  "generatedCount": 5,
+  "operationCount": 5,
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/leases/acquire",
+      "operationId": "acquireLease"
+    },
+    {
+      "method": "POST",
+      "path": "/leases/{lease_id}/renew",
+      "operationId": "renewLease"
+    },
+    {
+      "method": "POST",
+      "path": "/leases/{lease_id}/release",
+      "operationId": "releaseLease"
+    },
+    {
+      "method": "GET",
+      "path": "/locks/{lock_key}",
+      "operationId": "getLockState"
+    },
+    {
+      "method": "POST",
+      "path": "/locks/{lock_key}/force-release",
+      "operationId": "forceReleaseLock"
+    }
+  ],
+  "generated": [
+    {
+      "operationId": "acquireLease",
+      "method": "POST",
+      "path": "/leases/acquire",
+      "file": "tests/contracts/generated/acquireLease.generated.test.mjs"
+    },
+    {
+      "operationId": "renewLease",
+      "method": "POST",
+      "path": "/leases/{lease_id}/renew",
+      "file": "tests/contracts/generated/renewLease.generated.test.mjs"
+    },
+    {
+      "operationId": "releaseLease",
+      "method": "POST",
+      "path": "/leases/{lease_id}/release",
+      "file": "tests/contracts/generated/releaseLease.generated.test.mjs"
+    },
+    {
+      "operationId": "getLockState",
+      "method": "GET",
+      "path": "/locks/{lock_key}",
+      "file": "tests/contracts/generated/getLockState.generated.test.mjs"
+    },
+    {
+      "operationId": "forceReleaseLock",
+      "method": "POST",
+      "path": "/locks/{lock_key}/force-release",
+      "file": "tests/contracts/generated/forceReleaseLock.generated.test.mjs"
+    }
+  ],
+  "generatedAt": "2026-02-15T11:47:48.247Z"
+}

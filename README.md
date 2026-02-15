@@ -34,7 +34,12 @@
 - テスト一括: `npm run test:all`
 - 契約テストのみ: `npm run test:contract`
 - 状態永続化テスト: `node --test tests/unit/state-persistence.test.mjs`
+- 契約テスト雛形生成: `npm run contracts:generate`
 
 ## 前提バージョン
 - Node.js: `>=20.11 <23`（ae-framework README 記載）
 - pnpm: `10.x`（ae-framework README 記載）
+
+## SQLite実装補足
+- `src/sqlite-lease-manager.mjs` は `node:sqlite` を使用（Node 22系では experimental warning が出る）
+- SQLiteバックエンドを実行する場合は Node.js 22 以上が必要（Node 20系では `SQLITE_UNSUPPORTED` を返す）

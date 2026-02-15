@@ -62,6 +62,7 @@
 | LS-RNW-001..003 | `src/lease-manager.mjs` | `tests/unit/lease-manager.test.mjs` |
 | LS-REL-001..003 | `src/lease-manager.mjs` | `tests/unit/lease-manager.test.mjs` |
 | LS-CC-001 | `src/lease-manager.mjs` | `tests/mbt/lease-state-model.mbt.test.mjs` |
+| LS-CC-001（SQLite） | `src/sqlite-lease-manager.mjs` | `tests/integration/sqlite-lease-manager.test.mjs` |
 | LS-EXP-001 | `src/lease-manager.mjs` | `tests/unit/lease-manager.test.mjs` |
 | LS-FENCE-001 | `src/lease-manager.mjs` | `tests/unit/lease-manager.test.mjs` |
 | LS-AUTH-001 | `src/server.mjs` | `tests/integration/server-api.test.mjs` |
