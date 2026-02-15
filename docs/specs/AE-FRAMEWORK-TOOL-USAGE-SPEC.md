@@ -31,6 +31,7 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
   - `CODEX_TOLERANT=0`
   - `AE_RUN_OPTIONAL=1`（標準）、`0` で optional ステップを省略
 - 実行入口: `scripts/run-ae-eval.sh`
+- CI成果物のリポジトリ保存: `scripts/import-gha-artifact.sh <run_id>`
 - 実行結果の保存先: `artifacts/runs/<UTC timestamp>/`
 - 成果物コピー方針: 実行開始後に更新された `ae-framework` 側ファイルのみを保存
 - optional ステップ失敗は non-blocking で継続し、`metadata.json` の `optional_failures` に記録する

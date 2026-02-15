@@ -96,3 +96,6 @@
 12. optional失敗の機械可読化:
 - `scripts/run-ae-eval.sh` の `metadata.json` に `optional_fail_count` / `optional_failures` を追加
 - non-blocking失敗（例: pbt設定欠落）を自動集計可能な形式で保存
+13. GHA成果物取り込み自動化:
+- `scripts/import-gha-artifact.sh` を追加
+- `npm run artifacts:import-gha -- <run_id>` で `artifacts/runs/gha-<run_id>-<attempt>/` へ保存可能化
