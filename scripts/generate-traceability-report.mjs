@@ -13,7 +13,7 @@ if (!fs.existsSync(requirementsPath)) {
   process.exit(1);
 }
 
-const trackedFiles = collectFiles(root);
+const fileCache = new Map();
 const content = fs.readFileSync(requirementsPath, "utf-8");
 const lines = content.split(/\r?\n/);
 const rows = parseTraceabilityRows(lines);
@@ -23,7 +23,7 @@ if (rows.length === 0) {
   process.exit(1);
 }
 
-const evaluated = rows.map((row) => evaluateRow(row, trackedFiles));
+const evaluated = rows.map((row) => evaluateRow(row, root, fileCache));
 const totalRows = evaluated.length;
 const fullMappedRows = evaluated.filter((row) => row.allPresent).length;
 const failedRows = evaluated.filter((row) => !row.allPresent);
@@ -52,34 +52,6 @@ console.log(`full mapped rows: ${fullMappedRows}`);
 console.log(`coverage: ${coveragePercent}%`);
 console.log(`json: ${OUT_DIR}/latest.json`);
 console.log(`markdown: ${OUT_DIR}/latest.md`);
-
-/**
- * @param {string} rootDir
- * @returns {Set<string>}
- */
-function collectFiles(rootDir) {
-  const files = new Set();
-  const stack = [rootDir];
-  const ignoredDirs = new Set([".git", ".cache"]);
-
-  while (stack.length > 0) {
-    const current = stack.pop();
-    const entries = fs.readdirSync(current, { withFileTypes: true });
-    for (const entry of entries) {
-      const absolute = path.join(current, entry.name);
-      const relative = path.relative(rootDir, absolute).split(path.sep).join("/");
-      if (entry.isDirectory()) {
-        if (ignoredDirs.has(entry.name)) {
-          continue;
-        }
-        stack.push(absolute);
-      } else if (entry.isFile()) {
-        files.add(relative);
-      }
-    }
-  }
-  return files;
-}
 
 /**
  * @param {string[]} lines
@@ -141,11 +113,12 @@ function extractPaths(cell) {
 
 /**
  * @param {{ requirementId: string, implPaths: string[], testPaths: string[] }} row
- * @param {Set<string>} files
+ * @param {string} rootDir
+ * @param {Map<string, Set<string>>} fileCache
  */
-function evaluateRow(row, files) {
-  const impl = row.implPaths.map((p) => evaluatePath(p, files));
-  const tests = row.testPaths.map((p) => evaluatePath(p, files));
+function evaluateRow(row, rootDir, fileCache) {
+  const impl = row.implPaths.map((p) => evaluatePath(p, rootDir, fileCache));
+  const tests = row.testPaths.map((p) => evaluatePath(p, rootDir, fileCache));
   const hasRefs = impl.length > 0 && tests.length > 0;
   const allPresent = hasRefs && [...impl, ...tests].every((p) => p.exists);
   return {
@@ -158,16 +131,21 @@ function evaluateRow(row, files) {
 
 /**
  * @param {string} pattern
- * @param {Set<string>} files
+ * @param {string} rootDir
+ * @param {Map<string, Set<string>>} fileCache
  */
-function evaluatePath(pattern, files) {
+function evaluatePath(pattern, rootDir, fileCache) {
+  const normalized = pattern.split("\\").join("/");
   if (!hasGlob(pattern)) {
     return {
       path: pattern,
-      exists: files.has(pattern)
+      exists: fs.existsSync(path.join(rootDir, pattern))
     };
   }
-  const matcher = globToRegExp(pattern);
+
+  const searchRootRel = findSearchRoot(normalized);
+  const files = listFilesUnder(rootDir, searchRootRel, fileCache);
+  const matcher = globToRegExp(normalized);
   const matches = [];
   for (const file of files) {
     if (matcher.test(file)) {
@@ -179,6 +157,60 @@ function evaluatePath(pattern, files) {
     exists: matches.length > 0,
     matches
   };
+}
+
+/**
+ * @param {string} pattern
+ * @returns {string}
+ */
+function findSearchRoot(pattern) {
+  const wildcardPos = pattern.search(/[*?]/);
+  if (wildcardPos < 0) {
+    return path.posix.dirname(pattern);
+  }
+  const slashPos = pattern.lastIndexOf("/", wildcardPos);
+  if (slashPos < 0) {
+    return ".";
+  }
+  return pattern.slice(0, slashPos);
+}
+
+/**
+ * @param {string} rootDir
+ * @param {string} searchRootRel
+ * @param {Map<string, Set<string>>} fileCache
+ * @returns {Set<string>}
+ */
+function listFilesUnder(rootDir, searchRootRel, fileCache) {
+  const key = searchRootRel || ".";
+  const cached = fileCache.get(key);
+  if (cached) {
+    return cached;
+  }
+
+  const absoluteRoot = path.join(rootDir, key);
+  const files = new Set();
+  if (!fs.existsSync(absoluteRoot) || !fs.statSync(absoluteRoot).isDirectory()) {
+    fileCache.set(key, files);
+    return files;
+  }
+
+  const stack = [absoluteRoot];
+  while (stack.length > 0) {
+    const current = stack.pop();
+    const entries = fs.readdirSync(current, { withFileTypes: true });
+    for (const entry of entries) {
+      const absolute = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        stack.push(absolute);
+      } else if (entry.isFile()) {
+        const relative = path.relative(rootDir, absolute).split(path.sep).join("/");
+        files.add(relative);
+      }
+    }
+  }
+  fileCache.set(key, files);
+  return files;
 }
 
 /**
