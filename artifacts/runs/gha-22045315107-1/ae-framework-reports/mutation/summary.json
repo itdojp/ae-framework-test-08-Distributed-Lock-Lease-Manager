@@ -1,0 +1,11 @@
+{
+  "totalMutants": 164,
+  "killed": 152,
+  "survived": 0,
+  "timedOut": 0,
+  "noCoverage": 0,
+  "ignored": 12,
+  "runtimeErrors": 0,
+  "compileErrors": 0,
+  "mutationScore": 100
+}
