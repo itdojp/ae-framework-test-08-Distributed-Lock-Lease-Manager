@@ -44,6 +44,28 @@ jobs:
           RUN_ID: gha-${{ github.run_id }}-${{ github.run_attempt }}
         run: ./scripts/run-ae-eval.sh
 
+      - name: Summarize eval metadata
+        if: always()
+        run: |
+          RUN_DIR="artifacts/runs/gha-${{ github.run_id }}-${{ github.run_attempt }}"
+          META_FILE="${RUN_DIR}/metadata.json"
+          echo "### AE Eval Full Metadata" >> "$GITHUB_STEP_SUMMARY"
+          echo "- run_dir: \`${RUN_DIR}\`" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f "${META_FILE}" ]; then
+            STATUS="$(jq -r '.status // "unknown"' "${META_FILE}")"
+            EXIT_CODE="$(jq -r '.exit_code // "n/a"' "${META_FILE}")"
+            OPTIONAL_FAIL_COUNT="$(jq -r '.optional_fail_count // 0' "${META_FILE}")"
+            echo "- status: \`${STATUS}\`" >> "$GITHUB_STEP_SUMMARY"
+            echo "- exit_code: \`${EXIT_CODE}\`" >> "$GITHUB_STEP_SUMMARY"
+            echo "- optional_fail_count: \`${OPTIONAL_FAIL_COUNT}\`" >> "$GITHUB_STEP_SUMMARY"
+            if [ "${OPTIONAL_FAIL_COUNT}" != "0" ]; then
+              echo "- optional_failures:" >> "$GITHUB_STEP_SUMMARY"
+              jq -r '.optional_failures[]? | "  - \(.step) (exit=\(.exit_code))"' "${META_FILE}" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          else
+            echo "- metadata.json not found" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Upload eval artifacts
         if: always()
         uses: actions/upload-artifact@v4

@@ -38,6 +38,7 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
 - GitHub Actions:
   - `AE Eval Fast`（`AE_RUN_OPTIONAL=0`）: `push(main)` と `workflow_dispatch`
   - `AE Eval Full`（`AE_RUN_OPTIONAL=1`）: `workflow_dispatch`
+  - 両workflowとも `metadata.json` 要約を Job Summary に出力し、optional失敗件数を即時確認可能にする
 
 ## 5. 実行順序（標準）
 1. `pnpm run build`

@@ -99,3 +99,8 @@
 13. GHA成果物取り込み自動化:
 - `scripts/import-gha-artifact.sh` を追加
 - `npm run artifacts:import-gha -- <run_id>` で `artifacts/runs/gha-<run_id>-<attempt>/` へ保存可能化
+14. 可観測性改善:
+- `AE Eval Fast/Full` の Job Summary に `metadata.json`（status/exit_code/optional_fail_count）を出力
+- 取り込み実績:
+  - `artifacts/runs/gha-22037101340-1/`（CI Basic logs）
+  - `artifacts/runs/gha-22037101333-1/`（AE Eval Fast）
