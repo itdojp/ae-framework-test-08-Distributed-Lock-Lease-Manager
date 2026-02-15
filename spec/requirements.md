@@ -55,6 +55,7 @@
 | --- | --- | --- |
 | LS-INV-001 | `src/lease-manager.mjs` | `tests/property/lease-invariants.property.test.mjs` |
 | LS-INV-002 | `src/lease-manager.mjs` | `tests/unit/lease-manager.test.mjs` |
+| LS-INV-002（再起動後） | `src/state-persistence.mjs` | `tests/unit/state-persistence.test.mjs` |
 | LS-INV-003 | `src/lease-manager.mjs` | `tests/unit/lease-manager.test.mjs` |
 | LS-INV-004 | `src/lease-manager.mjs` | `tests/unit/lease-manager.test.mjs` |
 | LS-ACQ-001..004 | `src/lease-manager.mjs` | `tests/unit/lease-manager.test.mjs` |

@@ -58,6 +58,7 @@
 2. 実装を追加:
 - `src/lease-manager.mjs`
 - `src/server.mjs`
+- `src/state-persistence.mjs`
 3. 検証を追加:
 - `tests/unit/lease-manager.test.mjs`
 - `tests/contracts/api-contract.test.mjs`

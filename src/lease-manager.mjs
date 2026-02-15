@@ -61,6 +61,21 @@ export class LeaseManager {
   }
 
   /**
+   * @param {{
+   * leases?: LeaseRecord[],
+   * lockRecords?: Array<{ tenantId: string, lockKey: string, activeLeaseId: string|null, currentFencingToken: number }>,
+   * auditLogs?: Array<{ action: string, tenantId: string, lockKey: string, leaseId: string|null, at: string, actor: string }>
+   * }} snapshot
+   * @param {{ now?: () => Date, minTtlSeconds?: number, maxTtlSeconds?: number }} [options]
+   * @returns {LeaseManager}
+   */
+  static fromState(snapshot, options = {}) {
+    const manager = new LeaseManager(options);
+    manager.loadState(snapshot);
+    return manager;
+  }
+
+  /**
    * @param {{ tenantId: string, lockKey: string, ownerId: string, ttlSeconds: number, requestId?: string }} params
    * @returns {LeaseRecord}
    */
@@ -280,6 +295,50 @@ export class LeaseManager {
       lockRecords,
       auditLogs: [...this.auditLogs]
     };
+  }
+
+  /**
+   * @returns {{
+   * leases: LeaseRecord[],
+   * lockRecords: Array<{ tenantId: string, lockKey: string, activeLeaseId: string|null, currentFencingToken: number }>,
+   * auditLogs: Array<{ action: string, tenantId: string, lockKey: string, leaseId: string|null, at: string, actor: string }>
+   * }}
+   */
+  exportState() {
+    return this.debugState();
+  }
+
+  /**
+   * @param {{
+   * leases?: LeaseRecord[],
+   * lockRecords?: Array<{ tenantId: string, lockKey: string, activeLeaseId: string|null, currentFencingToken: number }>,
+   * auditLogs?: Array<{ action: string, tenantId: string, lockKey: string, leaseId: string|null, at: string, actor: string }>
+   * }} snapshot
+   */
+  loadState(snapshot) {
+    this.leasesById.clear();
+    this.lockRecords.clear();
+    this.acquireIdempotency.clear();
+    this.renewIdempotency.clear();
+    this.releaseIdempotency.clear();
+    this.auditLogs = [];
+
+    for (const lease of snapshot.leases ?? []) {
+      this.leasesById.set(lease.leaseId, structuredClone(lease));
+      if (lease.idempotencyKey && lease.status === "ACTIVE") {
+        this.acquireIdempotency.set(this.#idempotencyKey(lease.tenantId, lease.idempotencyKey), lease.leaseId);
+      }
+    }
+
+    for (const record of snapshot.lockRecords ?? []) {
+      this.lockRecords.set(this.#recordKey(record.tenantId, record.lockKey), {
+        activeLeaseId: record.activeLeaseId ?? null,
+        currentFencingToken: record.currentFencingToken,
+        updatedAt: this.now().toISOString()
+      });
+    }
+
+    this.auditLogs = Array.isArray(snapshot.auditLogs) ? structuredClone(snapshot.auditLogs) : [];
   }
 
   /**

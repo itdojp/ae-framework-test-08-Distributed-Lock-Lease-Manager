@@ -27,6 +27,7 @@
 - サーバー起動: `npm run start`
 - テスト一括: `npm run test:all`
 - 契約テストのみ: `npm run test:contract`
+- 状態永続化テスト: `node --test tests/unit/state-persistence.test.mjs`
 
 ## 前提バージョン
 - Node.js: `>=20.11 <23`（ae-framework README 記載）
