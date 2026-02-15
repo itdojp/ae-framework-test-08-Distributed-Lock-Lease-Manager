@@ -55,7 +55,7 @@ test("Contract: acquire/release/get/force-release の応答はSchema準拠", asy
 
   const forceRelease = await api(port, "/locks/order%3Acontract/force-release", {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: { "content-type": "application/json", "x-role": "ADMIN" },
     body: JSON.stringify({
       tenant_id: "tenantA",
       actor: "adminA"
@@ -100,4 +100,15 @@ test("Contract: エラー応答はErrorResponse準拠", async (t) => {
   });
   assert.equal(ownerMismatch.response.status, 401);
   assertSchema("schema/error-response.schema.json", ownerMismatch.data);
+
+  const forbidden = await api(port, "/locks/order%3Amissing-admin/force-release", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      tenant_id: "tenantA",
+      actor: "memberA"
+    })
+  });
+  assert.equal(forbidden.response.status, 403);
+  assertSchema("schema/error-response.schema.json", forbidden.data);
 });

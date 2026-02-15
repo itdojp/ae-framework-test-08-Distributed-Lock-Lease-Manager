@@ -36,6 +36,10 @@
 - 状態永続化テスト: `node --test tests/unit/state-persistence.test.mjs`
 - 契約テスト雛形生成: `npm run contracts:generate`
 
+## API認可補足
+- `x-owner-id` を指定した場合、`owner_id` と一致しない要求は `401 OWNER_TOKEN_MISMATCH`
+- `POST /locks/{lock_key}/force-release` は `x-role: ADMIN` が必須（不足時 `403 FORBIDDEN`）
+
 ## 前提バージョン
 - Node.js: `>=20.11 <23`（ae-framework README 記載）
 - pnpm: `10.x`（ae-framework README 記載）

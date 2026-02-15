@@ -117,6 +117,49 @@ test("API integration: x-owner-id と owner_id 不一致は401", async (t) => {
   assert.equal(result.data.code, "OWNER_TOKEN_MISMATCH");
 });
 
+test("API integration: force-release は ADMIN のみ許可", async (t) => {
+  const server = createServer();
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  const address = server.address();
+  const port = typeof address === "object" && address ? address.port : 0;
+  t.after(() => server.close());
+
+  const acq = await api(port, "/leases/acquire", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      tenant_id: "tenantA",
+      request_id: "req-force-auth-1",
+      lock_key: "order:force-auth",
+      owner_id: "workerA",
+      ttl_seconds: 30
+    })
+  });
+  assert.equal(acq.response.status, 201);
+
+  const forbidden = await api(port, "/locks/order%3Aforce-auth/force-release", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      tenant_id: "tenantA",
+      actor: "memberA"
+    })
+  });
+  assert.equal(forbidden.response.status, 403);
+  assert.equal(forbidden.data.code, "FORBIDDEN");
+
+  const admin = await api(port, "/locks/order%3Aforce-auth/force-release", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-role": "ADMIN" },
+    body: JSON.stringify({
+      tenant_id: "tenantA",
+      actor: "adminA"
+    })
+  });
+  assert.equal(admin.response.status, 200);
+  assert.equal(admin.data.has_active_lease, false);
+});
+
 test("API integration: 同時acquireで成功は1件のみ", async (t) => {
   const server = createServer();
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));

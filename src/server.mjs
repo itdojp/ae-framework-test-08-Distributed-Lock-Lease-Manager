@@ -51,10 +51,11 @@ async function readJson(req) {
 
 /**
  * @param {http.IncomingHttpHeaders} headers
+ * @param {string} name
  * @returns {string|null}
  */
-function headerOwner(headers) {
-  const raw = headers["x-owner-id"];
+function headerValue(headers, name) {
+  const raw = headers[name];
   if (typeof raw === "string" && raw.length > 0) {
     return raw;
   }
@@ -62,6 +63,24 @@ function headerOwner(headers) {
     return raw[0];
   }
   return null;
+}
+
+/**
+ * @param {http.IncomingHttpHeaders} headers
+ * @returns {string|null}
+ */
+function headerOwner(headers) {
+  return headerValue(headers, "x-owner-id");
+}
+
+/**
+ * @param {http.IncomingHttpHeaders} headers
+ */
+function requireAdmin(headers) {
+  const role = headerValue(headers, "x-role");
+  if (role !== "ADMIN") {
+    throw new LeaseManagerError("admin role required", "FORBIDDEN", 403);
+  }
 }
 
 /**
@@ -169,6 +188,7 @@ async function handler(req, res, manager) {
 
     const forceMatch = pathname.match(/^\/locks\/([^/]+)\/force-release$/);
     if (method === "POST" && forceMatch) {
+      requireAdmin(req.headers);
       const lockKey = decodeURIComponent(forceMatch[1]);
       const body = await readJson(req);
       const tenantId = requireString(body.tenant_id, "tenant_id");

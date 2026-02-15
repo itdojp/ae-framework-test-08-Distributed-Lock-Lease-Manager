@@ -142,6 +142,7 @@ paths:
       summary: Force release lock (ADMIN)
       parameters:
         - $ref: "#/components/parameters/LockKey"
+        - $ref: "#/components/parameters/AdminRoleHeader"
       requestBody:
         required: true
         content:
@@ -155,6 +156,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/LockStateResponse"
+        "403":
+          description: admin role required
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   parameters:
     LeaseId:
@@ -183,6 +190,15 @@ components:
         type: string
       description: |
         認証トークン由来の owner を運ぶヘッダ。指定時は request body の owner_id と一致が必要。
+    AdminRoleHeader:
+      name: x-role
+      in: header
+      required: true
+      schema:
+        type: string
+        enum: [ADMIN]
+      description: |
+        管理者操作の認可ヘッダ。`/locks/{lock_key}/force-release` は `x-role: ADMIN` のみ許可。
   schemas:
     AcquireLeaseRequest:
       $ref: "../schema/lease-acquire-request.schema.json"
