@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://itdojp.github.io/ae-framework-test-08/schema/lease-renew-request.schema.json",
+  "title": "RenewLeaseRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "owner_id", "ttl_seconds"],
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ttl_seconds": {
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 300
+    }
+  }
+}

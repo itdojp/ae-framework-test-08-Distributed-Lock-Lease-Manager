@@ -1,0 +1,13 @@
+{
+  "run_id": "20260215T105530Z-impl-check",
+  "executed_at_utc": "2026-02-15T10:55:05Z",
+  "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
+  "scope": "local implementation tests",
+  "tool_versions": {
+    "node": "v22.19.0",
+    "npm": "11.8.0"
+  },
+  "commands": [
+    "npm run test:all"
+  ]
+}

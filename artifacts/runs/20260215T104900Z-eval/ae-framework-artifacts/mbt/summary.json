@@ -1,0 +1,1783 @@
+{
+  "seed": 1771152579468,
+  "runs": 25,
+  "depth": 12,
+  "scenarios": [
+    {
+      "index": 1,
+      "steps": [
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        }
+      ],
+      "final": {
+        "available": 4,
+        "reserved": 0,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 2,
+      "steps": [
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 4,
+        "reserved": 1,
+        "shipped": 0
+      },
+      "violations": []
+    },
+    {
+      "index": 3,
+      "steps": [
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        }
+      ],
+      "final": {
+        "available": 2,
+        "reserved": 0,
+        "shipped": 3
+      },
+      "violations": []
+    },
+    {
+      "index": 4,
+      "steps": [
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 1,
+        "reserved": 1,
+        "shipped": 3
+      },
+      "violations": []
+    },
+    {
+      "index": 5,
+      "steps": [
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 2,
+        "reserved": 1,
+        "shipped": 2
+      },
+      "violations": []
+    },
+    {
+      "index": 6,
+      "steps": [
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        }
+      ],
+      "final": {
+        "available": 4,
+        "reserved": 0,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 7,
+      "steps": [
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 0,
+        "reserved": 2,
+        "shipped": 3
+      },
+      "violations": []
+    },
+    {
+      "index": 8,
+      "steps": [
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 2,
+        "reserved": 1,
+        "shipped": 2
+      },
+      "violations": []
+    },
+    {
+      "index": 9,
+      "steps": [
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": false,
+          "reason": "reserve guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": false,
+          "reason": "reserve guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 2,
+        "reserved": 2,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 10,
+      "steps": [
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": false,
+          "reason": "reserve guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 1,
+        "reserved": 3,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 11,
+      "steps": [
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        }
+      ],
+      "final": {
+        "available": 3,
+        "reserved": 0,
+        "shipped": 2
+      },
+      "violations": []
+    },
+    {
+      "index": 12,
+      "steps": [
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 4,
+        "reserved": 1,
+        "shipped": 0
+      },
+      "violations": []
+    },
+    {
+      "index": 13,
+      "steps": [
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        }
+      ],
+      "final": {
+        "available": 4,
+        "reserved": 0,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 14,
+      "steps": [
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        }
+      ],
+      "final": {
+        "available": 4,
+        "reserved": 0,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 15,
+      "steps": [
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        }
+      ],
+      "final": {
+        "available": 4,
+        "reserved": 0,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 16,
+      "steps": [
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 3,
+        "reserved": 1,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 17,
+      "steps": [
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 0,
+        "reserved": 2,
+        "shipped": 3
+      },
+      "violations": []
+    },
+    {
+      "index": 18,
+      "steps": [
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        }
+      ],
+      "final": {
+        "available": 3,
+        "reserved": 0,
+        "shipped": 2
+      },
+      "violations": []
+    },
+    {
+      "index": 19,
+      "steps": [
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 4,
+        "reserved": 0,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 20,
+      "steps": [
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 4,
+        "reserved": 0,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 21,
+      "steps": [
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        }
+      ],
+      "final": {
+        "available": 4,
+        "reserved": 0,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 22,
+      "steps": [
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        }
+      ],
+      "final": {
+        "available": 3,
+        "reserved": 1,
+        "shipped": 1
+      },
+      "violations": []
+    },
+    {
+      "index": 23,
+      "steps": [
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        }
+      ],
+      "final": {
+        "available": 5,
+        "reserved": 0,
+        "shipped": 0
+      },
+      "violations": []
+    },
+    {
+      "index": 24,
+      "steps": [
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "ship",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        }
+      ],
+      "final": {
+        "available": 3,
+        "reserved": 0,
+        "shipped": 2
+      },
+      "violations": []
+    },
+    {
+      "index": 25,
+      "steps": [
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "reserve",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": true,
+          "reason": null
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "ship",
+          "applied": false,
+          "reason": "ship guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        },
+        {
+          "action": "cancel",
+          "applied": false,
+          "reason": "cancel guard failed"
+        }
+      ],
+      "final": {
+        "available": 5,
+        "reserved": 0,
+        "shipped": 0
+      },
+      "violations": []
+    }
+  ],
+  "violations": 0
+}

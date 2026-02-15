@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://itdojp.github.io/ae-framework-test-08/schema/lease-release-request.schema.json",
+  "title": "ReleaseLeaseRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "owner_id"],
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

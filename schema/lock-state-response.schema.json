@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://itdojp.github.io/ae-framework-test-08/schema/lock-state-response.schema.json",
+  "title": "LockStateResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tenant_id", "lock_key", "has_active_lease", "server_time"],
+  "properties": {
+    "tenant_id": { "type": "string" },
+    "lock_key": { "type": "string" },
+    "has_active_lease": { "type": "boolean" },
+    "active_lease": {
+      "oneOf": [
+        { "$ref": "./lease-response.schema.json" },
+        { "type": "null" }
+      ]
+    },
+    "server_time": { "type": "string", "format": "date-time" }
+  }
+}

@@ -1,0 +1,178 @@
+openapi: 3.0.3
+info:
+  title: Distributed Lock Lease Manager API
+  version: 0.1.0
+  description: |
+    LS-SPEC-001 準拠のREST API契約。
+servers:
+  - url: https://api.example.com
+tags:
+  - name: leases
+  - name: locks
+paths:
+  /leases/acquire:
+    post:
+      operationId: acquireLease
+      tags: [leases]
+      summary: Acquire a lease
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AcquireLeaseRequest"
+      responses:
+        "201":
+          description: Lease acquired
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaseResponse"
+        "409":
+          description: Lock held
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /leases/{lease_id}/renew:
+    post:
+      operationId: renewLease
+      tags: [leases]
+      summary: Renew a lease
+      parameters:
+        - $ref: "#/components/parameters/LeaseId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RenewLeaseRequest"
+      responses:
+        "200":
+          description: Lease renewed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaseResponse"
+        "404":
+          description: Lease not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "409":
+          description: Owner mismatch or lease expired
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /leases/{lease_id}/release:
+    post:
+      operationId: releaseLease
+      tags: [leases]
+      summary: Release a lease
+      parameters:
+        - $ref: "#/components/parameters/LeaseId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReleaseLeaseRequest"
+      responses:
+        "200":
+          description: Lease released
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaseResponse"
+        "404":
+          description: Lease not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "409":
+          description: Owner mismatch or lease expired
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /locks/{lock_key}:
+    get:
+      operationId: getLockState
+      tags: [locks]
+      summary: Get current lock state
+      parameters:
+        - $ref: "#/components/parameters/LockKey"
+        - $ref: "#/components/parameters/TenantIdQuery"
+      responses:
+        "200":
+          description: Lock state response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LockStateResponse"
+  /locks/{lock_key}/force-release:
+    post:
+      operationId: forceReleaseLock
+      tags: [locks]
+      summary: Force release lock (ADMIN)
+      parameters:
+        - $ref: "#/components/parameters/LockKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ForceReleaseRequest"
+      responses:
+        "200":
+          description: Force released or no-op
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LockStateResponse"
+components:
+  parameters:
+    LeaseId:
+      name: lease_id
+      in: path
+      required: true
+      schema:
+        type: string
+    LockKey:
+      name: lock_key
+      in: path
+      required: true
+      schema:
+        type: string
+    TenantIdQuery:
+      name: tenant_id
+      in: query
+      required: true
+      schema:
+        type: string
+  schemas:
+    AcquireLeaseRequest:
+      $ref: "../schema/lease-acquire-request.schema.json"
+    RenewLeaseRequest:
+      $ref: "../schema/lease-renew-request.schema.json"
+    ReleaseLeaseRequest:
+      $ref: "../schema/lease-release-request.schema.json"
+    ForceReleaseRequest:
+      type: object
+      required: [tenant_id, actor]
+      properties:
+        tenant_id:
+          type: string
+        actor:
+          type: string
+        reason:
+          type: string
+    LeaseResponse:
+      $ref: "../schema/lease-response.schema.json"
+    LockStateResponse:
+      $ref: "../schema/lock-state-response.schema.json"
+    ErrorResponse:
+      $ref: "../schema/error-response.schema.json"

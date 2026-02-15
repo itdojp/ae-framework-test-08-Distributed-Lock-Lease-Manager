@@ -1,0 +1,18 @@
+-- Minimal CSP model for lock ownership safety.
+
+channel acquire, renew, release, expire : {A, B}
+channel held : {A, B}
+
+LOCK_FREE =
+  acquire?o -> LOCK_HELD(o)
+
+LOCK_HELD(o) =
+  (renew.o -> LOCK_HELD(o))
+  []
+  (release.o -> LOCK_FREE)
+  []
+  (expire.o -> LOCK_FREE)
+
+SYSTEM = LOCK_FREE
+
+assert SYSTEM :[deadlock free]

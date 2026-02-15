@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://itdojp.github.io/ae-framework-test-08/schema/audit-event.schema.json",
+  "title": "AuditEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["action", "tenant_id", "lock_key", "at", "actor"],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "LEASE_ACQUIRE",
+        "LEASE_RENEW",
+        "LEASE_RELEASE",
+        "LEASE_EXPIRE",
+        "FORCE_RELEASE"
+      ]
+    },
+    "tenant_id": { "type": "string" },
+    "lock_key": { "type": "string" },
+    "lease_id": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
+    "at": { "type": "string", "format": "date-time" },
+    "actor": { "type": "string" }
+  }
+}

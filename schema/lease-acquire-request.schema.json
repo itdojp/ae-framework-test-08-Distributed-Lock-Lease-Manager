@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://itdojp.github.io/ae-framework-test-08/schema/lease-acquire-request.schema.json",
+  "title": "AcquireLeaseRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tenant_id", "request_id", "lock_key", "owner_id", "ttl_seconds"],
+  "properties": {
+    "tenant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lock_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ttl_seconds": {
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 300
+    }
+  }
+}

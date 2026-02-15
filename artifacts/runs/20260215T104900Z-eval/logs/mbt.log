@@ -1,0 +1,5 @@
+
+> ae-framework@1.0.0 mbt /tmp/ae-framework
+> node tests/mbt/run.js
+
+✓ MBT harness wrote artifacts/mbt/summary.json (seed=1771152579468, runs=25, violations=0)

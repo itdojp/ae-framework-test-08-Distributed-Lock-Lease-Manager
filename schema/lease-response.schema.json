@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://itdojp.github.io/ae-framework-test-08/schema/lease-response.schema.json",
+  "title": "LeaseResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "lease_id",
+    "tenant_id",
+    "lock_key",
+    "owner_id",
+    "status",
+    "acquired_at",
+    "expires_at",
+    "fencing_token",
+    "server_time",
+    "version"
+  ],
+  "properties": {
+    "lease_id": { "type": "string" },
+    "tenant_id": { "type": "string" },
+    "lock_key": { "type": "string" },
+    "owner_id": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["ACTIVE", "RELEASED", "EXPIRED"]
+    },
+    "acquired_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "last_renewed_at": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ]
+    },
+    "fencing_token": { "type": "integer", "minimum": 1 },
+    "idempotency_key": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
+    "version": { "type": "integer", "minimum": 1 },
+    "server_time": { "type": "string", "format": "date-time" }
+  }
+}

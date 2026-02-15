@@ -43,8 +43,26 @@
 3. 主要マイルストーンごとに Issue 更新（仕様変更・検証結果）を残す。
 
 ## 5. 初期バックログ（次アクション）
-1. `spec/requirements.md` の初版作成（Issue #1 の LS-* を転記）
-2. `contracts/openapi.yaml` の初版作成（Acquire/Renew/Release/Get/Admin）
-3. MBT最小モデルの作成（2クライアント競合）
-4. Propertyテスト（LS-INV-001〜004）雛形を追加
-5. `scripts/run-ae-eval.sh` で自動実行し、成果物を保存
+1. `spec/requirements.md` の初版作成（Issue #1 の LS-* を転記）: 完了
+2. `contracts/openapi.yaml` の初版作成（Acquire/Renew/Release/Get/Admin）: 完了
+3. MBT最小モデルの作成（2クライアント競合）: 完了
+4. Propertyテスト（LS-INV-001〜004）雛形を追加: 完了
+5. `scripts/run-ae-eval.sh` で自動実行し、成果物を保存: 完了
+
+## 6. 進捗ログ
+### 2026-02-15
+1. 仕様正規化を追加:
+- `spec/requirements.md`
+- `contracts/openapi.yaml`
+- `schema/*.schema.json`
+2. 実装を追加:
+- `src/lease-manager.mjs`
+- `src/server.mjs`
+3. 検証を追加:
+- `tests/unit/lease-manager.test.mjs`
+- `tests/integration/server-api.test.mjs`
+- `tests/property/lease-invariants.property.test.mjs`
+- `tests/mbt/lease-state-model.mbt.test.mjs`
+4. 成果物保存:
+- `artifacts/runs/20260215T104900Z-eval/*`（ae-framework自動実行）
+- `artifacts/runs/20260215T105530Z-impl-check/*`（本リポジトリ実装テスト）

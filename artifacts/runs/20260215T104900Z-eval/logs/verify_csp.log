@@ -1,0 +1,6 @@
+
+> ae-framework@1.0.0 verify:csp /tmp/ae-framework
+> node scripts/formal/verify-csp.mjs "--" "--file" "spec/csp/cspx-smoke.cspm" "--mode" "typecheck"
+
+CSP summary written: artifacts/hermetic-reports/formal/csp-summary.json
+- file=spec/csp/cspx-smoke.cspm status=ran backend=cspx:typecheck

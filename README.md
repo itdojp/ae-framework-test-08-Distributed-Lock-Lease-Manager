@@ -13,10 +13,16 @@
 - ae-framework ツール活用仕様: `docs/specs/AE-FRAMEWORK-TOOL-USAGE-SPEC.md`
 - 成果物保存規約: `docs/specs/ARTIFACT-RETENTION-SPEC.md`
 - 自動化プロファイル: `configs/ae-eval-profile.yaml`
+- 要求仕様（正規化）: `spec/requirements.md`
+- API契約: `contracts/openapi.yaml`
 
 ## 自動化実行
 - 実行スクリプト: `scripts/run-ae-eval.sh`
 - 生成成果物の保存先: `artifacts/runs/<UTC timestamp>/`
+
+## ローカル実装の実行
+- サーバー起動: `npm run start`
+- テスト一括: `npm run test:all`
 
 ## 前提バージョン
 - Node.js: `>=20.11 <23`（ae-framework README 記載）

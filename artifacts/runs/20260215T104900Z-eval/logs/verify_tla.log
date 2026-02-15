@@ -1,0 +1,6 @@
+
+> ae-framework@1.0.0 verify:tla /tmp/ae-framework
+> node scripts/formal/verify-tla.mjs "--" "--engine=tlc" "--file" "spec/tla/DomainSpec.tla"
+
+TLA summary written: artifacts/hermetic-reports/formal/tla-summary.json
+- engine=tlc file=spec/tla/DomainSpec.tla status=ran
