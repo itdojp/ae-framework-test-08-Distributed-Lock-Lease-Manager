@@ -1,0 +1,33 @@
+openapi: 3.0.3
+info:
+  title: Generated API
+  version: 1.0.0
+paths:
+  /health:
+    get:
+      operationId: healthCheck
+      summary: Health check endpoint
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                required:
+                  - status
+components:
+  schemas:
+    Users:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        createdAt:
+          type: string
+          format: date-time

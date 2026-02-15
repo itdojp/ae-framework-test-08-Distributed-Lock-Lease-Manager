@@ -1,0 +1,5 @@
+./lint/verify-lite-lint-summary.json
+./quality-gates/quality-report-development-2026-02-15T12-38-56-548Z.json
+./quality-gates/quality-report-development-latest.json
+./conformance/verify-lite-summary.json
+./conformance/verify-lite-summary.md
