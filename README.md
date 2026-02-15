@@ -19,10 +19,14 @@
 ## 自動化実行
 - 実行スクリプト: `scripts/run-ae-eval.sh`
 - 生成成果物の保存先: `artifacts/runs/<UTC timestamp>/`
+- 既定挙動: 実行開始後に更新された `ae-framework` 側成果物のみコピー
+- オプション:
+  - `AE_RUN_OPTIONAL=0` で optional ステップ（mbt/pbt/mutation/formal）をスキップ
 
 ## ローカル実装の実行
 - サーバー起動: `npm run start`
 - テスト一括: `npm run test:all`
+- 契約テストのみ: `npm run test:contract`
 
 ## 前提バージョン
 - Node.js: `>=20.11 <23`（ae-framework README 記載）

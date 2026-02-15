@@ -3,8 +3,6 @@ import { URL } from "node:url";
 
 import { LeaseManager, LeaseManagerError } from "./index.mjs";
 
-const manager = new LeaseManager();
-
 /**
  * @param {import("./lease-manager.mjs").LeaseRecord} lease
  */
@@ -52,10 +50,65 @@ async function readJson(req) {
 }
 
 /**
+ * @param {http.IncomingHttpHeaders} headers
+ * @returns {string|null}
+ */
+function headerOwner(headers) {
+  const raw = headers["x-owner-id"];
+  if (typeof raw === "string" && raw.length > 0) {
+    return raw;
+  }
+  if (Array.isArray(raw) && raw.length > 0 && typeof raw[0] === "string" && raw[0].length > 0) {
+    return raw[0];
+  }
+  return null;
+}
+
+/**
+ * @param {unknown} value
+ * @param {string} field
+ * @returns {string}
+ */
+function requireString(value, field) {
+  if (typeof value !== "string" || value.length === 0) {
+    throw new LeaseManagerError(`${field} is required`, "INVALID_REQUEST", 400);
+  }
+  return value;
+}
+
+/**
+ * @param {unknown} value
+ * @param {string} field
+ * @returns {number}
+ */
+function requireInteger(value, field) {
+  const num = Number(value);
+  if (!Number.isInteger(num)) {
+    throw new LeaseManagerError(`${field} must be integer`, "INVALID_REQUEST", 400);
+  }
+  return num;
+}
+
+/**
+ * @param {http.IncomingMessage} req
+ * @param {Record<string, unknown>} body
+ * @returns {string}
+ */
+function resolveOwnerId(req, body) {
+  const tokenOwner = headerOwner(req.headers);
+  const requestedOwner = requireString(body.owner_id, "owner_id");
+  if (tokenOwner && requestedOwner !== tokenOwner) {
+    throw new LeaseManagerError("owner_id does not match authenticated identity", "OWNER_TOKEN_MISMATCH", 401);
+  }
+  return tokenOwner ?? requestedOwner;
+}
+
+/**
  * @param {http.IncomingMessage} req
  * @param {http.ServerResponse} res
+ * @param {LeaseManager} manager
  */
-async function handler(req, res) {
+async function handler(req, res, manager) {
   try {
     const method = req.method ?? "GET";
     const url = new URL(req.url ?? "/", "http://localhost");
@@ -68,11 +121,11 @@ async function handler(req, res) {
     if (method === "POST" && pathname === "/leases/acquire") {
       const body = await readJson(req);
       const lease = manager.acquire({
-        tenantId: String(body.tenant_id ?? ""),
-        lockKey: String(body.lock_key ?? ""),
-        ownerId: String(body.owner_id ?? ""),
-        ttlSeconds: Number(body.ttl_seconds),
-        requestId: String(body.request_id ?? "")
+        tenantId: requireString(body.tenant_id, "tenant_id"),
+        lockKey: requireString(body.lock_key, "lock_key"),
+        ownerId: resolveOwnerId(req, body),
+        ttlSeconds: requireInteger(body.ttl_seconds, "ttl_seconds"),
+        requestId: requireString(body.request_id, "request_id")
       });
       return writeJson(res, 201, toLeaseResponse(lease));
     }
@@ -82,9 +135,9 @@ async function handler(req, res) {
       const body = await readJson(req);
       const lease = manager.renew({
         leaseId: decodeURIComponent(renewMatch[1]),
-        ownerId: String(body.owner_id ?? ""),
-        ttlSeconds: Number(body.ttl_seconds),
-        requestId: String(body.request_id ?? "")
+        ownerId: resolveOwnerId(req, body),
+        ttlSeconds: requireInteger(body.ttl_seconds, "ttl_seconds"),
+        requestId: requireString(body.request_id, "request_id")
       });
       return writeJson(res, 200, toLeaseResponse(lease));
     }
@@ -94,8 +147,8 @@ async function handler(req, res) {
       const body = await readJson(req);
       const lease = manager.release({
         leaseId: decodeURIComponent(releaseMatch[1]),
-        ownerId: String(body.owner_id ?? ""),
-        requestId: String(body.request_id ?? "")
+        ownerId: resolveOwnerId(req, body),
+        requestId: requireString(body.request_id, "request_id")
       });
       return writeJson(res, 200, toLeaseResponse(lease));
     }
@@ -103,7 +156,7 @@ async function handler(req, res) {
     const lockMatch = pathname.match(/^\/locks\/([^/]+)$/);
     if (method === "GET" && lockMatch) {
       const lockKey = decodeURIComponent(lockMatch[1]);
-      const tenantId = url.searchParams.get("tenant_id") ?? "";
+      const tenantId = requireString(url.searchParams.get("tenant_id"), "tenant_id");
       const lease = manager.getLock({ tenantId, lockKey });
       return writeJson(res, 200, {
         tenant_id: tenantId,
@@ -118,8 +171,8 @@ async function handler(req, res) {
     if (method === "POST" && forceMatch) {
       const lockKey = decodeURIComponent(forceMatch[1]);
       const body = await readJson(req);
-      const tenantId = String(body.tenant_id ?? "");
-      const actor = String(body.actor ?? "admin");
+      const tenantId = requireString(body.tenant_id, "tenant_id");
+      const actor = requireString(body.actor, "actor");
       const lease = manager.forceRelease({ tenantId, lockKey, actor });
       return writeJson(res, 200, {
         tenant_id: tenantId,
@@ -163,11 +216,13 @@ async function handler(req, res) {
 }
 
 /**
+ * @param {{ manager?: LeaseManager }} [options]
  * @returns {http.Server}
  */
-export function createServer() {
+export function createServer(options = {}) {
+  const manager = options.manager ?? new LeaseManager();
   return http.createServer((req, res) => {
-    void handler(req, res);
+    void handler(req, res, manager);
   });
 }
 

@@ -60,9 +60,15 @@
 - `src/server.mjs`
 3. 検証を追加:
 - `tests/unit/lease-manager.test.mjs`
+- `tests/contracts/api-contract.test.mjs`
 - `tests/integration/server-api.test.mjs`
 - `tests/property/lease-invariants.property.test.mjs`
 - `tests/mbt/lease-state-model.mbt.test.mjs`
 4. 成果物保存:
 - `artifacts/runs/20260215T104900Z-eval/*`（ae-framework自動実行）
 - `artifacts/runs/20260215T105530Z-impl-check/*`（本リポジトリ実装テスト）
+5. 自動化改善:
+- `scripts/run-ae-eval.sh` を更新し、実行開始後の更新分のみコピー
+- `AE_RUN_OPTIONAL=0` で optional ステップをスキップ可能に変更
+6. 改善後の実行証跡:
+- `artifacts/runs/20260215T111100Z-eval-fast/*`

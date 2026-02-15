@@ -8,10 +8,11 @@
     "start": "node src/server.mjs",
     "test": "node --test",
     "test:unit": "node --test tests/unit/*.test.mjs",
+    "test:contract": "node --test tests/contracts/*.test.mjs",
     "test:integration": "node --test tests/integration/*.test.mjs",
     "test:property": "node --test tests/property/*.test.mjs",
     "test:mbt": "node --test tests/mbt/*.test.mjs",
-    "test:all": "npm run test:unit && npm run test:integration && npm run test:property && npm run test:mbt"
+    "test:all": "npm run test:unit && npm run test:contract && npm run test:integration && npm run test:property && npm run test:mbt"
   },
   "engines": {
     "node": ">=20.11 <23"

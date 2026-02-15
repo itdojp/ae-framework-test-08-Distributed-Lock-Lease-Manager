@@ -5,8 +5,11 @@ AE_FRAMEWORK_ROOT="${AE_FRAMEWORK_ROOT:-/tmp/ae-framework}"
 RUN_ID="${RUN_ID:-$(date -u +%Y%m%dT%H%M%SZ)}"
 RUN_DIR="${PWD}/artifacts/runs/${RUN_ID}"
 LOG_DIR="${RUN_DIR}/logs"
+RUN_START_MARKER="${RUN_DIR}/.run-start.marker"
+AE_RUN_OPTIONAL="${AE_RUN_OPTIONAL:-1}"
 
 mkdir -p "${LOG_DIR}"
+: > "${RUN_START_MARKER}"
 
 if [ ! -d "${AE_FRAMEWORK_ROOT}" ]; then
   echo "AE_FRAMEWORK_ROOT が存在しません: ${AE_FRAMEWORK_ROOT}" >&2
@@ -45,6 +48,39 @@ run_optional() {
   fi
 }
 
+copy_changed_tree() {
+  local src="$1"
+  local dst="$2"
+  local label="$3"
+  local list_file="${RUN_DIR}/.${label}-changed-files.txt"
+
+  if [ ! -d "${src}" ]; then
+    echo 0
+    return
+  fi
+
+  (
+    cd "${src}"
+    find . -type f -newer "${RUN_START_MARKER}" -print
+  ) > "${list_file}"
+
+  if [ ! -s "${list_file}" ]; then
+    echo 0
+    return
+  fi
+
+  mkdir -p "${dst}"
+  (
+    cd "${src}"
+    tar -cf - -T "${list_file}"
+  ) | (
+    cd "${dst}"
+    tar -xf -
+  )
+
+  wc -l < "${list_file}" | tr -d " "
+}
+
 : > "${RUN_DIR}/summary.md"
 echo "# ae-framework evaluation summary" >> "${RUN_DIR}/summary.md"
 echo "" >> "${RUN_DIR}/summary.md"
@@ -56,19 +92,19 @@ codex_env=(CODEX_RUN_FORMAL=1 CODEX_SKIP_QUALITY=0 CODEX_TOLERANT=0)
 run_required "codex_quickstart" env "${codex_env[@]}" pnpm run codex:quickstart
 run_required "verify_lite" pnpm run verify:lite
 
-run_optional "mbt" pnpm run mbt
-run_optional "pbt" pnpm run pbt
-run_optional "mutation_quick" env STRYKER_TIME_LIMIT=0 pnpm run pipelines:mutation:quick
-run_optional "verify_csp" pnpm run verify:csp -- --file spec/csp/cspx-smoke.cspm --mode typecheck
-run_optional "verify_tla" pnpm run verify:tla -- --engine=tlc --file spec/tla/DomainSpec.tla
+if [ "${AE_RUN_OPTIONAL}" = "1" ]; then
+  run_optional "mbt" pnpm run mbt
+  run_optional "pbt" pnpm run pbt
+  run_optional "mutation_quick" env STRYKER_TIME_LIMIT=0 pnpm run pipelines:mutation:quick
+  run_optional "verify_csp" pnpm run verify:csp -- --file spec/csp/cspx-smoke.cspm --mode typecheck
+  run_optional "verify_tla" pnpm run verify:tla -- --engine=tlc --file spec/tla/DomainSpec.tla
+else
+  echo "[optional] skipped by AE_RUN_OPTIONAL=${AE_RUN_OPTIONAL}" | tee -a "${RUN_DIR}/summary.md"
+fi
 
 mkdir -p "${RUN_DIR}/ae-framework-artifacts" "${RUN_DIR}/ae-framework-reports"
-if [ -d "${AE_FRAMEWORK_ROOT}/artifacts" ]; then
-  cp -a "${AE_FRAMEWORK_ROOT}/artifacts/." "${RUN_DIR}/ae-framework-artifacts/"
-fi
-if [ -d "${AE_FRAMEWORK_ROOT}/reports" ]; then
-  cp -a "${AE_FRAMEWORK_ROOT}/reports/." "${RUN_DIR}/ae-framework-reports/"
-fi
+artifacts_copied="$(copy_changed_tree "${AE_FRAMEWORK_ROOT}/artifacts" "${RUN_DIR}/ae-framework-artifacts" "artifacts")"
+reports_copied="$(copy_changed_tree "${AE_FRAMEWORK_ROOT}/reports" "${RUN_DIR}/ae-framework-reports" "reports")"
 
 AE_COMMIT="$(git -C "${AE_FRAMEWORK_ROOT}" rev-parse HEAD 2>/dev/null || echo unknown)"
 AE_BRANCH="$(git -C "${AE_FRAMEWORK_ROOT}" rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
@@ -103,8 +139,13 @@ META
 echo "" >> "${RUN_DIR}/summary.md"
 echo "## status" >> "${RUN_DIR}/summary.md"
 echo "- required steps completed" >> "${RUN_DIR}/summary.md"
+echo "- optional steps enabled: ${AE_RUN_OPTIONAL}" >> "${RUN_DIR}/summary.md"
 echo "- optional step logs: ${RUN_DIR}/logs" >> "${RUN_DIR}/summary.md"
 echo "- copied artifacts: ${RUN_DIR}/ae-framework-artifacts" >> "${RUN_DIR}/summary.md"
 echo "- copied reports: ${RUN_DIR}/ae-framework-reports" >> "${RUN_DIR}/summary.md"
+echo "- copied artifacts files: ${artifacts_copied}" >> "${RUN_DIR}/summary.md"
+echo "- copied reports files: ${reports_copied}" >> "${RUN_DIR}/summary.md"
+
+rm -f "${RUN_START_MARKER}"
 
 echo "run complete: ${RUN_DIR}"

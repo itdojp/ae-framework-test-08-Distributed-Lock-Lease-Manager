@@ -34,9 +34,11 @@ automation:
   codex_skip_quality: false
   codex_tolerant: false
   codex_ui_dry_run: true
+  ae_run_optional: true
 
 artifact_policy:
   root: "artifacts/runs"
+  copy_mode: "changed_since_run_start"
   must_store:
     - "metadata.json"
     - "summary.md"

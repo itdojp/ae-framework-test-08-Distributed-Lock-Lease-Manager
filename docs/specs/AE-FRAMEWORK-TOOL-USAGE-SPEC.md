@@ -29,8 +29,10 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
   - `CODEX_RUN_FORMAL=1`
   - `CODEX_SKIP_QUALITY=0`
   - `CODEX_TOLERANT=0`
+  - `AE_RUN_OPTIONAL=1`（標準）、`0` で optional ステップを省略
 - 実行入口: `scripts/run-ae-eval.sh`
 - 実行結果の保存先: `artifacts/runs/<UTC timestamp>/`
+- 成果物コピー方針: 実行開始後に更新された `ae-framework` 側ファイルのみを保存
 
 ## 5. 実行順序（標準）
 1. `pnpm run build`
