@@ -1,0 +1,46 @@
+version: "0.1"
+profile_name: "distributed-lock-lease-eval"
+created_at_utc: "2026-02-15T00:00:00Z"
+
+project:
+  repository: "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager"
+  spec_issue: 1
+  runtime_issue: 2
+
+environment:
+  node: ">=20.11 <23"
+  pnpm: "10.x"
+  codex_cli: "0.101.0"
+  model_from_config:
+    top_level: "gpt-5.3-codex"
+    core_default_model: "gpt-5-high"
+    core_model: "gpt-5-codex"
+
+ae_framework:
+  root_env_var: "AE_FRAMEWORK_ROOT"
+  required_commands:
+    - "pnpm run build"
+    - "pnpm run codex:quickstart"
+    - "pnpm run verify:lite"
+  optional_commands:
+    - "pnpm run mbt"
+    - "pnpm run pbt"
+    - "STRYKER_TIME_LIMIT=0 pnpm run pipelines:mutation:quick"
+    - "pnpm run verify:csp -- --file spec/csp/cspx-smoke.cspm --mode typecheck"
+    - "pnpm run verify:tla -- --engine=tlc --file spec/tla/DomainSpec.tla"
+
+automation:
+  codex_run_formal: true
+  codex_skip_quality: false
+  codex_tolerant: false
+  codex_ui_dry_run: true
+
+artifact_policy:
+  root: "artifacts/runs"
+  must_store:
+    - "metadata.json"
+    - "summary.md"
+    - "logs/*.log"
+  copy_from_ae_framework:
+    - "artifacts/"
+    - "reports/"

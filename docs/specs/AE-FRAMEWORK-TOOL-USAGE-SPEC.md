@@ -1,0 +1,53 @@
+# ae-framework ツール活用仕様
+
+## 1. 目的
+Distributed Lock / Lease Manager 開発において、ae-framework で利用するツールを固定化し、実行方法・成果物・評価観点を標準化する。
+
+## 2. 前提（根拠）
+- Node.js `>=20.11 <23`（`https://github.com/itdojp/ae-framework/blob/main/README.md`）
+- pnpm `10.x`（`https://github.com/itdojp/ae-framework/blob/main/README.md`）
+- CodeX 統合導線（CLI/MCP/Adapter）あり（`https://github.com/itdojp/ae-framework/blob/main/docs/integrations/CODEX-INTEGRATION.md`）
+- 最小検証キット指針あり（`https://github.com/itdojp/ae-framework/blob/main/docs/reference/SPEC-VERIFICATION-KIT-MIN.md`）
+
+## 3. 採用ツール一覧
+| 区分 | 採用コマンド | 目的 | 主出力 |
+| --- | --- | --- | --- |
+| 品質ゲート | `pnpm run verify:lite` | Lint/型/テストの最小合否を自動判定 | `artifacts/verify-lite/*` |
+| CodeX PoC統合 | `pnpm run codex:quickstart` | CodeX連携の自動実行と要約生成 | `artifacts/codex-quickstart-summary.md` |
+| 仕様合成MCP | `pnpm run codex:mcp:spec` | AE-Spec の validate/compile/codegen | `artifacts/codex/result-*.json` |
+| 検証MCP | `pnpm run codex:mcp:verify` | 検証結果を機械可読で取得 | `artifacts/codex/result-verify.json` |
+| テスト生成MCP | `pnpm run codex:mcp:test` | 契約/テスト生成の自動化 | `tests/api/generated/*` |
+| 実装補助MCP | `pnpm run codex:mcp:code` | 実装テンプレ生成の自動化 | `artifacts/codex/result-code.json` |
+| MBT | `pnpm run mbt` | 状態遷移の網羅検証 | `artifacts/*`（実行ログ含む） |
+| Property | `pnpm run pbt` | 不変条件の確率的検証 | `artifacts/*`（実行ログ含む） |
+| Mutation | `STRYKER_TIME_LIMIT=0 pnpm run pipelines:mutation:quick` | テスト有効性測定 | `reports/*`, `artifacts/*` |
+| 形式検証（段階導入） | `pnpm run verify:csp ...`, `pnpm run verify:tla ...` | 並行性・安全性の検証 | `artifacts/hermetic-reports/formal/*` |
+
+## 4. 自動化設定
+- 方針: 手動判断を最小化し、コマンド列はスクリプト化する。
+- 実行プロファイル:
+  - `CODEX_RUN_FORMAL=1`
+  - `CODEX_SKIP_QUALITY=0`
+  - `CODEX_TOLERANT=0`
+- 実行入口: `scripts/run-ae-eval.sh`
+- 実行結果の保存先: `artifacts/runs/<UTC timestamp>/`
+
+## 5. 実行順序（標準）
+1. `pnpm run build`
+2. `pnpm run codex:quickstart`
+3. `pnpm run verify:lite`
+4. `pnpm run mbt`
+5. `pnpm run pbt`
+6. `STRYKER_TIME_LIMIT=0 pnpm run pipelines:mutation:quick`
+7. `pnpm run verify:csp -- --file spec/csp/cspx-smoke.cspm --mode typecheck`
+8. `pnpm run verify:tla -- --engine=tlc --file spec/tla/DomainSpec.tla`
+
+## 6. 評価指標
+1. 検証再現性: 同一入力で同等の結果が再取得可能
+2. 追跡可能性: 要件ID（LS-*）とテスト/検証結果の紐付けが可能
+3. 自動化率: 手作業なしでフェーズ進行できる割合
+4. 品質検出力: mutation/formal で欠陥が顕在化する割合
+
+## 7. 変更管理
+- 採用ツールの追加・削除は本仕様を更新し、Issueで理由を記録する。
+- ツール未導入や前提不足がある場合は「未導入理由」と「代替手順」を明記する。
