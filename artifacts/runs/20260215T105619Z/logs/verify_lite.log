@@ -1,0 +1,11 @@
+
+> ae-framework@1.0.0 verify:lite /tmp/ae-framework
+> node scripts/admin/run-script-alias.mjs verify:lite
+
+[script-alias] "verify:lite" is deprecated. Use: node scripts/verify/run.mjs --profile=lite
+[script-alias] Removal target: after two releases (exact version TBD). Keep old script names for two releases.
+[verify-lite] installing dependencies (--frozen-lockfile)
+Scope: all 10 workspace projects
+Already up to date
+Done in 268ms
+[verify-lite] building spec-compiler types (non-blocking)

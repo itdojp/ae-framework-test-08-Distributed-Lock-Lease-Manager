@@ -1,0 +1,8 @@
+{
+  "run_id": "20260215T105619Z",
+  "executed_at_utc": "2026-02-15T10:56:19Z",
+  "status": "aborted",
+  "reason": "accidental invocation triggered by shell quote expansion during issue comment command",
+  "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
+  "notes": "logs are preserved for traceability"
+}
