@@ -1,0 +1,154 @@
+
+> ae-framework@1.0.0 pbt /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework
+> vitest run -c tests/property/vitest.config.ts
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90m/home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework[39m
+
+ [32m✓[39m tests/property/kvonce.safety.property.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 78[2mms[22m[39m
+[90mstderr[2m | tests/property/reservation.pbt.test.ts[2m > [22m[2mAE-IR Property-Based Tests[2m > [22m[2mCode Generation Stability Properties[2m > [22m[2mshould detect drift when AE-IR changes
+[22m[39m⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+⚠️  Drift detected: { totalFiles: [33m2[39m, driftedFiles: [33m1[39m, upToDateFiles: [33m1[39m }
+
+ [32m✓[39m tests/property/reservation.pbt.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 384[2mms[22m[39m
+ [32m✓[39m tests/property/web-api/reservation.spec.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 400[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.mixed-boundaries.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 42[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.large-mixed.randomized-keywords.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m tests/property/email.normalize.idempotent.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 101[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.trim-edge.large-docs.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 11[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.compression.alternative-content.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 11[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.priority.order.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 14[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.present-only.sections.large.alt4.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 33[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.compression.alt-content.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 21[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.large-mixed.sections.order.randomized.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.priority.interleaved.headers-large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 9[2mms[22m[39m
+ [32m✓[39m tests/property/utils.circuit-breaker.pbt.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 30[2mms[22m[39m
+ [32m✓[39m tests/property/email.brand.is.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 19[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.mixed-headers-bullets.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 15[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.deduplication.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 20[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.codefence.many.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers.bullets.fences.mixed.large3.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 8[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.bullets.reorder.dedup.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.duplicate-headers.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.first-present.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m tests/property/phase-state-manager.transitions.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 32[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.random-large.mixed-order.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.codefence.count.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 12[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.input-order.invariance.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 19[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers.swap.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 15[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.priority.extreme.boundary.large5.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 8[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.priority.extreme.boundary.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 10[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.priority.boundary.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 9[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.present-only.order.idempotent.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 14[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.random.order.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 14[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.mixed-headers-fences.large3.alt.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.priority.random-subsets.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.cache.consistency.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 9[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.large-docs.headers-and-code.mixed.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 18[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.truncate.boundary.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 19[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.random-and-missing.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 18[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.optimize.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 22[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.large-docs.smoke.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 24[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers.order.stable.large.alt5.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 7[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers.order.stable.large.alt2.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.dedup.never-increase.tokens.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 19[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.large-data.order.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 12[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.priority.extreme.boundary.large3.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.dedup.with-codeblocks.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 18[2mms[22m[39m
+ [32m✓[39m tests/property/email.normalize.pbt.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 17[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.mixed-headers-and-code.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 19[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.missing-section.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 18[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers.bullets.codeblocks.mixed.large2.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.whitespace.many-lines.reduction.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 7[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.no-duplicate.headers.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.compression-level.effect.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 7[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.sections.order.stable.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.max-tokens.boundary.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 25[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.large-docs.codeblock-heavy.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 15[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers.bullets.fences.mixed.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.medium-leq-low.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 46[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers.multiple.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 15[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.priority.extreme.boundary.large2.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.whitespace.heavy.reduction.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.compression-ladder.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 7[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.codeblock.preserve.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 16[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.codeblocks.large-preserve.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 18[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.maxTokens.edge.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.large-mixed.reduction.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 28[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers.order.stable.large.alt4.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 7[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.duplicate-paragraphs.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 12[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers.order.stable.large.alt3.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers-heavy.large-docs.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 16[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.trim-edge.trailing-comma.boundary.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.dedup.boundary.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.extreme-duplication.multi-section.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 18[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.priority.extreme.boundary.large4.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.truncate.sentinel.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 8[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.nocache.deterministic.output.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 12[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.codefence.preserve.atleastone.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.duplicate-headers.with-codeblocks.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 7[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.priority.missing-middle.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.compression.high-leq-medium.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 49[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.maxTokens.monotonic.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 42[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.present-only.sections.large.alt2.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.truncate.boundary.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 28[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.maxTokens.monotonic.decrease.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preserve-priority.order.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.dedup.non-increase.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 21[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.present-only.sections.large.alt3.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.truncate.sentinel.alt2.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.absent-design.not-introduced.large.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.custom.order.edge2.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.missing-top-two.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/benchmark.standardize.requirements.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[33m 15874[2mms[22m[39m
+   [33m[2m✓[22m[39m PBT: StandardizedBenchmarkRunner.normalizeSpecification[2m > [22mcollects requirement strings from varied shapes [33m15872[2mms[22m[39m
+ [32m✓[39m tests/property/error-utils.tomessage.tostack.pbt.test.ts [2m([22m[2m2 tests[22m[2m)[22m[90m 60[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.deduplication.sentences.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.missing-first-but-second-present.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.codefence.balanced.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 11[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.empty-sections.zero-output.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 3[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.present-only.sections.large.alt5.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.huge-input.smoke.alt2.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 30[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.optimizeContext.keyword.selection.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.cache.maxsize.boundary.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 16[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.empty-top.fallback.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 9[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.caching.idempotent.output.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.maxTokens.decrease.never-increase.tokens.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.optimize-context.monotonic.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 31[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.trim-whitespace.monotonicity.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 19[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.processdocument.strips-comments.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.preservePriority.standards-only.first.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.headers-bullets.preserve.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.trim-end.no-period.boundary.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.truncate.sentinel.absence.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.present-only.sections.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.cache.eviction.boundary.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 8[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.huge-input.smoke.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 13[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.codeblock.preserve.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.estimateTokens.punctuation.monotonicity.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.estimateTokens.whitespace.monotonicity.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.cache.boundary.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 16[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.empty-docs.zero-output.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 5[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.cache.clear.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 6[2mms[22m[39m
+ [32m✓[39m tests/property/email.rejection.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 21[2mms[22m[39m
+ [32m✓[39m tests/property/token-optimizer.estimateTokens.monotonicity.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 4[2mms[22m[39m
+ [32m✓[39m tests/property/error-utils.tomessage.idempotent.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 43[2mms[22m[39m
+ [32m✓[39m tests/property/error-utils.tostack.nullsafe.pbt.test.ts [2m([22m[2m1 test[22m[2m)[22m[90m 40[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m124 passed[39m[22m[90m (124)[39m
+[2m      Tests [22m [1m[32m135 passed[39m[22m[90m (135)[39m
+[2m   Start at [22m 08:52:05
+[2m   Duration [22m 21.32s[2m (transform 1.33s, setup 1.03s, collect 11.50s, tests 18.48s, environment 32ms, prepare 11.39s)[22m
+

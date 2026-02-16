@@ -1,22 +1,29 @@
 {
-  "generated_at_utc": "2026-02-16T08:48:31.262Z",
+  "generated_at_utc": "2026-02-16T08:58:19.518Z",
   "root": "artifacts/runs",
   "summary": {
-    "total_runs": 78,
+    "total_runs": 79,
     "by_status": {
-      "success": 63,
+      "success": 64,
       "failed": 1,
       "aborted": 1,
       "unknown": 13
     },
     "by_source": {
-      "gha": 67,
+      "gha": 68,
       "local": 11
     },
     "optional_failure_runs": 5,
     "pbt_compat_triggered_runs": 5,
     "pbt_compat_recovered_runs": 5,
     "latest_by_workflow": {
+      "AE Eval Full": {
+        "run_id": "gha-22055991796-1",
+        "status": "success",
+        "executed_at_utc": "2026-02-16T08:57:59.000Z",
+        "path": "artifacts/runs/gha-22055991796-1",
+        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055991796"
+      },
       "AE Eval Fast": {
         "run_id": "gha-22055883246-1",
         "status": "success",
@@ -30,17 +37,62 @@
         "executed_at_utc": "2026-02-16T08:46:22.000Z",
         "path": "artifacts/runs/gha-22055883217-1",
         "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055883217"
-      },
-      "AE Eval Full": {
-        "run_id": "gha-22055552166-1",
-        "status": "success",
-        "executed_at_utc": "2026-02-16T08:42:53.000Z",
-        "path": "artifacts/runs/gha-22055552166-1",
-        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055552166"
       }
     }
   },
   "runs": [
+    {
+      "run_dir": "gha-22055991796-1",
+      "run_id": "gha-22055991796-1",
+      "source": "gha",
+      "workflow_name": "AE Eval Full",
+      "executed_at_utc": "2026-02-16T08:57:59.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 5,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [
+        {
+          "step": "mbt",
+          "status": "success",
+          "exit_code": 0
+        },
+        {
+          "step": "pbt",
+          "status": "success",
+          "exit_code": 0
+        },
+        {
+          "step": "mutation_quick",
+          "status": "success",
+          "exit_code": 0
+        },
+        {
+          "step": "verify_csp",
+          "status": "success",
+          "exit_code": 0
+        },
+        {
+          "step": "verify_tla",
+          "status": "success",
+          "exit_code": 0
+        }
+      ],
+      "pbt_compat_mode": "1",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055991796",
+      "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055991796",
+      "artifact": {
+        "artifact_name": "ae-eval-full-artifacts",
+        "artifact_id": 5522662546,
+        "artifact_size_bytes": 382139,
+        "artifact_digest": "sha256:d493c795d96e120b362b9738e2d03d04ca363a8296e815c2cd34770c434bc9be"
+      },
+      "path": "artifacts/runs/gha-22055991796-1"
+    },
     {
       "run_dir": "gha-22055883246-1",
       "run_id": "gha-22055883246-1",
