@@ -18,6 +18,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 - 任意保存:
   - `ae-framework-artifacts/`（ae-framework 側成果物コピー）
   - `ae-framework-reports/`（比較レポート等）
+  - `index.json` / `index.md`（`artifacts/runs/` 全体の集約インデックス）
   - `artifacts/traceability/latest.json` / `latest.md`（要件トレーサビリティ自動検証結果）
 
 ## 4. コミット規約
@@ -26,6 +27,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 3. 大容量バイナリは原則避け、必要時は圧縮の上で保存理由を `summary.md` に記載する。
 4. GitHub Actions artifact を取り込む場合は `scripts/import-gha-artifact.sh <run_id>` を使用し、`artifacts/runs/gha-<run_id>-<attempt>/` に保存する。
 5. 最新の成功runを定期同期する場合は `scripts/sync-gha-artifacts.sh` を使用し、run ID の手入力を排除する。
+6. run追加後は `scripts/generate-run-index.mjs` を実行し、`artifacts/runs/index.json` / `index.md` を更新する。
 
 ## 5. 参照規約
 - 各Issue/PRには対象実行ディレクトリへのパスを明記する。

@@ -34,6 +34,7 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
 - 実行入口: `scripts/run-ae-eval.sh`
 - CI成果物のリポジトリ保存: `scripts/import-gha-artifact.sh <run_id>`
 - CI成果物の最新一括同期: `scripts/sync-gha-artifacts.sh`（workflow名から最新成功runを自動解決）
+- 評価履歴インデックス生成: `scripts/generate-run-index.mjs`（`artifacts/runs/index.json` / `index.md`）
 - 実行結果の保存先: `artifacts/runs/<UTC timestamp>/`
 - 成果物コピー方針: 実行開始後に更新された `ae-framework` 側ファイルのみを保存
 - optional ステップ失敗は non-blocking で継続し、`metadata.json` の `optional_failures` に記録する

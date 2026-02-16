@@ -20,6 +20,7 @@
 - 実行スクリプト: `scripts/run-ae-eval.sh`
 - GHA成果物取り込み: `scripts/import-gha-artifact.sh`
 - GHA最新成果物の一括同期: `scripts/sync-gha-artifacts.sh`
+- 評価runインデックス生成: `scripts/generate-run-index.mjs`
 - 生成成果物の保存先: `artifacts/runs/<UTC timestamp>/`
 - 既定挙動: 実行開始後に更新された `ae-framework` 側成果物のみコピー
 - オプション:
@@ -48,6 +49,8 @@
 - トレーサビリティレポート生成: `npm run traceability:generate`
 - GitHub Actions artifact 取り込み: `npm run artifacts:import-gha -- <run_id> [--artifact <artifact_name>]`
 - GitHub Actions 最新artifact一括同期: `npm run artifacts:sync-gha -- [--workflow \"AE Eval Full\"]`
+- 評価runインデックス生成: `npm run artifacts:index`
+- 同期 + インデックス一括実行: `npm run artifacts:sync-index`
 
 ## API認可補足
 - `acquire/renew/release` は `x-owner-id` 必須（不足時 `401 OWNER_TOKEN_REQUIRED`）

@@ -114,3 +114,6 @@
 17. GHA成果物同期の自動化:
 - `scripts/sync-gha-artifacts.sh` を追加し、workflow名（`AE Eval Fast`/`AE Eval Full`/`CI Basic`）から最新成功runを自動解決して取り込み
 - `npm run artifacts:sync-gha` を追加し、手動run ID指定を不要化
+18. 評価runインデックスの自動生成:
+- `scripts/generate-run-index.mjs` を追加し、`artifacts/runs/index.json` / `index.md` を生成
+- `npm run artifacts:index` / `npm run artifacts:sync-index` を追加し、同期後の集約更新を標準化
