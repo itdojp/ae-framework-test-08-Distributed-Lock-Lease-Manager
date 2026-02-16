@@ -146,3 +146,7 @@
 - `scripts/run-ae-eval.sh` の `run_optional_pbt_compat` を更新し、`pbt` 成功時はフォールバックを実行しないよう修正
 - `pbt` 失敗時も `tests/property/vitest.config.ts` の解決失敗ログがある場合のみ `pbt_compat_test_property` を起動するよう制約
 - `pbt_compat_triggered` の誤検知を防止し、metadata の評価指標精度を改善
+27. 仕様適合性検証の補強と有用性評価の自動化:
+- `tests/unit/lease-manager.test.mjs` に `LS-ACQ-003` / `LS-RNW-002/003` / `LS-REL-002/003` の明示テストを追加
+- `npm run test:all` と `npm run traceability:generate` で再検証し、`artifacts/traceability/latest.*` を更新
+- `scripts/evaluate-ae-framework-usefulness.mjs` を追加し、`artifacts/runs/index.json` と `artifacts/traceability/latest.json` から有用性評価レポートを自動生成可能化

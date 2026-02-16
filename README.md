@@ -58,6 +58,7 @@
 - 状態永続化テスト: `node --test tests/unit/state-persistence.test.mjs`
 - 契約テスト雛形生成: `npm run contracts:generate`
 - トレーサビリティレポート生成: `npm run traceability:generate`
+- ae-framework有用性評価レポート生成: `npm run evaluate:ae-framework`
 - GitHub Actions artifact 取り込み: `npm run artifacts:import-gha -- <run_id> [--artifact <artifact_name>]`
 - GitHub Actions artifact一括同期（取得範囲内の未取り込みsuccess run全件）: `npm run artifacts:sync-gha -- [--workflow \"AE Eval Full\"]`
 - 既存取り込みのメタデータ補完: `npm run artifacts:backfill-meta`

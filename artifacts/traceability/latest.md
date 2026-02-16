@@ -1,7 +1,7 @@
 # Traceability Report
 
 - source: `spec/requirements.md`
-- generated_at: `2026-02-15T13:34:31.075Z`
+- generated_at: `2026-02-16T11:08:41.594Z`
 - rows: `19`
 - full_mapped: `19`
 - failed_rows: `0`

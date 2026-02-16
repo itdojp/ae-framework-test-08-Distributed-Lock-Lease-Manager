@@ -37,6 +37,7 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
 - 既存取り込みのメタデータ補完: `scripts/backfill-imported-run-metadata.sh`
 - 既存取り込みの run URL 補完: `scripts/backfill-gha-run-links.sh`
 - 評価履歴インデックス生成: `scripts/generate-run-index.mjs`（`artifacts/runs/index.json` / `index.md`）
+- 有用性評価レポート生成: `scripts/evaluate-ae-framework-usefulness.mjs`（`artifacts/evaluation/ae-framework-usefulness-latest.json` / `ae-framework-usefulness-latest.md`）
 - `index` 生成は内容不変時に既存 `generated_at_utc` を保持し、timestamp-only 差分を抑止する
 - 実行結果の保存先: `artifacts/runs/<UTC timestamp>/`
 - 成果物コピー方針: 実行開始後に更新された `ae-framework` 側ファイルのみを保存

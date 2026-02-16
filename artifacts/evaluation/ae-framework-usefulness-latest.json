@@ -1,0 +1,151 @@
+{
+  "generated_at_utc": "2026-02-16T11:10:29.748Z",
+  "inputs": {
+    "run_index": "artifacts/runs/index.json",
+    "traceability": "artifacts/traceability/latest.json"
+  },
+  "overall_score": 100,
+  "conclusion": "usable",
+  "metrics": [
+    {
+      "id": "reproducibility",
+      "checks": [
+        {
+          "id": "latest_ci_basic_success",
+          "description": "最新 CI Basic が success",
+          "pass": true,
+          "evidence": "gha-22055883217-1"
+        },
+        {
+          "id": "latest_ae_eval_fast_success",
+          "description": "最新 AE Eval Fast が success",
+          "pass": true,
+          "evidence": "gha-22055883246-1"
+        },
+        {
+          "id": "latest_ae_eval_full_success",
+          "description": "最新 AE Eval Full が success",
+          "pass": true,
+          "evidence": "gha-22055991796-1"
+        }
+      ],
+      "passed": 3,
+      "total": 3,
+      "score": 100
+    },
+    {
+      "id": "traceability",
+      "checks": [
+        {
+          "id": "traceability_coverage_100",
+          "description": "トレーサビリティ被覆率が 100%",
+          "pass": true,
+          "evidence": "100"
+        }
+      ],
+      "passed": 1,
+      "total": 1,
+      "score": 100
+    },
+    {
+      "id": "automation",
+      "checks": [
+        {
+          "id": "ci_basic_push",
+          "description": "CI Basic が push(main) で自動実行される",
+          "pass": true,
+          "evidence": ".github/workflows/ci-basic.yml"
+        },
+        {
+          "id": "ae_eval_fast_push",
+          "description": "AE Eval Fast が push(main) で自動実行される",
+          "pass": true,
+          "evidence": ".github/workflows/ae-eval-fast.yml"
+        },
+        {
+          "id": "ae_eval_full_schedule",
+          "description": "AE Eval Full が schedule で定期実行される",
+          "pass": true,
+          "evidence": ".github/workflows/ae-eval-full.yml"
+        },
+        {
+          "id": "artifacts_maintenance_schedule",
+          "description": "Artifacts Maintenance が schedule で定期同期される",
+          "pass": true,
+          "evidence": ".github/workflows/artifacts-maintenance.yml"
+        },
+        {
+          "id": "sync_on_workflow_run",
+          "description": "完了イベント連動で artifacts 同期される",
+          "pass": true,
+          "evidence": ".github/workflows/artifacts-sync-on-workflow-complete.yml"
+        }
+      ],
+      "passed": 5,
+      "total": 5,
+      "score": 100
+    },
+    {
+      "id": "quality_detection",
+      "checks": [
+        {
+          "id": "historical_optional_failure_observed",
+          "description": "AE Eval Full で optional 失敗の履歴を観測できる",
+          "pass": true,
+          "evidence": "5"
+        },
+        {
+          "id": "latest_full_optional_failures_zero",
+          "description": "最新 AE Eval Full の optional_fail_count が 0",
+          "pass": true,
+          "evidence": "0"
+        },
+        {
+          "id": "latest_full_pbt_compat_not_triggered",
+          "description": "最新 AE Eval Full で pbt 互換フォールバックが不要",
+          "pass": true,
+          "evidence": "0"
+        }
+      ],
+      "passed": 3,
+      "total": 3,
+      "score": 100
+    }
+  ],
+  "evidence": {
+    "traceability_coverage_percent": 100,
+    "latest_runs": {
+      "ci_basic": {
+        "run_id": "gha-22055883217-1",
+        "status": "success",
+        "executed_at_utc": "2026-02-16T08:46:22.000Z",
+        "optional_fail_count": 0,
+        "pbt_compat_triggered": 0,
+        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055883217",
+        "path": "artifacts/runs/gha-22055883217-1"
+      },
+      "ae_eval_fast": {
+        "run_id": "gha-22055883246-1",
+        "status": "success",
+        "executed_at_utc": "2026-02-16T08:48:13.000Z",
+        "optional_fail_count": 0,
+        "pbt_compat_triggered": 0,
+        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055883246",
+        "path": "artifacts/runs/gha-22055883246-1"
+      },
+      "ae_eval_full": {
+        "run_id": "gha-22055991796-1",
+        "status": "success",
+        "executed_at_utc": "2026-02-16T08:57:59.000Z",
+        "optional_fail_count": 0,
+        "pbt_compat_triggered": 0,
+        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055991796",
+        "path": "artifacts/runs/gha-22055991796-1"
+      }
+    },
+    "ae_eval_full_runs": 7,
+    "ae_eval_full_optional_failure_runs": 5,
+    "latest_full_optional_fail_count": 0,
+    "latest_full_pbt_compat_triggered": 0
+  }
+}
