@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0.0",
+  "timestamp": "2026-02-16T11:12:33Z",
+  "metadata": {
+    "generatedAtUtc": "2026-02-16T11:12:33.000Z",
+    "generatedAtLocal": "2026-02-16T11:12:33.000+00:00",
+    "timezoneOffset": "+00:00",
+    "gitCommit": "d278f455e46756e9e78f00c10cb9f0e8af7af773",
+    "branch": "main",
+    "runner": {
+      "name": "GitHub Actions 1000277667",
+      "os": "Linux",
+      "arch": "X64",
+      "ci": true
+    },
+    "toolVersions": {
+      "node": "v22.22.0",
+      "pnpm": "10.0.0"
+    }
+  },
+  "flags": {
+    "install": "--frozen-lockfile",
+    "noFrozen": false,
+    "keepLintLog": false,
+    "enforceLint": false,
+    "runMutation": false
+  },
+  "steps": {
+    "install": {
+      "status": "success",
+      "notes": "flags=--frozen-lockfile",
+      "retried": false
+    },
+    "specCompilerBuild": {
+      "status": "success"
+    },
+    "typeCheck": {
+      "status": "success"
+    },
+    "lint": {
+      "status": "success"
+    },
+    "build": {
+      "status": "success"
+    },
+    "stateMachineValidation": {
+      "status": "success"
+    },
+    "stateMachineRender": {
+      "status": "success"
+    },
+    "bddLint": {
+      "status": "success"
+    },
+    "mutationQuick": {
+      "status": "skipped",
+      "notes": null
+    },
+    "conformanceReport": {
+      "status": "skipped",
+      "notes": "runs=0;violations=0"
+    }
+  },
+  "artifacts": {
+    "lintSummary": "verify-lite-lint-summary.json",
+    "lintLog": null,
+    "mutationSummary": null,
+    "mutationSurvivors": null,
+    "conformanceSummary": "reports/conformance/verify-lite-summary.json",
+    "conformanceSummaryMarkdown": "reports/conformance/verify-lite-summary.md"
+  }
+}
