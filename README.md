@@ -44,7 +44,7 @@
   - `artifacts/runs/` に差分がある場合のみ自動コミット/Push
   - `index` 内容不変時は `generated_at_utc` を据え置き、timestamp-only 差分コミットを抑止
 - `Artifacts Sync On Workflow Complete` (`.github/workflows/artifacts-sync-on-workflow-complete.yml`):
-  - `CI Basic` / `AE Eval Fast` / `AE Eval Full` が `success` で完了した直後に当該 run を即時取り込み
+  - `CI Basic` / `AE Eval Fast` / `AE Eval Full` が `success` で完了した直後に起動し、同一 `head_sha` の成功runをまとめて取り込み
   - `backfill-meta` / `index` 更新まで実行し、差分がある場合のみ自動コミット/Push
 
 ## ローカル実装の実行

@@ -37,34 +37,70 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_TOKEN: ${{ github.token }}
-          RUN_ID: ${{ github.event.workflow_run.id }}
-          WORKFLOW_NAME: ${{ github.event.workflow_run.name }}
+          TRIGGER_RUN_ID: ${{ github.event.workflow_run.id }}
+          TRIGGER_WORKFLOW_NAME: ${{ github.event.workflow_run.name }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
           REPO_SLUG: ${{ github.repository }}
         run: |
           set -euo pipefail
 
-          case "${WORKFLOW_NAME}" in
-            "AE Eval Fast")
-              ARTIFACT_NAME="ae-eval-fast-artifacts"
-              ;;
-            "AE Eval Full")
-              ARTIFACT_NAME="ae-eval-full-artifacts"
-              ;;
-            "CI Basic")
-              ARTIFACT_NAME="ci-basic-logs"
-              ;;
-            *)
-              echo "skip: unsupported workflow ${WORKFLOW_NAME}"
-              exit 0
-              ;;
-          esac
+          echo "trigger_run_id=${TRIGGER_RUN_ID}"
+          echo "trigger_workflow=${TRIGGER_WORKFLOW_NAME}"
+          echo "head_sha=${HEAD_SHA}"
 
-          if compgen -G "artifacts/runs/gha-${RUN_ID}-*" > /dev/null; then
-            echo "skip: already imported run ${RUN_ID}"
+          # 同一head_shaで実行中の関連workflowがある場合、一定時間待ってまとめて取り込む。
+          for _ in $(seq 1 18); do
+            pending_count="$(gh run list \
+              -R "${REPO_SLUG}" \
+              --commit "${HEAD_SHA}" \
+              --limit 20 \
+              --json name,status \
+              --jq '[.[] | select((.name=="CI Basic" or .name=="AE Eval Fast" or .name=="AE Eval Full") and .status!="completed")] | length')"
+            if [[ "${pending_count}" == "0" ]]; then
+              break
+            fi
+            sleep 10
+          done
+
+          imported_count=0
+          while IFS=$'\t' read -r run_id workflow_name; do
+            [[ -z "${run_id}" || -z "${workflow_name}" ]] && continue
+
+            case "${workflow_name}" in
+              "AE Eval Fast")
+                artifact_name="ae-eval-fast-artifacts"
+                ;;
+              "AE Eval Full")
+                artifact_name="ae-eval-full-artifacts"
+                ;;
+              "CI Basic")
+                artifact_name="ci-basic-logs"
+                ;;
+              *)
+                continue
+                ;;
+            esac
+
+            if compgen -G "artifacts/runs/gha-${run_id}-*" > /dev/null; then
+              echo "skip: already imported run ${run_id} (${workflow_name})"
+              continue
+            fi
+
+            echo "import: run_id=${run_id} workflow=${workflow_name} artifact=${artifact_name}"
+            scripts/import-gha-artifact.sh "${run_id}" --artifact "${artifact_name}" --repo "${REPO_SLUG}"
+            imported_count=$((imported_count + 1))
+          done < <(gh run list \
+            -R "${REPO_SLUG}" \
+            --commit "${HEAD_SHA}" \
+            --limit 20 \
+            --json databaseId,name,status,conclusion \
+            --jq '.[] | select(.status=="completed" and .conclusion=="success") | [.databaseId,.name] | @tsv')
+
+          if [[ "${imported_count}" == "0" ]]; then
+            echo "No runs imported for head_sha=${HEAD_SHA}"
             exit 0
           fi
 
-          scripts/import-gha-artifact.sh "${RUN_ID}" --artifact "${ARTIFACT_NAME}" --repo "${REPO_SLUG}"
           bash scripts/backfill-imported-run-metadata.sh
           node scripts/generate-run-index.mjs
 
