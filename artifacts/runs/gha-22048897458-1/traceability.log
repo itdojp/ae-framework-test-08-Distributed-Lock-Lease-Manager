@@ -1,0 +1,9 @@
+
+> distributed-lock-lease-manager@0.1.0 traceability:generate
+> node scripts/generate-traceability-report.mjs
+
+traceability rows: 19
+full mapped rows: 19
+coverage: 100%
+json: artifacts/traceability/latest.json
+markdown: artifacts/traceability/latest.md

@@ -1,0 +1,16 @@
+{
+  "specification": "spec_1771211806395_gmc37at89",
+  "properties": [
+    {
+      "name": "SafetyProperty",
+      "satisfied": true,
+      "description": "Property check for: SafetyProperty"
+    }
+  ],
+  "counterExamples": [],
+  "statistics": {
+    "statesExplored": 4350,
+    "timeElapsed": 1771211806437,
+    "memoryUsed": 0
+  }
+}
