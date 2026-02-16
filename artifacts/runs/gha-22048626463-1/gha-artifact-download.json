@@ -1,0 +1,12 @@
+{
+  "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
+  "run_id": 22048626463,
+  "run_attempt": 1,
+  "workflow_name": "AE Eval Fast",
+  "head_sha": "d9681cea7dee51799a26dbb1b0ce0d12f5c9044e",
+  "artifact_name": "ae-eval-fast-artifacts",
+  "artifact_id": 5520125774,
+  "artifact_size_bytes": 38120,
+  "artifact_digest": "sha256:cfd065218977bcd8eb210d4ecefc99b58a1d8f3c5569c1686480d419b083eab4",
+  "downloaded_at_utc": "2026-02-16T03:02:57Z"
+}
