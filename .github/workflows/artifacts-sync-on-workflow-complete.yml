@@ -105,6 +105,7 @@ jobs:
           fi
 
           bash scripts/backfill-imported-run-metadata.sh
+          bash scripts/backfill-gha-run-links.sh
           node scripts/generate-run-index.mjs
 
       - name: Commit and push changes

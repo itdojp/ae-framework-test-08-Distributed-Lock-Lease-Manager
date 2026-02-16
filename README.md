@@ -21,6 +21,7 @@
 - GHA成果物取り込み: `scripts/import-gha-artifact.sh`
 - GHA成果物の一括同期（未取り込み成功run全件）: `scripts/sync-gha-artifacts.sh`
 - 既存取り込みのメタデータ補完: `scripts/backfill-imported-run-metadata.sh`
+- 既存取り込みの run URL 補完: `scripts/backfill-gha-run-links.sh`
 - 評価runインデックス生成: `scripts/generate-run-index.mjs`
 - 生成成果物の保存先: `artifacts/runs/<UTC timestamp>/`
 - 既定挙動: 実行開始後に更新された `ae-framework` 側成果物のみコピー
@@ -60,6 +61,7 @@
 - GitHub Actions artifact 取り込み: `npm run artifacts:import-gha -- <run_id> [--artifact <artifact_name>]`
 - GitHub Actions artifact一括同期（取得範囲内の未取り込みsuccess run全件）: `npm run artifacts:sync-gha -- [--workflow \"AE Eval Full\"]`
 - 既存取り込みのメタデータ補完: `npm run artifacts:backfill-meta`
+- 既存取り込みのrun URL補完: `npm run artifacts:backfill-links`
 - 評価runインデックス生成: `npm run artifacts:index`
 - 同期 + インデックス一括実行: `npm run artifacts:sync-index`
 - 補完 + インデックス再生成: `npm run artifacts:hydrate-index`

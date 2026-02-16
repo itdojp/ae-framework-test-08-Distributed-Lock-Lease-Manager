@@ -116,6 +116,18 @@ async function collectRunEntries() {
       inferIsoFromDirName(runDir) ??
       asIsoOrNull(ghaMeta?.downloaded_at_utc) ??
       null;
+    const runUrl =
+      metadata?.run_url ??
+      ghaMeta?.run_url ??
+      (ghaMeta?.repository && ghaMeta?.run_id
+        ? `https://github.com/${ghaMeta.repository}/actions/runs/${ghaMeta.run_id}`
+        : null);
+    const runApiUrl =
+      metadata?.run_api_url ??
+      ghaMeta?.run_api_url ??
+      (ghaMeta?.repository && ghaMeta?.run_id
+        ? `https://api.github.com/repos/${ghaMeta.repository}/actions/runs/${ghaMeta.run_id}`
+        : null);
 
     runs.push({
       run_dir: runDir,
@@ -134,6 +146,8 @@ async function collectRunEntries() {
       pbt_compat_mode: metadata?.pbt_compat_mode ?? null,
       pbt_compat_triggered: toInt(metadata?.pbt_compat_triggered, 0),
       pbt_compat_recovered: toInt(metadata?.pbt_compat_recovered, 0),
+      run_url: runUrl,
+      run_api_url: runApiUrl,
       artifact: ghaMeta
         ? {
             artifact_name: ghaMeta.artifact_name ?? null,
@@ -183,6 +197,7 @@ function buildSummary(runs) {
         status: run.status,
         executed_at_utc: run.executed_at_utc,
         path: run.path,
+        run_url: run.run_url ?? null,
       };
     }
   }
@@ -204,30 +219,30 @@ function buildMarkdown(summary, runs, generatedAtUtc) {
   lines.push("");
   lines.push("## Latest By Workflow");
   lines.push("");
-  lines.push("| workflow | run_id | status | executed_at_utc | path |");
-  lines.push("| --- | --- | --- | --- | --- |");
+  lines.push("| workflow | run_id | status | executed_at_utc | path | run_url |");
+  lines.push("| --- | --- | --- | --- | --- | --- |");
   for (const [workflow, v] of Object.entries(summary.latest_by_workflow)) {
     lines.push(
-      `| ${mdEscape(workflow)} | ${mdEscape(valueOrDash(v.run_id))} | ${mdEscape(valueOrDash(v.status))} | ${mdEscape(valueOrDash(v.executed_at_utc))} | ${mdEscape(valueOrDash(v.path))} |`
+      `| ${mdEscape(workflow)} | ${mdEscape(valueOrDash(v.run_id))} | ${mdEscape(valueOrDash(v.status))} | ${mdEscape(valueOrDash(v.executed_at_utc))} | ${mdEscape(valueOrDash(v.path))} | ${mdEscape(valueOrDash(v.run_url))} |`
     );
   }
   if (Object.keys(summary.latest_by_workflow).length === 0) {
-    lines.push("| - | - | - | - | - |");
+    lines.push("| - | - | - | - | - | - |");
   }
   lines.push("");
   lines.push("## Runs");
   lines.push("");
-  lines.push("| run_id | source | workflow | status | exit_code | optional_fail_count | pbt_compat | executed_at_utc | path |");
-  lines.push("| --- | --- | --- | --- | --- | --- | --- | --- | --- |");
+  lines.push("| run_id | source | workflow | status | exit_code | optional_fail_count | pbt_compat | executed_at_utc | path | run_url |");
+  lines.push("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |");
 
   for (const run of runs) {
     const pbtCompat = `${run.pbt_compat_triggered}/${run.pbt_compat_recovered}`;
     lines.push(
-      `| ${mdEscape(valueOrDash(run.run_id))} | ${mdEscape(valueOrDash(run.source))} | ${mdEscape(valueOrDash(run.workflow_name))} | ${mdEscape(valueOrDash(run.status))} | ${mdEscape(valueOrDash(run.exit_code))} | ${mdEscape(valueOrDash(run.optional_fail_count))} | ${mdEscape(pbtCompat)} | ${mdEscape(valueOrDash(run.executed_at_utc))} | ${mdEscape(valueOrDash(run.path))} |`
+      `| ${mdEscape(valueOrDash(run.run_id))} | ${mdEscape(valueOrDash(run.source))} | ${mdEscape(valueOrDash(run.workflow_name))} | ${mdEscape(valueOrDash(run.status))} | ${mdEscape(valueOrDash(run.exit_code))} | ${mdEscape(valueOrDash(run.optional_fail_count))} | ${mdEscape(pbtCompat)} | ${mdEscape(valueOrDash(run.executed_at_utc))} | ${mdEscape(valueOrDash(run.path))} | ${mdEscape(valueOrDash(run.run_url))} |`
     );
   }
   if (runs.length === 0) {
-    lines.push("| - | - | - | - | - | - | - | - | - |");
+    lines.push("| - | - | - | - | - | - | - | - | - | - |");
   }
   lines.push("");
   return lines.join("\n");

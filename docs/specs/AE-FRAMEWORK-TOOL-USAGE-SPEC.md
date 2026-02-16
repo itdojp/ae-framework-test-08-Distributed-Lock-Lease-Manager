@@ -35,6 +35,7 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
 - CI成果物のリポジトリ保存: `scripts/import-gha-artifact.sh <run_id>`（`--refresh-meta` で既存取り込み先のメタデータ再補完）
 - CI成果物の一括同期: `scripts/sync-gha-artifacts.sh`（workflow名ごとに取得範囲内のsuccess runを列挙し、未取り込み分を自動同期）
 - 既存取り込みのメタデータ補完: `scripts/backfill-imported-run-metadata.sh`
+- 既存取り込みの run URL 補完: `scripts/backfill-gha-run-links.sh`
 - 評価履歴インデックス生成: `scripts/generate-run-index.mjs`（`artifacts/runs/index.json` / `index.md`）
 - `index` 生成は内容不変時に既存 `generated_at_utc` を保持し、timestamp-only 差分を抑止する
 - 実行結果の保存先: `artifacts/runs/<UTC timestamp>/`
@@ -45,8 +46,8 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
 - GitHub Actions:
   - `AE Eval Fast`（`AE_RUN_OPTIONAL=0`）: `push(main)` と `workflow_dispatch`
   - `AE Eval Full`（`AE_RUN_OPTIONAL=1`）: `workflow_dispatch` と日次 `schedule`（UTC 03:37）
-  - `Artifacts Maintenance`: `schedule`（6時間ごと）と `workflow_dispatch` で `sync -> backfill -> index` を自動実行（`artifacts-writer-main` で直列化）
-  - `Artifacts Sync On Workflow Complete`: `CI Basic` / `AE Eval Fast` / `AE Eval Full` の `workflow_run.completed(success)` を契機に起動し、同一 `head_sha` の成功runをまとめて取り込みして `backfill -> index` を実行（`artifacts-writer-main` で直列化、push競合時は `origin/main` に反映済みかを照合）
+  - `Artifacts Maintenance`: `schedule`（6時間ごと）と `workflow_dispatch` で `sync -> backfill(meta/link) -> index` を自動実行（`artifacts-writer-main` で直列化）
+  - `Artifacts Sync On Workflow Complete`: `CI Basic` / `AE Eval Fast` / `AE Eval Full` の `workflow_run.completed(success)` を契機に起動し、同一 `head_sha` の成功runをまとめて取り込みして `backfill(meta/link) -> index` を実行（`artifacts-writer-main` で直列化、push競合時は `origin/main` に反映済みかを照合）
   - 両workflowとも `metadata.json` 要約を Job Summary に出力し、optional失敗件数を即時確認可能にする
   - `CI Basic` / `AE Eval Fast` の `push` は `artifacts/runs/**` のみ変更時は起動しない（保存ループ抑止）
 

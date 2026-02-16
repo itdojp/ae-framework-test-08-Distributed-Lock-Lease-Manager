@@ -21,5 +21,7 @@
   "artifact_name": "ci-basic-logs",
   "artifact_id": 5516285945,
   "artifact_size_bytes": 1874,
-  "artifact_digest": "sha256:f15f8573981e003e9e90c549250dc8bca88bf9d2f3ad8ae2ee1afae1a26a6b24"
+  "artifact_digest": "sha256:f15f8573981e003e9e90c549250dc8bca88bf9d2f3ad8ae2ee1afae1a26a6b24",
+  "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22035861002",
+  "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22035861002"
 }

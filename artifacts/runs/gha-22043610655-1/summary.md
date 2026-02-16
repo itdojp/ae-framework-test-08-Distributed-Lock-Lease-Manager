@@ -14,3 +14,4 @@
 - copied reports: /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/artifacts/runs/gha-22043610655-1/ae-framework-reports
 - copied artifacts files: 12
 - copied reports files: 7
+- run_url: https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22043610655

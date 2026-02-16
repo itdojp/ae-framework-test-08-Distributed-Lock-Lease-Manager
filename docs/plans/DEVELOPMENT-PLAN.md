@@ -138,3 +138,7 @@
 24. artifact書き込みworkflowの競合回避:
 - `Artifacts Maintenance` と `Artifacts Sync On Workflow Complete` を `artifacts-writer-main` concurrency group で直列化
 - 即時同期workflowの push 競合時は `origin/main` に対象runが反映済みかを照合し、重複実行を成功扱いで収束
+25. run URL 補完の標準化:
+- `scripts/import-gha-artifact.sh` で `gha-artifact-download.json` / 合成 `metadata.json` に `run_url` / `run_api_url` を出力
+- `scripts/backfill-gha-run-links.sh` を追加し、既存 `gha-*` へ run URL を後補完
+- `index` へ `run_url` を反映し、Issue/監査からrun画面へ直接遷移できる状態にする

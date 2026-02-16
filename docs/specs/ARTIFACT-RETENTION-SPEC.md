@@ -12,7 +12,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 - ルート: `artifacts/runs/`
 - 実行単位: `artifacts/runs/<YYYYMMDDTHHMMSSZ>/`
 - 必須ファイル:
-  - `metadata.json`（実行日時、コミット、ツールバージョン、Issue参照、`status`/`exit_code`/`failed_step`/`optional_step_count`/`optional_fail_count`/`optional_failures`/`optional_results`/`pbt_compat_*`）
+  - `metadata.json`（実行日時、コミット、ツールバージョン、Issue参照、`status`/`exit_code`/`failed_step`/`optional_step_count`/`optional_fail_count`/`optional_failures`/`optional_results`/`pbt_compat_*`/`run_url`）
   - `summary.md`（実行結果サマリ）
   - `logs/*.log`（各コマンド標準出力/標準エラー）
 - 任意保存:
@@ -31,6 +31,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 7. 既存の取り込み先に `metadata.json` / `summary.md` が欠落している場合は `scripts/backfill-imported-run-metadata.sh` を実行して補完する。
 8. 定期更新は `Artifacts Maintenance` workflow（`.github/workflows/artifacts-maintenance.yml`）で自動実行する。
 9. 即時更新は `Artifacts Sync On Workflow Complete` workflow（`.github/workflows/artifacts-sync-on-workflow-complete.yml`）で `workflow_run.completed(success)` を契機に実行する。
+10. 既存取り込みに `run_url` / `run_api_url` が無い場合は `scripts/backfill-gha-run-links.sh` を実行して補完する。
 
 ## 5. 参照規約
 - 各Issue/PRには対象実行ディレクトリへのパスを明記する。

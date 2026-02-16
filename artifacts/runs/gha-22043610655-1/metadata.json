@@ -5,7 +5,12 @@
   "exit_code": 0,
   "failed_step": "",
   "optional_fail_count": 1,
-  "optional_failures": [{"step":"pbt","exit_code":1}],
+  "optional_failures": [
+    {
+      "step": "pbt",
+      "exit_code": 1
+    }
+  ],
   "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
   "spec_issue": 1,
   "runtime_issue": 2,
@@ -22,5 +27,7 @@
   "target_repo": {
     "branch": "main",
     "commit_before_run": "835877db4d3b71f70f631c0cf26449351b423026"
-  }
+  },
+  "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22043610655",
+  "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22043610655"
 }

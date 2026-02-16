@@ -61,14 +61,17 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-RUN_ATTEMPT="$(gh api "repos/${REPO_SLUG}/actions/runs/${RUN_ID}" --jq '.run_attempt')"
-WORKFLOW_NAME="$(gh api "repos/${REPO_SLUG}/actions/runs/${RUN_ID}" --jq '.name')"
-HEAD_SHA="$(gh api "repos/${REPO_SLUG}/actions/runs/${RUN_ID}" --jq '.head_sha')"
-RUN_STATUS_RAW="$(gh api "repos/${REPO_SLUG}/actions/runs/${RUN_ID}" --jq '.status')"
-RUN_CONCLUSION_RAW="$(gh api "repos/${REPO_SLUG}/actions/runs/${RUN_ID}" --jq '.conclusion // ""')"
-RUN_EVENT="$(gh api "repos/${REPO_SLUG}/actions/runs/${RUN_ID}" --jq '.event // ""')"
-RUN_CREATED_AT="$(gh api "repos/${REPO_SLUG}/actions/runs/${RUN_ID}" --jq '.created_at // ""')"
-RUN_UPDATED_AT="$(gh api "repos/${REPO_SLUG}/actions/runs/${RUN_ID}" --jq '.updated_at // ""')"
+RUN_API_PATH="repos/${REPO_SLUG}/actions/runs/${RUN_ID}"
+RUN_ATTEMPT="$(gh api "${RUN_API_PATH}" --jq '.run_attempt')"
+WORKFLOW_NAME="$(gh api "${RUN_API_PATH}" --jq '.name')"
+HEAD_SHA="$(gh api "${RUN_API_PATH}" --jq '.head_sha')"
+RUN_STATUS_RAW="$(gh api "${RUN_API_PATH}" --jq '.status')"
+RUN_CONCLUSION_RAW="$(gh api "${RUN_API_PATH}" --jq '.conclusion // ""')"
+RUN_EVENT="$(gh api "${RUN_API_PATH}" --jq '.event // ""')"
+RUN_CREATED_AT="$(gh api "${RUN_API_PATH}" --jq '.created_at // ""')"
+RUN_UPDATED_AT="$(gh api "${RUN_API_PATH}" --jq '.updated_at // ""')"
+RUN_HTML_URL="$(gh api "${RUN_API_PATH}" --jq '.html_url // ""')"
+RUN_API_URL="https://api.github.com/${RUN_API_PATH}"
 
 ARTIFACT_ROWS="$(gh api "repos/${REPO_SLUG}/actions/runs/${RUN_ID}/artifacts" --jq '.artifacts[] | [.name, .id, .size_in_bytes, .digest] | @tsv')"
 ARTIFACT_TOTAL="$(printf '%s\n' "${ARTIFACT_ROWS}" | sed '/^$/d' | wc -l | tr -d ' ')"
@@ -133,6 +136,8 @@ if [[ "${DEST_HAS_FILES}" == "0" || ! -f "${DEST_DIR}/gha-artifact-download.json
   "run_attempt": ${RUN_ATTEMPT},
   "workflow_name": "${WORKFLOW_NAME}",
   "head_sha": "${HEAD_SHA}",
+  "run_url": "${RUN_HTML_URL}",
+  "run_api_url": "${RUN_API_URL}",
   "artifact_name": "${ARTIFACT_NAME}",
   "artifact_id": ${ARTIFACT_ID},
   "artifact_size_bytes": ${ARTIFACT_SIZE},
@@ -140,6 +145,28 @@ if [[ "${DEST_HAS_FILES}" == "0" || ! -f "${DEST_DIR}/gha-artifact-download.json
   "downloaded_at_utc": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 }
 META
+fi
+
+# 既存の gha-artifact-download.json が古い形式の場合、run URL系を補完する。
+if [[ -f "${DEST_DIR}/gha-artifact-download.json" ]] && command -v jq >/dev/null 2>&1; then
+  current_run_url="$(jq -r '.run_url // empty' "${DEST_DIR}/gha-artifact-download.json" 2>/dev/null || true)"
+  current_run_api_url="$(jq -r '.run_api_url // empty' "${DEST_DIR}/gha-artifact-download.json" 2>/dev/null || true)"
+  if [[ -z "${current_run_url}" || -z "${current_run_api_url}" ]]; then
+    tmp_file="$(mktemp)"
+    jq \
+      --arg repo "${REPO_SLUG}" \
+      --argjson run_id "${RUN_ID}" \
+      --arg run_url "${RUN_HTML_URL}" \
+      --arg run_api_url "${RUN_API_URL}" \
+      '
+        .repository = (.repository // $repo) |
+        .run_id = (.run_id // $run_id) |
+        .run_url = (if (.run_url // "") == "" then $run_url else .run_url end) |
+        .run_api_url = (if (.run_api_url // "") == "" then $run_api_url else .run_api_url end)
+      ' \
+      "${DEST_DIR}/gha-artifact-download.json" > "${tmp_file}"
+    mv "${tmp_file}" "${DEST_DIR}/gha-artifact-download.json"
+  fi
 fi
 
 to_eval_status() {
@@ -204,6 +231,8 @@ if [[ ! -f "${DEST_DIR}/metadata.json" ]]; then
   "source": "gha-import-generated",
   "workflow_name": "${WORKFLOW_NAME}",
   "run_event": "${RUN_EVENT}",
+  "run_url": "${RUN_HTML_URL}",
+  "run_api_url": "${RUN_API_URL}",
   "run_status_raw": "${RUN_STATUS_RAW}",
   "run_conclusion_raw": "${RUN_CONCLUSION_RAW}",
   "head_sha": "${HEAD_SHA}",
@@ -223,6 +252,7 @@ if [[ ! -f "${DEST_DIR}/summary.md" ]]; then
 - repository: ${REPO_SLUG}
 - workflow: ${WORKFLOW_NAME}
 - event: ${RUN_EVENT}
+- run_url: ${RUN_HTML_URL}
 - head_sha: ${HEAD_SHA}
 - artifact_name: ${ARTIFACT_NAME}
 - artifact_id: ${ARTIFACT_ID}

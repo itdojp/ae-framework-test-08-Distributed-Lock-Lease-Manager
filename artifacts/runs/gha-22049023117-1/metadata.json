@@ -6,8 +6,44 @@
   "failed_step": "",
   "optional_step_count": 6,
   "optional_fail_count": 1,
-  "optional_failures": [{"step":"pbt","exit_code":1}],
-  "optional_results": [{"step":"mbt","status":"success","exit_code":0}, {"step":"pbt","status":"failed","exit_code":1}, {"step":"pbt_compat_test_property","status":"success","exit_code":0}, {"step":"mutation_quick","status":"success","exit_code":0}, {"step":"verify_csp","status":"success","exit_code":0}, {"step":"verify_tla","status":"success","exit_code":0}],
+  "optional_failures": [
+    {
+      "step": "pbt",
+      "exit_code": 1
+    }
+  ],
+  "optional_results": [
+    {
+      "step": "mbt",
+      "status": "success",
+      "exit_code": 0
+    },
+    {
+      "step": "pbt",
+      "status": "failed",
+      "exit_code": 1
+    },
+    {
+      "step": "pbt_compat_test_property",
+      "status": "success",
+      "exit_code": 0
+    },
+    {
+      "step": "mutation_quick",
+      "status": "success",
+      "exit_code": 0
+    },
+    {
+      "step": "verify_csp",
+      "status": "success",
+      "exit_code": 0
+    },
+    {
+      "step": "verify_tla",
+      "status": "success",
+      "exit_code": 0
+    }
+  ],
   "pbt_compat_mode": "1",
   "pbt_compat_triggered": 1,
   "pbt_compat_recovered": 1,
@@ -27,5 +63,7 @@
   "target_repo": {
     "branch": "main",
     "commit_before_run": "098fc3c7b337768b81462e83db68ddd9661be096"
-  }
+  },
+  "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22049023117",
+  "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22049023117"
 }

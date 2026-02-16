@@ -10,3 +10,4 @@
 - artifact_size_bytes: 2143
 - artifact_digest: sha256:2363aadb21ff5bc1d90f2b2f10fc0a3ce1432c001eb4ee3280de31df111c6d4b
 - generated_by: scripts/import-gha-artifact.sh
+- run_url: https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22036112460

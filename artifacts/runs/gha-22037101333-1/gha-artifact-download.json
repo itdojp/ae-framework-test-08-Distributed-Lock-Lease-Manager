@@ -8,5 +8,7 @@
   "artifact_id": 5516638780,
   "artifact_size_bytes": 38062,
   "artifact_digest": "sha256:55ff2a3f486ef01311b32cc3e0282deaa92af629504316d0edcd891cb147f75f",
-  "downloaded_at_utc": "2026-02-15T21:34:21Z"
+  "downloaded_at_utc": "2026-02-15T21:34:21Z",
+  "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22037101333",
+  "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22037101333"
 }

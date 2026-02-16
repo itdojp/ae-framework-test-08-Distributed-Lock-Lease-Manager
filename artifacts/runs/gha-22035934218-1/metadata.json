@@ -17,5 +17,7 @@
   "target_repo": {
     "branch": "main",
     "commit_before_run": "e218fc0b2a5eef2aa6d0d9c63231e89c5b458dc8"
-  }
+  },
+  "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22035934218",
+  "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22035934218"
 }
