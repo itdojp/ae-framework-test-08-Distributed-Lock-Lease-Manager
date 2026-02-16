@@ -1,12 +1,12 @@
 # Run Index
 
-- generated_at_utc: 2026-02-16T06:34:51.470Z
-- total_runs: 66
-- by_status: success=51, failed=1, aborted=1, unknown=13
-- by_source: gha=55, local=11
-- optional_failure_runs: 4
-- pbt_compat_triggered_runs: 3
-- pbt_compat_recovered_runs: 3
+- generated_at_utc: 2026-02-16T06:35:24.045Z
+- total_runs: 67
+- by_status: success=52, failed=1, aborted=1, unknown=13
+- by_source: gha=56, local=11
+- optional_failure_runs: 5
+- pbt_compat_triggered_runs: 4
+- pbt_compat_recovered_runs: 4
 
 ## Latest By Workflow
 
@@ -14,7 +14,7 @@
 | --- | --- | --- | --- | --- |
 | AE Eval Fast | gha-22052571295-1 | success | 2026-02-16T06:34:30.000Z | artifacts/runs/gha-22052571295-1 |
 | CI Basic | gha-22052571338-1 | success | 2026-02-16T06:32:37.000Z | artifacts/runs/gha-22052571338-1 |
-| AE Eval Full | gha-22049023117-1 | success | 2026-02-16T03:31:16.000Z | artifacts/runs/gha-22049023117-1 |
+| AE Eval Full | gha-22050135616-1 | success | 2026-02-16T04:36:29.000Z | artifacts/runs/gha-22050135616-1 |
 
 ## Runs
 
@@ -22,6 +22,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | gha-22052571295-1 | gha | AE Eval Fast | success | 0 | 0 | 0/0 | 2026-02-16T06:34:30.000Z | artifacts/runs/gha-22052571295-1 |
 | gha-22052571338-1 | gha | CI Basic | success | 0 | 0 | 0/0 | 2026-02-16T06:32:37.000Z | artifacts/runs/gha-22052571338-1 |
+| gha-22050135616-1 | gha | AE Eval Full | success | 0 | 1 | 1/1 | 2026-02-16T04:36:29.000Z | artifacts/runs/gha-22050135616-1 |
 | gha-22049241838-1 | gha | AE Eval Fast | success | 0 | 0 | 0/0 | 2026-02-16T03:38:39.000Z | artifacts/runs/gha-22049241838-1 |
 | gha-22049241840-1 | gha | CI Basic | success | 0 | 0 | 0/0 | 2026-02-16T03:36:53.000Z | artifacts/runs/gha-22049241840-1 |
 | gha-22049023117-1 | gha | AE Eval Full | success | 0 | 1 | 1/1 | 2026-02-16T03:31:16.000Z | artifacts/runs/gha-22049023117-1 |
