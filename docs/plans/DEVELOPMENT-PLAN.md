@@ -121,3 +121,7 @@
 - `scripts/import-gha-artifact.sh` に `--refresh-meta` を追加し、既存ディレクトリでメタデータ補完を可能化
 - `scripts/backfill-imported-run-metadata.sh` を追加し、`metadata.json` / `summary.md` 欠落runを一括補完
 - `npm run artifacts:backfill-meta` / `npm run artifacts:hydrate-index` を追加し、補完後のインデックス再生成を標準化
+20. run証跡メンテナンスの定期自動化:
+- `.github/workflows/artifacts-maintenance.yml` を追加
+- 6時間ごとの定期実行 + 手動実行で `sync-gha` / `backfill-meta` / `index` 更新を自動化
+- `artifacts/runs/` に差分がある場合のみ自動コミット/Push

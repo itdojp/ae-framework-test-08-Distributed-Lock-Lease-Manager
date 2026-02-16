@@ -29,6 +29,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 5. 最新の成功runを定期同期する場合は `scripts/sync-gha-artifacts.sh` を使用し、run ID の手入力を排除する。
 6. run追加後は `scripts/generate-run-index.mjs` を実行し、`artifacts/runs/index.json` / `index.md` を更新する。
 7. 既存の取り込み先に `metadata.json` / `summary.md` が欠落している場合は `scripts/backfill-imported-run-metadata.sh` を実行して補完する。
+8. 定期更新は `Artifacts Maintenance` workflow（`.github/workflows/artifacts-maintenance.yml`）で自動実行する。
 
 ## 5. 参照規約
 - 各Issue/PRには対象実行ディレクトリへのパスを明記する。

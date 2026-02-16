@@ -1,0 +1,49 @@
+name: Artifacts Maintenance
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: artifacts-maintenance-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync-and-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Sync artifacts and regenerate index
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          bash scripts/sync-gha-artifacts.sh
+          bash scripts/backfill-imported-run-metadata.sh
+          node scripts/generate-run-index.mjs
+
+      - name: Commit and push changes
+        run: |
+          if git diff --quiet -- artifacts/runs; then
+            echo "No artifact changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add artifacts/runs
+          git commit -m "chore: automated artifacts sync and index refresh"
+          git push
