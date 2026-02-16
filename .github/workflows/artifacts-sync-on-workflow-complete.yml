@@ -47,6 +47,8 @@ jobs:
           echo "trigger_run_id=${TRIGGER_RUN_ID}"
           echo "trigger_workflow=${TRIGGER_WORKFLOW_NAME}"
           echo "head_sha=${HEAD_SHA}"
+          mkdir -p .tmp
+          : > .tmp/imported-run-ids.txt
 
           # 同一head_shaで実行中の関連workflowがある場合、一定時間待ってまとめて取り込む。
           for _ in $(seq 1 18); do
@@ -88,6 +90,7 @@ jobs:
 
             echo "import: run_id=${run_id} workflow=${workflow_name} artifact=${artifact_name}"
             scripts/import-gha-artifact.sh "${run_id}" --artifact "${artifact_name}" --repo "${REPO_SLUG}"
+            echo "${run_id}" >> .tmp/imported-run-ids.txt
             imported_count=$((imported_count + 1))
           done < <(gh run list \
             -R "${REPO_SLUG}" \
@@ -114,13 +117,31 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add artifacts/runs
           git commit -m "chore: sync artifacts for completed workflow run ${{ github.event.workflow_run.id }}"
-          for attempt in 1 2 3; do
-            if git push; then
-              exit 0
+          if git push; then
+            exit 0
+          fi
+
+          echo "push rejected; checking whether imported runs already exist on origin/main"
+          git fetch origin main
+
+          if [[ ! -f .tmp/imported-run-ids.txt ]]; then
+            echo "missing .tmp/imported-run-ids.txt"
+            exit 1
+          fi
+
+          missing=0
+          while IFS= read -r run_id; do
+            [[ -z "${run_id}" ]] && continue
+            if ! git ls-tree -r --name-only origin/main artifacts/runs | grep -q "^artifacts/runs/gha-${run_id}-"; then
+              echo "missing imported run on origin/main: ${run_id}"
+              missing=1
             fi
-            echo "push failed: attempt=${attempt}; retrying after rebase"
-            git pull --rebase origin main
-            sleep 3
-          done
-          echo "push failed after retries"
+          done < .tmp/imported-run-ids.txt
+
+          if [[ "${missing}" == "0" ]]; then
+            echo "All imported runs already present on origin/main; treating as success."
+            exit 0
+          fi
+
+          echo "push failed and imported runs are still missing on origin/main"
           exit 1

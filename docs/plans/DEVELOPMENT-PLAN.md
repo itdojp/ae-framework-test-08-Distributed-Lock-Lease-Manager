@@ -137,4 +137,4 @@
 - `backfill -> index` まで自動実行し、6時間周期を待たずに証跡を反映
 24. artifact書き込みworkflowの競合回避:
 - `Artifacts Maintenance` と `Artifacts Sync On Workflow Complete` を `artifacts-writer-main` concurrency group で直列化
-- 即時同期workflowの push で `pull --rebase` リトライを追加し、同時更新時の失敗を自己回復
+- 即時同期workflowの push 競合時は `origin/main` に対象runが反映済みかを照合し、重複実行を成功扱いで収束

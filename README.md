@@ -47,7 +47,7 @@
 - `Artifacts Sync On Workflow Complete` (`.github/workflows/artifacts-sync-on-workflow-complete.yml`):
   - `CI Basic` / `AE Eval Fast` / `AE Eval Full` が `success` で完了した直後に起動し、同一 `head_sha` の成功runをまとめて取り込み
   - `backfill-meta` / `index` 更新まで実行し、差分がある場合のみ自動コミット/Push
-  - push競合時は `pull --rebase` を伴うリトライで自己回復
+  - push競合時は `origin/main` を照合し、対象runが既に反映済みなら成功扱いで終了
 
 ## ローカル実装の実行
 - サーバー起動: `npm run start`
