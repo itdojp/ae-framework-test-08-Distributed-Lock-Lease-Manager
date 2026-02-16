@@ -1,46 +1,98 @@
 {
-  "generated_at_utc": "2026-02-16T08:43:08.772Z",
+  "generated_at_utc": "2026-02-16T08:48:31.262Z",
   "root": "artifacts/runs",
   "summary": {
-    "total_runs": 76,
+    "total_runs": 78,
     "by_status": {
-      "success": 61,
+      "success": 63,
       "failed": 1,
       "aborted": 1,
       "unknown": 13
     },
     "by_source": {
-      "gha": 65,
+      "gha": 67,
       "local": 11
     },
     "optional_failure_runs": 5,
     "pbt_compat_triggered_runs": 5,
     "pbt_compat_recovered_runs": 5,
     "latest_by_workflow": {
+      "AE Eval Fast": {
+        "run_id": "gha-22055883246-1",
+        "status": "success",
+        "executed_at_utc": "2026-02-16T08:48:13.000Z",
+        "path": "artifacts/runs/gha-22055883246-1",
+        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055883246"
+      },
+      "CI Basic": {
+        "run_id": "gha-22055883217-1",
+        "status": "success",
+        "executed_at_utc": "2026-02-16T08:46:22.000Z",
+        "path": "artifacts/runs/gha-22055883217-1",
+        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055883217"
+      },
       "AE Eval Full": {
         "run_id": "gha-22055552166-1",
         "status": "success",
         "executed_at_utc": "2026-02-16T08:42:53.000Z",
         "path": "artifacts/runs/gha-22055552166-1",
         "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055552166"
-      },
-      "AE Eval Fast": {
-        "run_id": "gha-22055381854-1",
-        "status": "success",
-        "executed_at_utc": "2026-02-16T08:30:41.000Z",
-        "path": "artifacts/runs/gha-22055381854-1",
-        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055381854"
-      },
-      "CI Basic": {
-        "run_id": "gha-22055381976-1",
-        "status": "success",
-        "executed_at_utc": "2026-02-16T08:28:43.000Z",
-        "path": "artifacts/runs/gha-22055381976-1",
-        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055381976"
       }
     }
   },
   "runs": [
+    {
+      "run_dir": "gha-22055883246-1",
+      "run_id": "gha-22055883246-1",
+      "source": "gha",
+      "workflow_name": "AE Eval Fast",
+      "executed_at_utc": "2026-02-16T08:48:13.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "1",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055883246",
+      "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055883246",
+      "artifact": {
+        "artifact_name": "ae-eval-fast-artifacts",
+        "artifact_id": 5522556621,
+        "artifact_size_bytes": 38126,
+        "artifact_digest": "sha256:42535f3e1da1ee0b19db710746867a86e6556272e25999df1b979f95594c1332"
+      },
+      "path": "artifacts/runs/gha-22055883246-1"
+    },
+    {
+      "run_dir": "gha-22055883217-1",
+      "run_id": "gha-22055883217-1",
+      "source": "gha",
+      "workflow_name": "CI Basic",
+      "executed_at_utc": "2026-02-16T08:46:22.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "n/a",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055883217",
+      "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055883217",
+      "artifact": {
+        "artifact_name": "ci-basic-logs",
+        "artifact_id": 5522536198,
+        "artifact_size_bytes": 2353,
+        "artifact_digest": "sha256:ba5e2d42b65282330e354c6629ab4bb827ad1025c6197bc48e7856bf4e5e0fc5"
+      },
+      "path": "artifacts/runs/gha-22055883217-1"
+    },
     {
       "run_dir": "gha-22055552166-1",
       "run_id": "gha-22055552166-1",
