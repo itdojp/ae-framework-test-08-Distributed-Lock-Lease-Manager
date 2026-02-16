@@ -1,16 +1,16 @@
 {
-  "generated_at_utc": "2026-02-16T06:40:26.796Z",
+  "generated_at_utc": "2026-02-16T06:44:36.906Z",
   "root": "artifacts/runs",
   "summary": {
-    "total_runs": 69,
+    "total_runs": 71,
     "by_status": {
-      "success": 54,
+      "success": 56,
       "failed": 1,
       "aborted": 1,
       "unknown": 13
     },
     "by_source": {
-      "gha": 58,
+      "gha": 60,
       "local": 11
     },
     "optional_failure_runs": 5,
@@ -18,16 +18,16 @@
     "pbt_compat_recovered_runs": 4,
     "latest_by_workflow": {
       "AE Eval Fast": {
-        "run_id": "gha-22052696753-1",
+        "run_id": "gha-22052790809-1",
         "status": "success",
-        "executed_at_utc": "2026-02-16T06:40:06.000Z",
-        "path": "artifacts/runs/gha-22052696753-1"
+        "executed_at_utc": "2026-02-16T06:44:28.000Z",
+        "path": "artifacts/runs/gha-22052790809-1"
       },
       "CI Basic": {
-        "run_id": "gha-22052696758-1",
+        "run_id": "gha-22052790810-1",
         "status": "success",
-        "executed_at_utc": "2026-02-16T06:38:17.000Z",
-        "path": "artifacts/runs/gha-22052696758-1"
+        "executed_at_utc": "2026-02-16T06:42:35.000Z",
+        "path": "artifacts/runs/gha-22052790810-1"
       },
       "AE Eval Full": {
         "run_id": "gha-22050135616-1",
@@ -38,6 +38,54 @@
     }
   },
   "runs": [
+    {
+      "run_dir": "gha-22052790809-1",
+      "run_id": "gha-22052790809-1",
+      "source": "gha",
+      "workflow_name": "AE Eval Fast",
+      "executed_at_utc": "2026-02-16T06:44:28.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "1",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "artifact": {
+        "artifact_name": "ae-eval-fast-artifacts",
+        "artifact_id": 5521514635,
+        "artifact_size_bytes": 38121,
+        "artifact_digest": "sha256:fb8f67798daf026977732203dee406cc6bce0e336d6ba9fc54cfe456c7612684"
+      },
+      "path": "artifacts/runs/gha-22052790809-1"
+    },
+    {
+      "run_dir": "gha-22052790810-1",
+      "run_id": "gha-22052790810-1",
+      "source": "gha",
+      "workflow_name": "CI Basic",
+      "executed_at_utc": "2026-02-16T06:42:35.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "n/a",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "artifact": {
+        "artifact_name": "ci-basic-logs",
+        "artifact_id": 5521500506,
+        "artifact_size_bytes": 2346,
+        "artifact_digest": "sha256:834e63de8d0a16edaeb327d58effa89f4181894086c2839e37bd286bf1d85725"
+      },
+      "path": "artifacts/runs/gha-22052790810-1"
+    },
     {
       "run_dir": "gha-22052696753-1",
       "run_id": "gha-22052696753-1",
