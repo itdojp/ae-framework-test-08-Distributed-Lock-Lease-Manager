@@ -190,11 +190,11 @@ function buildSummary(runs) {
   return summary;
 }
 
-function buildMarkdown(summary, runs) {
+function buildMarkdown(summary, runs, generatedAtUtc) {
   const lines = [];
   lines.push("# Run Index");
   lines.push("");
-  lines.push(`- generated_at_utc: ${new Date().toISOString()}`);
+  lines.push(`- generated_at_utc: ${generatedAtUtc}`);
   lines.push(`- total_runs: ${summary.total_runs}`);
   lines.push(`- by_status: success=${summary.by_status.success}, failed=${summary.by_status.failed}, aborted=${summary.by_status.aborted}, unknown=${summary.by_status.unknown}`);
   lines.push(`- by_source: gha=${summary.by_source.gha}, local=${summary.by_source.local}`);
@@ -237,15 +237,31 @@ async function main() {
   await fs.mkdir(RUNS_ROOT, { recursive: true });
   const runs = await collectRunEntries();
   const summary = buildSummary(runs);
+  const root = path.relative(process.cwd(), RUNS_ROOT);
+  const payload = { root, summary, runs };
+  const previous = await readJsonIfExists(INDEX_JSON);
+  let generatedAtUtc = new Date().toISOString();
+
+  if (previous && typeof previous === "object") {
+    const previousPayload = {
+      root: previous.root ?? root,
+      summary: previous.summary ?? null,
+      runs: Array.isArray(previous.runs) ? previous.runs : [],
+    };
+    const isSamePayload =
+      JSON.stringify(previousPayload) === JSON.stringify(payload);
+    if (isSamePayload && typeof previous.generated_at_utc === "string" && previous.generated_at_utc.length > 0) {
+      generatedAtUtc = previous.generated_at_utc;
+    }
+  }
+
   const doc = {
-    generated_at_utc: new Date().toISOString(),
-    root: path.relative(process.cwd(), RUNS_ROOT),
-    summary,
-    runs,
+    generated_at_utc: generatedAtUtc,
+    ...payload,
   };
 
   await fs.writeFile(INDEX_JSON, `${JSON.stringify(doc, null, 2)}\n`, "utf8");
-  await fs.writeFile(INDEX_MD, `${buildMarkdown(summary, runs)}\n`, "utf8");
+  await fs.writeFile(INDEX_MD, `${buildMarkdown(summary, runs, generatedAtUtc)}\n`, "utf8");
 
   process.stdout.write(
     `generated: ${path.relative(process.cwd(), INDEX_JSON)}\n` +

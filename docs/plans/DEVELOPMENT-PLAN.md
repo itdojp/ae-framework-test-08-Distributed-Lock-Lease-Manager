@@ -128,3 +128,6 @@
 21. `AE Eval Full` の定期実行化:
 - `.github/workflows/ae-eval-full.yml` に日次 `schedule`（UTC 03:37）を追加
 - full評価（optional含む）を無人で継続実行し、`Artifacts Maintenance` で取り込み・インデックス更新を自動化
+22. run index 生成の安定化:
+- `scripts/generate-run-index.mjs` を更新し、`summary/runs` 不変時は `generated_at_utc` を維持
+- `Artifacts Maintenance` で timestamp-only の不要コミットが発生しないよう抑止

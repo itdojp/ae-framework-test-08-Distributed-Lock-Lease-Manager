@@ -42,6 +42,7 @@
 - `Artifacts Maintenance` (`.github/workflows/artifacts-maintenance.yml`):
   - `schedule`（6時間ごと）/`workflow_dispatch` で run artifact 同期・メタ補完・index再生成を自動実行
   - `artifacts/runs/` に差分がある場合のみ自動コミット/Push
+  - `index` 内容不変時は `generated_at_utc` を据え置き、timestamp-only 差分コミットを抑止
 
 ## ローカル実装の実行
 - サーバー起動: `npm run start`

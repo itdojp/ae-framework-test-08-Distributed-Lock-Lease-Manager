@@ -36,6 +36,7 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
 - CI成果物の一括同期: `scripts/sync-gha-artifacts.sh`（workflow名ごとに取得範囲内のsuccess runを列挙し、未取り込み分を自動同期）
 - 既存取り込みのメタデータ補完: `scripts/backfill-imported-run-metadata.sh`
 - 評価履歴インデックス生成: `scripts/generate-run-index.mjs`（`artifacts/runs/index.json` / `index.md`）
+- `index` 生成は内容不変時に既存 `generated_at_utc` を保持し、timestamp-only 差分を抑止する
 - 実行結果の保存先: `artifacts/runs/<UTC timestamp>/`
 - 成果物コピー方針: 実行開始後に更新された `ae-framework` 側ファイルのみを保存
 - optional ステップ失敗は non-blocking で継続し、`metadata.json` の `optional_failures` に記録する
