@@ -1,43 +1,91 @@
 {
-  "generated_at_utc": "2026-02-16T02:18:26.171Z",
+  "generated_at_utc": "2026-02-16T02:24:07.007Z",
   "root": "artifacts/runs",
   "summary": {
-    "total_runs": 23,
+    "total_runs": 25,
     "by_status": {
-      "success": 10,
+      "success": 11,
       "failed": 1,
       "aborted": 1,
-      "unknown": 11
+      "unknown": 12
     },
     "by_source": {
-      "gha": 12,
+      "gha": 14,
       "local": 11
     },
     "optional_failure_runs": 2,
     "pbt_compat_triggered_runs": 1,
     "pbt_compat_recovered_runs": 1,
     "latest_by_workflow": {
+      "CI Basic": {
+        "run_id": "gha-22047928513-1",
+        "status": "imported",
+        "executed_at_utc": "2026-02-16T02:24:06.000Z",
+        "path": "artifacts/runs/gha-22047928513-1"
+      },
+      "AE Eval Fast": {
+        "run_id": "gha-22047928528-1",
+        "status": "success",
+        "executed_at_utc": "2026-02-16T02:21:09.000Z",
+        "path": "artifacts/runs/gha-22047928528-1"
+      },
       "AE Eval Full": {
         "run_id": "gha-22045315107-1",
         "status": "success",
         "executed_at_utc": "2026-02-15T23:50:51.000Z",
         "path": "artifacts/runs/gha-22045315107-1"
-      },
-      "CI Basic": {
-        "run_id": "gha-22045313363-1",
-        "status": "imported",
-        "executed_at_utc": "2026-02-15T23:50:31.000Z",
-        "path": "artifacts/runs/gha-22045313363-1"
-      },
-      "AE Eval Fast": {
-        "run_id": "gha-22045313375-1",
-        "status": "success",
-        "executed_at_utc": "2026-02-15T23:44:59.000Z",
-        "path": "artifacts/runs/gha-22045313375-1"
       }
     }
   },
   "runs": [
+    {
+      "run_dir": "gha-22047928513-1",
+      "run_id": "gha-22047928513-1",
+      "source": "gha",
+      "workflow_name": "CI Basic",
+      "executed_at_utc": "2026-02-16T02:24:06.000Z",
+      "status": "imported",
+      "exit_code": null,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": null,
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "artifact": {
+        "artifact_name": "ci-basic-logs",
+        "artifact_id": 5519917295,
+        "artifact_size_bytes": 2344,
+        "artifact_digest": "sha256:20e78a96abb52025fe397d355417420b11c86fa9d76433efc99a7bf6ef8b1643"
+      },
+      "path": "artifacts/runs/gha-22047928513-1"
+    },
+    {
+      "run_dir": "gha-22047928528-1",
+      "run_id": "gha-22047928528-1",
+      "source": "gha",
+      "workflow_name": "AE Eval Fast",
+      "executed_at_utc": "2026-02-16T02:21:09.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "1",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "artifact": {
+        "artifact_name": "ae-eval-fast-artifacts",
+        "artifact_id": 5519926809,
+        "artifact_size_bytes": 38115,
+        "artifact_digest": "sha256:8aa36f5d2b6a3dfe84687d545235d0b1e71db77e0900627283947423b4eb768d"
+      },
+      "path": "artifacts/runs/gha-22047928528-1"
+    },
     {
       "run_dir": "gha-22045315107-1",
       "run_id": "gha-22045315107-1",
