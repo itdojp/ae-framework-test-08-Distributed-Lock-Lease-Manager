@@ -1,0 +1,16 @@
+{
+  "specification": "spec_1771212251983_tp8m24ri9",
+  "properties": [
+    {
+      "name": "SafetyProperty",
+      "satisfied": false,
+      "description": "Property check for: SafetyProperty"
+    }
+  ],
+  "counterExamples": [],
+  "statistics": {
+    "statesExplored": 4350,
+    "timeElapsed": 1771212252030,
+    "memoryUsed": 0
+  }
+}

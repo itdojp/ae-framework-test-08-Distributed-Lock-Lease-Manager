@@ -1,0 +1,12 @@
+{
+  "engine": "tlc",
+  "file": "spec/tla/DomainSpec.tla",
+  "ran": false,
+  "status": "tool_not_available",
+  "ok": null,
+  "exitCode": null,
+  "timeMs": null,
+  "timestamp": "2026-02-16T03:31:16.081Z",
+  "output": "TLC not available (TLA_TOOLS_JAR not set). See docs/quality/formal-tools-setup.md",
+  "outputFile": "artifacts/hermetic-reports/formal/tla-output.txt"
+}
