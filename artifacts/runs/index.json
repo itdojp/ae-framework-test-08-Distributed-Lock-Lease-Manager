@@ -1,16 +1,16 @@
 {
-  "generated_at_utc": "2026-02-16T08:27:23.382Z",
+  "generated_at_utc": "2026-02-16T08:31:03.035Z",
   "root": "artifacts/runs",
   "summary": {
-    "total_runs": 73,
+    "total_runs": 75,
     "by_status": {
-      "success": 58,
+      "success": 60,
       "failed": 1,
       "aborted": 1,
       "unknown": 13
     },
     "by_source": {
-      "gha": 62,
+      "gha": 64,
       "local": 11
     },
     "optional_failure_runs": 5,
@@ -18,18 +18,18 @@
     "pbt_compat_recovered_runs": 4,
     "latest_by_workflow": {
       "AE Eval Fast": {
-        "run_id": "gha-22052888359-1",
+        "run_id": "gha-22055381854-1",
         "status": "success",
-        "executed_at_utc": "2026-02-16T06:48:50.000Z",
-        "path": "artifacts/runs/gha-22052888359-1",
-        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22052888359"
+        "executed_at_utc": "2026-02-16T08:30:41.000Z",
+        "path": "artifacts/runs/gha-22055381854-1",
+        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055381854"
       },
       "CI Basic": {
-        "run_id": "gha-22052888246-1",
+        "run_id": "gha-22055381976-1",
         "status": "success",
-        "executed_at_utc": "2026-02-16T06:47:04.000Z",
-        "path": "artifacts/runs/gha-22052888246-1",
-        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22052888246"
+        "executed_at_utc": "2026-02-16T08:28:43.000Z",
+        "path": "artifacts/runs/gha-22055381976-1",
+        "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055381976"
       },
       "AE Eval Full": {
         "run_id": "gha-22050135616-1",
@@ -41,6 +41,58 @@
     }
   },
   "runs": [
+    {
+      "run_dir": "gha-22055381854-1",
+      "run_id": "gha-22055381854-1",
+      "source": "gha",
+      "workflow_name": "AE Eval Fast",
+      "executed_at_utc": "2026-02-16T08:30:41.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "1",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055381854",
+      "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055381854",
+      "artifact": {
+        "artifact_name": "ae-eval-fast-artifacts",
+        "artifact_id": 5522374201,
+        "artifact_size_bytes": 38121,
+        "artifact_digest": "sha256:27a3db116ff00e277caca249a31c39b88703f071825e4f2463819768f6194241"
+      },
+      "path": "artifacts/runs/gha-22055381854-1"
+    },
+    {
+      "run_dir": "gha-22055381976-1",
+      "run_id": "gha-22055381976-1",
+      "source": "gha",
+      "workflow_name": "CI Basic",
+      "executed_at_utc": "2026-02-16T08:28:43.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "n/a",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055381976",
+      "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22055381976",
+      "artifact": {
+        "artifact_name": "ci-basic-logs",
+        "artifact_id": 5522353531,
+        "artifact_size_bytes": 2348,
+        "artifact_digest": "sha256:dac6ba9c4c1bdecd7be1689518b2f7682bba34e68f7f3d8efa28be5d7cc182c7"
+      },
+      "path": "artifacts/runs/gha-22055381976-1"
+    },
     {
       "run_dir": "gha-22052888359-1",
       "run_id": "gha-22052888359-1",
