@@ -1,0 +1,16 @@
+{
+  "specification": "spec_1771223953975_w80invk5a",
+  "properties": [
+    {
+      "name": "SafetyProperty",
+      "satisfied": false,
+      "description": "Property check for: SafetyProperty"
+    }
+  ],
+  "counterExamples": [],
+  "statistics": {
+    "statesExplored": 4350,
+    "timeElapsed": 1771223954019,
+    "memoryUsed": 0
+  }
+}

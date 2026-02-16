@@ -1,33 +1,33 @@
 {
-  "generated_at_utc": "2026-02-16T06:39:58.337Z",
+  "generated_at_utc": "2026-02-16T06:40:26.796Z",
   "root": "artifacts/runs",
   "summary": {
-    "total_runs": 68,
+    "total_runs": 69,
     "by_status": {
-      "success": 53,
+      "success": 54,
       "failed": 1,
       "aborted": 1,
       "unknown": 13
     },
     "by_source": {
-      "gha": 57,
+      "gha": 58,
       "local": 11
     },
     "optional_failure_runs": 5,
     "pbt_compat_triggered_runs": 4,
     "pbt_compat_recovered_runs": 4,
     "latest_by_workflow": {
+      "AE Eval Fast": {
+        "run_id": "gha-22052696753-1",
+        "status": "success",
+        "executed_at_utc": "2026-02-16T06:40:06.000Z",
+        "path": "artifacts/runs/gha-22052696753-1"
+      },
       "CI Basic": {
         "run_id": "gha-22052696758-1",
         "status": "success",
         "executed_at_utc": "2026-02-16T06:38:17.000Z",
         "path": "artifacts/runs/gha-22052696758-1"
-      },
-      "AE Eval Fast": {
-        "run_id": "gha-22052571295-1",
-        "status": "success",
-        "executed_at_utc": "2026-02-16T06:34:30.000Z",
-        "path": "artifacts/runs/gha-22052571295-1"
       },
       "AE Eval Full": {
         "run_id": "gha-22050135616-1",
@@ -38,6 +38,30 @@
     }
   },
   "runs": [
+    {
+      "run_dir": "gha-22052696753-1",
+      "run_id": "gha-22052696753-1",
+      "source": "gha",
+      "workflow_name": "AE Eval Fast",
+      "executed_at_utc": "2026-02-16T06:40:06.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "1",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "artifact": {
+        "artifact_name": "ae-eval-fast-artifacts",
+        "artifact_id": 5521482631,
+        "artifact_size_bytes": 38128,
+        "artifact_digest": "sha256:58f7a532dd4f637cb4822b81bee42c3bf4d081c02142189b4a2a3a9bed58f0b7"
+      },
+      "path": "artifacts/runs/gha-22052696753-1"
+    },
     {
       "run_dir": "gha-22052696758-1",
       "run_id": "gha-22052696758-1",
