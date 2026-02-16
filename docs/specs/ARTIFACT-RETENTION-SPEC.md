@@ -30,6 +30,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 6. run追加後は `scripts/generate-run-index.mjs` を実行し、`artifacts/runs/index.json` / `index.md` を更新する。
 7. 既存の取り込み先に `metadata.json` / `summary.md` が欠落している場合は `scripts/backfill-imported-run-metadata.sh` を実行して補完する。
 8. 定期更新は `Artifacts Maintenance` workflow（`.github/workflows/artifacts-maintenance.yml`）で自動実行する。
+9. 即時更新は `Artifacts Sync On Workflow Complete` workflow（`.github/workflows/artifacts-sync-on-workflow-complete.yml`）で `workflow_run.completed(success)` を契機に実行する。
 
 ## 5. 参照規約
 - 各Issue/PRには対象実行ディレクトリへのパスを明記する。

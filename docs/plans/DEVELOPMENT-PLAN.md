@@ -131,3 +131,7 @@
 22. run index 生成の安定化:
 - `scripts/generate-run-index.mjs` を更新し、`summary/runs` 不変時は `generated_at_utc` を維持
 - `Artifacts Maintenance` で timestamp-only の不要コミットが発生しないよう抑止
+23. 完了イベント連動の即時取り込み:
+- `.github/workflows/artifacts-sync-on-workflow-complete.yml` を追加
+- `CI Basic` / `AE Eval Fast` / `AE Eval Full` の成功完了を契機に対象runを即時取り込み
+- `backfill -> index` まで自動実行し、6時間周期を待たずに証跡を反映
