@@ -1,0 +1,31 @@
+{
+  "run_id": "gha-22048716489-1",
+  "executed_at_utc": "2026-02-16T03:07:47Z",
+  "status": "success",
+  "exit_code": 0,
+  "failed_step": "",
+  "optional_step_count": 0,
+  "optional_fail_count": 0,
+  "optional_failures": [],
+  "optional_results": [],
+  "pbt_compat_mode": "1",
+  "pbt_compat_triggered": 0,
+  "pbt_compat_recovered": 0,
+  "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
+  "spec_issue": 1,
+  "runtime_issue": 2,
+  "tool_versions": {
+    "codex": "unknown",
+    "pnpm": "10.0.0",
+    "node": "v22.22.0"
+  },
+  "ae_framework": {
+    "root": "/home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework",
+    "branch": "main",
+    "commit": "0bde67b153b14259b671fd4f5fcca51bb5418711"
+  },
+  "target_repo": {
+    "branch": "main",
+    "commit_before_run": "0474322228d13ccdbe4bc177b8558e612bcc4bdc"
+  }
+}
