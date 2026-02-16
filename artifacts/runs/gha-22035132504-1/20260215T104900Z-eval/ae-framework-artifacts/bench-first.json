@@ -1,0 +1,25 @@
+{
+  "date": "2025-08-25T03:11:26.631Z",
+  "env": {
+    "node": "v20.19.4",
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 7 7735HS with Radeon Graphics",
+    "totalMem": 33256824832,
+    "seed": 123
+  },
+  "config": {
+    "warmupMs": 300,
+    "iterations": 30,
+    "seed": 12345
+  },
+  "summary": [
+    {
+      "name": "noop",
+      "hz": 27335410.749376565,
+      "meanMs": 0.03918546594610976,
+      "sdMs": 0.2742696185309689,
+      "samples": 25519666
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+
+> distributed-lock-lease-manager@0.1.0 test:all
+> npm run test:unit && npm run test:contract && npm run test:integration && npm run test:property && npm run test:mbt
+
+
+> distributed-lock-lease-manager@0.1.0 test:unit
+> node --test tests/unit/*.test.mjs
+
+TAP version 13
+# (node:2301) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: LS-ACQ-001: lock held中の重複acquireは409
+ok 1 - LS-ACQ-001: lock held中の重複acquireは409
+  ---
+  duration_ms: 2.557816
+  type: 'test'
+  ...
+# Subtest: LS-ACQ-004: acquire request_id再送は同一leaseを返す
+ok 2 - LS-ACQ-004: acquire request_id再送は同一leaseを返す
+  ---
+  duration_ms: 0.482359
+  type: 'test'
+  ...
+# Subtest: LS-RNW-001/LS-REL-001: owner不一致はrenew/release失敗
+ok 3 - LS-RNW-001/LS-REL-001: owner不一致はrenew/release失敗
+  ---
+  duration_ms: 0.745654
+  type: 'test'
+  ...
+# Subtest: LS-INV-004: 期限切れ後のrenew/releaseは409
+ok 4 - LS-INV-004: 期限切れ後のrenew/releaseは409
+  ---
+  duration_ms: 0.607564
+  type: 'test'
+  ...
+# Subtest: LS-INV-002/LS-ACC-03: expiry後再取得でfencing token増加
+ok 5 - LS-INV-002/LS-ACC-03: expiry後再取得でfencing token増加
+  ---
+  duration_ms: 0.589289
+  type: 'test'
+  ...
+# Subtest: LS-EXP-001: expireLeasesは冪等
+ok 6 - LS-EXP-001: expireLeasesは冪等
+  ---
+  duration_ms: 0.436472
+  type: 'test'
+  ...
+# Subtest: LS-FENCE-001: fencing token比較関数
+ok 7 - LS-FENCE-001: fencing token比較関数
+  ---
+  duration_ms: 0.487237
+  type: 'test'
+  ...
+# (node:2302) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: snapshot restore後もfencing tokenは継続して増加する
+ok 8 - snapshot restore後もfencing tokenは継続して増加する
+  ---
+  duration_ms: 12.286951
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 91.743511
+
+> distributed-lock-lease-manager@0.1.0 test:contract
+> node --test tests/contracts/*.test.mjs tests/contracts/generated/*.generated.test.mjs
+
+TAP version 13
+# (node:2340) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Contract: acquire/release/get/force-release の応答はSchema準拠
+ok 1 - Contract: acquire/release/get/force-release の応答はSchema準拠
+  ---
+  duration_ms: 56.451259
+  type: 'test'
+  ...
+# Subtest: Contract: エラー応答はErrorResponse準拠
+ok 2 - Contract: エラー応答はErrorResponse準拠
+  ---
+  duration_ms: 20.397098
+  type: 'test'
+  ...
+# Subtest: contract template: acquireLease
+ok 3 - contract template: acquireLease # SKIP
+  ---
+  duration_ms: 1.038786
+  type: 'test'
+  ...
+# Subtest: contract template: forceReleaseLock
+ok 4 - contract template: forceReleaseLock # SKIP
+  ---
+  duration_ms: 1.022265
+  type: 'test'
+  ...
+# Subtest: contract template: getLockState
+ok 5 - contract template: getLockState # SKIP
+  ---
+  duration_ms: 0.74901
+  type: 'test'
+  ...
+# Subtest: contract template: releaseLease
+ok 6 - contract template: releaseLease # SKIP
+  ---
+  duration_ms: 0.693506
+  type: 'test'
+  ...
+# Subtest: contract template: renewLease
+ok 7 - contract template: renewLease # SKIP
+  ---
+  duration_ms: 0.672557
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 5
+# todo 0
+# duration_ms 220.519909
+
+> distributed-lock-lease-manager@0.1.0 test:integration
+> node --test tests/integration/*.test.mjs
+
+TAP version 13
+# (node:2400) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: API integration: acquire -> get -> release
+ok 1 - API integration: acquire -> get -> release
+  ---
+  duration_ms: 44.364148
+  type: 'test'
+  ...
+# Subtest: API integration: lock held時は409
+ok 2 - API integration: lock held時は409
+  ---
+  duration_ms: 12.221392
+  type: 'test'
+  ...
+# Subtest: API integration: x-owner-id と owner_id 不一致は401
+ok 3 - API integration: x-owner-id と owner_id 不一致は401
+  ---
+  duration_ms: 4.696303
+  type: 'test'
+  ...
+# Subtest: API integration: force-release は ADMIN のみ許可
+ok 4 - API integration: force-release は ADMIN のみ許可
+  ---
+  duration_ms: 10.930832
+  type: 'test'
+  ...
+# Subtest: API integration: 同時acquireで成功は1件のみ
+ok 5 - API integration: 同時acquireで成功は1件のみ
+  ---
+  duration_ms: 20.869868
+  type: 'test'
+  ...
+# (node:2401) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: SQLite: 同時acquireで成功は1件のみ
+ok 6 - SQLite: 同時acquireで成功は1件のみ
+  ---
+  duration_ms: 26.279498
+  type: 'test'
+  ...
+# Subtest: SQLite: 再起動後もfencing tokenは増加する
+ok 7 - SQLite: 再起動後もfencing tokenは増加する
+  ---
+  duration_ms: 17.310883
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 176.658187
+
+> distributed-lock-lease-manager@0.1.0 test:property
+> node --test tests/property/*.test.mjs
+
+TAP version 13
+# (node:2436) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Property: ランダム操作後もLS-INV-001/002を維持
+ok 1 - Property: ランダム操作後もLS-INV-001/002を維持
+  ---
+  duration_ms: 85.373518
+  type: 'test'
+  ...
+# Subtest: Property: expiry後renew/releaseは成功しない
+ok 2 - Property: expiry後renew/releaseは成功しない
+  ---
+  duration_ms: 0.405152
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 146.021815
+
+> distributed-lock-lease-manager@0.1.0 test:mbt
+> node --test tests/mbt/*.test.mjs
+
+TAP version 13
+# (node:2461) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: MBT: 同時acquireで成功は最大1
+ok 1 - MBT: 同時acquireで成功は最大1
+  ---
+  duration_ms: 1.62507
+  type: 'test'
+  ...
+# Subtest: MBT: owner不一致renew失敗
+ok 2 - MBT: owner不一致renew失敗
+  ---
+  duration_ms: 0.355209
+  type: 'test'
+  ...
+# Subtest: MBT: expiry後renew失敗
+ok 3 - MBT: expiry後renew失敗
+  ---
+  duration_ms: 0.39275
+  type: 'test'
+  ...
+# Subtest: MBT: release後に再acquire可能
+ok 4 - MBT: release後に再acquire可能
+  ---
+  duration_ms: 0.317889
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 63.764967

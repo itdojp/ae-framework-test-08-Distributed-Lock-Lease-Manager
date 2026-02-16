@@ -1,0 +1,150 @@
+
+> distributed-lock-lease-manager@0.1.0 test:all
+> npm run test:unit && npm run test:integration && npm run test:property && npm run test:mbt
+
+
+> distributed-lock-lease-manager@0.1.0 test:unit
+> node --test tests/unit/*.test.mjs
+
+TAP version 13
+# Subtest: LS-ACQ-001: lock held中の重複acquireは409
+ok 1 - LS-ACQ-001: lock held中の重複acquireは409
+  ---
+  duration_ms: 3.620072
+  type: 'test'
+  ...
+# Subtest: LS-ACQ-004: acquire request_id再送は同一leaseを返す
+ok 2 - LS-ACQ-004: acquire request_id再送は同一leaseを返す
+  ---
+  duration_ms: 0.283487
+  type: 'test'
+  ...
+# Subtest: LS-RNW-001/LS-REL-001: owner不一致はrenew/release失敗
+ok 3 - LS-RNW-001/LS-REL-001: owner不一致はrenew/release失敗
+  ---
+  duration_ms: 0.487793
+  type: 'test'
+  ...
+# Subtest: LS-INV-004: 期限切れ後のrenew/releaseは409
+ok 4 - LS-INV-004: 期限切れ後のrenew/releaseは409
+  ---
+  duration_ms: 0.682329
+  type: 'test'
+  ...
+# Subtest: LS-INV-002/LS-ACC-03: expiry後再取得でfencing token増加
+ok 5 - LS-INV-002/LS-ACC-03: expiry後再取得でfencing token増加
+  ---
+  duration_ms: 0.368325
+  type: 'test'
+  ...
+# Subtest: LS-EXP-001: expireLeasesは冪等
+ok 6 - LS-EXP-001: expireLeasesは冪等
+  ---
+  duration_ms: 0.304346
+  type: 'test'
+  ...
+# Subtest: LS-FENCE-001: fencing token比較関数
+ok 7 - LS-FENCE-001: fencing token比較関数
+  ---
+  duration_ms: 0.119031
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 66.564904
+
+> distributed-lock-lease-manager@0.1.0 test:integration
+> node --test tests/integration/*.test.mjs
+
+TAP version 13
+# Subtest: API integration: acquire -> get -> release
+ok 1 - API integration: acquire -> get -> release
+  ---
+  duration_ms: 42.667801
+  type: 'test'
+  ...
+# Subtest: API integration: lock held時は409
+ok 2 - API integration: lock held時は409
+  ---
+  duration_ms: 16.180934
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 202.331517
+
+> distributed-lock-lease-manager@0.1.0 test:property
+> node --test tests/property/*.test.mjs
+
+TAP version 13
+# Subtest: Property: ランダム操作後もLS-INV-001/002を維持
+ok 1 - Property: ランダム操作後もLS-INV-001/002を維持
+  ---
+  duration_ms: 75.353648
+  type: 'test'
+  ...
+# Subtest: Property: expiry後renew/releaseは成功しない
+ok 2 - Property: expiry後renew/releaseは成功しない
+  ---
+  duration_ms: 0.286994
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 142.678875
+
+> distributed-lock-lease-manager@0.1.0 test:mbt
+> node --test tests/mbt/*.test.mjs
+
+TAP version 13
+# Subtest: MBT: 同時acquireで成功は最大1
+ok 1 - MBT: 同時acquireで成功は最大1
+  ---
+  duration_ms: 2.103504
+  type: 'test'
+  ...
+# Subtest: MBT: owner不一致renew失敗
+ok 2 - MBT: owner不一致renew失敗
+  ---
+  duration_ms: 0.223566
+  type: 'test'
+  ...
+# Subtest: MBT: expiry後renew失敗
+ok 3 - MBT: expiry後renew失敗
+  ---
+  duration_ms: 0.249444
+  type: 'test'
+  ...
+# Subtest: MBT: release後に再acquire可能
+ok 4 - MBT: release後に再acquire可能
+  ---
+  duration_ms: 0.201946
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 59.982565

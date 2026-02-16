@@ -1,0 +1,12 @@
+{
+  "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
+  "run_id": 22035224109,
+  "run_attempt": 1,
+  "workflow_name": "CI Basic",
+  "head_sha": "854d3cd853b7e2669e88aafce668af32cc24bc14",
+  "artifact_name": "ci-basic-logs",
+  "artifact_id": 5516100801,
+  "artifact_size_bytes": 1693,
+  "artifact_digest": "sha256:6623f1706bc6a989acf9db350f21541f57aacec7dc30f6763a20b22cb72c6abd",
+  "downloaded_at_utc": "2026-02-16T03:13:19Z"
+}

@@ -19,7 +19,7 @@
 ## 自動化実行
 - 実行スクリプト: `scripts/run-ae-eval.sh`
 - GHA成果物取り込み: `scripts/import-gha-artifact.sh`
-- GHA最新成果物の一括同期: `scripts/sync-gha-artifacts.sh`
+- GHA成果物の一括同期（未取り込み成功run全件）: `scripts/sync-gha-artifacts.sh`
 - 既存取り込みのメタデータ補完: `scripts/backfill-imported-run-metadata.sh`
 - 評価runインデックス生成: `scripts/generate-run-index.mjs`
 - 生成成果物の保存先: `artifacts/runs/<UTC timestamp>/`
@@ -52,7 +52,7 @@
 - 契約テスト雛形生成: `npm run contracts:generate`
 - トレーサビリティレポート生成: `npm run traceability:generate`
 - GitHub Actions artifact 取り込み: `npm run artifacts:import-gha -- <run_id> [--artifact <artifact_name>]`
-- GitHub Actions 最新artifact一括同期: `npm run artifacts:sync-gha -- [--workflow \"AE Eval Full\"]`
+- GitHub Actions artifact一括同期（取得範囲内の未取り込みsuccess run全件）: `npm run artifacts:sync-gha -- [--workflow \"AE Eval Full\"]`
 - 既存取り込みのメタデータ補完: `npm run artifacts:backfill-meta`
 - 評価runインデックス生成: `npm run artifacts:index`
 - 同期 + インデックス一括実行: `npm run artifacts:sync-index`

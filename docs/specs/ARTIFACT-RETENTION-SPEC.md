@@ -26,7 +26,7 @@ ae-framework の評価に必要な中間生成物・実行ログ・要約を欠�
 2. コミットメッセージは `artifacts: run <timestamp> <result>` 形式を推奨。
 3. 大容量バイナリは原則避け、必要時は圧縮の上で保存理由を `summary.md` に記載する。
 4. GitHub Actions artifact を取り込む場合は `scripts/import-gha-artifact.sh <run_id>` を使用し、`artifacts/runs/gha-<run_id>-<attempt>/` に保存する。
-5. 最新の成功runを定期同期する場合は `scripts/sync-gha-artifacts.sh` を使用し、run ID の手入力を排除する。
+5. 成功runを定期同期する場合は `scripts/sync-gha-artifacts.sh` を使用し、取得範囲内の未取り込みrunを自動同期して run ID の手入力を排除する。
 6. run追加後は `scripts/generate-run-index.mjs` を実行し、`artifacts/runs/index.json` / `index.md` を更新する。
 7. 既存の取り込み先に `metadata.json` / `summary.md` が欠落している場合は `scripts/backfill-imported-run-metadata.sh` を実行して補完する。
 8. 定期更新は `Artifacts Maintenance` workflow（`.github/workflows/artifacts-maintenance.yml`）で自動実行する。

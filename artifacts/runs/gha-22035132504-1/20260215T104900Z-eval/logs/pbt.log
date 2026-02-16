@@ -1,0 +1,28 @@
+
+> ae-framework@1.0.0 pbt /tmp/ae-framework
+> vitest run -c tests/property/vitest.config.ts
+
+✘ [ERROR] Could not resolve "/tmp/ae-framework/tests/property/vitest.config.ts"
+
+failed to load config from /tmp/ae-framework/tests/property/vitest.config.ts
+
+⎯⎯⎯⎯⎯⎯⎯ Startup Error ⎯⎯⎯⎯⎯⎯⎯⎯
+Error: Build failed with 1 error:
+error: Could not resolve "/tmp/ae-framework/tests/property/vitest.config.ts"
+    at failureErrorWithLog (/tmp/ae-framework/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:1467:15)
+    at /tmp/ae-framework/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:926:25
+    at runOnEndCallbacks (/tmp/ae-framework/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:1307:45)
+    at buildResponseToResult (/tmp/ae-framework/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:924:7)
+    at /tmp/ae-framework/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:951:16
+    at responseCallbacks.<computed> (/tmp/ae-framework/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:603:9)
+    at handleIncomingPacket (/tmp/ae-framework/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:658:12)
+    at Socket.readFromStdout (/tmp/ae-framework/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:581:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter]
+}
+
+
+
+ ELIFECYCLE  Command failed with exit code 1.

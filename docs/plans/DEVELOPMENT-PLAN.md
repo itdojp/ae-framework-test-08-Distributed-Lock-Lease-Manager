@@ -112,7 +112,7 @@
 - `pbt` が `tests/property/vitest.config.ts` 欠落で失敗した場合、`pbt_compat_test_property`（`pnpm run test:property`）を追加実行
 - `metadata.json` に `optional_results` と `pbt_compat_triggered` / `pbt_compat_recovered` を記録
 17. GHA成果物同期の自動化:
-- `scripts/sync-gha-artifacts.sh` を追加し、workflow名（`AE Eval Fast`/`AE Eval Full`/`CI Basic`）から最新成功runを自動解決して取り込み
+- `scripts/sync-gha-artifacts.sh` を追加し、workflow名（`AE Eval Fast`/`AE Eval Full`/`CI Basic`）ごとに成功runを列挙して未取り込み分を自動取り込み
 - `npm run artifacts:sync-gha` を追加し、手動run ID指定を不要化
 18. 評価runインデックスの自動生成:
 - `scripts/generate-run-index.mjs` を追加し、`artifacts/runs/index.json` / `index.md` を生成

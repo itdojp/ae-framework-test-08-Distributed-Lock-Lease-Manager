@@ -15,6 +15,10 @@ Examples:
   scripts/sync-gha-artifacts.sh
   scripts/sync-gha-artifacts.sh --workflow "AE Eval Full"
   scripts/sync-gha-artifacts.sh --repo itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager --branch main
+
+Notes:
+  --limit は workflow ごとに探索する completed run 件数（新しい順）です。
+  探索範囲内の success run について、未取り込み分をすべて同期します。
 USAGE
 }
 
@@ -25,7 +29,7 @@ fi
 
 REPO_SLUG="${GITHUB_REPOSITORY:-itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager}"
 BRANCH="main"
-LIMIT=30
+LIMIT=100
 WORKFLOWS=()
 
 while [[ $# -gt 0 ]]; do
@@ -81,26 +85,38 @@ for workflow in "${WORKFLOWS[@]}"; do
     continue
   fi
 
-  run_id="$(gh run list \
+  run_ids="$(gh run list \
     -R "${REPO_SLUG}" \
     --workflow "${workflow}" \
     --branch "${BRANCH}" \
     --status completed \
     --limit "${LIMIT}" \
     --json databaseId,conclusion \
-    --jq '[.[] | select(.conclusion=="success")][0].databaseId')"
+    --jq '[.[] | select(.conclusion=="success") | .databaseId] | reverse | .[]')"
 
-  if [[ -z "${run_id}" || "${run_id}" == "null" ]]; then
+  if [[ -z "${run_ids}" ]]; then
     echo "[skip] workflow='${workflow}' branch='${BRANCH}' の成功runが見つかりません。"
     continue
   fi
 
-  if compgen -G "artifacts/runs/gha-${run_id}-*" > /dev/null; then
-    echo "[skip] already imported: workflow='${workflow}' run_id=${run_id}"
-    continue
-  fi
+  imported_count=0
+  skipped_existing_count=0
 
-  echo "[import] workflow='${workflow}' run_id=${run_id} artifact='${artifact_name}'"
-  scripts/import-gha-artifact.sh "${run_id}" --artifact "${artifact_name}" --repo "${REPO_SLUG}"
+  while IFS= read -r run_id; do
+    if [[ -z "${run_id}" || "${run_id}" == "null" ]]; then
+      continue
+    fi
+
+    if compgen -G "artifacts/runs/gha-${run_id}-*" > /dev/null; then
+      echo "[skip] already imported: workflow='${workflow}' run_id=${run_id}"
+      skipped_existing_count=$((skipped_existing_count + 1))
+      continue
+    fi
+
+    echo "[import] workflow='${workflow}' run_id=${run_id} artifact='${artifact_name}'"
+    scripts/import-gha-artifact.sh "${run_id}" --artifact "${artifact_name}" --repo "${REPO_SLUG}"
+    imported_count=$((imported_count + 1))
+  done <<< "${run_ids}"
+
+  echo "[done] workflow='${workflow}' imported=${imported_count} skipped_existing=${skipped_existing_count}"
 done
-
