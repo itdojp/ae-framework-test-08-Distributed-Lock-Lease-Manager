@@ -135,3 +135,6 @@
 - `.github/workflows/artifacts-sync-on-workflow-complete.yml` を追加
 - `CI Basic` / `AE Eval Fast` / `AE Eval Full` の成功完了を契機に起動し、同一 `head_sha` の成功runをまとめて即時取り込み
 - `backfill -> index` まで自動実行し、6時間周期を待たずに証跡を反映
+24. artifact書き込みworkflowの競合回避:
+- `Artifacts Maintenance` と `Artifacts Sync On Workflow Complete` を `artifacts-writer-main` concurrency group で直列化
+- 即時同期workflowの push で `pull --rebase` リトライを追加し、同時更新時の失敗を自己回復

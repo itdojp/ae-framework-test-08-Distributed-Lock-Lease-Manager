@@ -45,8 +45,8 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
 - GitHub Actions:
   - `AE Eval Fast`（`AE_RUN_OPTIONAL=0`）: `push(main)` と `workflow_dispatch`
   - `AE Eval Full`（`AE_RUN_OPTIONAL=1`）: `workflow_dispatch` と日次 `schedule`（UTC 03:37）
-  - `Artifacts Maintenance`: `schedule`（6時間ごと）と `workflow_dispatch` で `sync -> backfill -> index` を自動実行
-  - `Artifacts Sync On Workflow Complete`: `CI Basic` / `AE Eval Fast` / `AE Eval Full` の `workflow_run.completed(success)` を契機に起動し、同一 `head_sha` の成功runをまとめて取り込みして `backfill -> index` を実行
+  - `Artifacts Maintenance`: `schedule`（6時間ごと）と `workflow_dispatch` で `sync -> backfill -> index` を自動実行（`artifacts-writer-main` で直列化）
+  - `Artifacts Sync On Workflow Complete`: `CI Basic` / `AE Eval Fast` / `AE Eval Full` の `workflow_run.completed(success)` を契機に起動し、同一 `head_sha` の成功runをまとめて取り込みして `backfill -> index` を実行（`artifacts-writer-main` で直列化、push競合時はrebase retry）
   - 両workflowとも `metadata.json` 要約を Job Summary に出力し、optional失敗件数を即時確認可能にする
   - `CI Basic` / `AE Eval Fast` の `push` は `artifacts/runs/**` のみ変更時は起動しない（保存ループ抑止）
 
