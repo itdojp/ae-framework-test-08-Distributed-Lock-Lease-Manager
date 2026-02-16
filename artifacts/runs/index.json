@@ -1,13 +1,13 @@
 {
-  "generated_at_utc": "2026-02-16T02:28:05.372Z",
+  "generated_at_utc": "2026-02-16T02:59:43.087Z",
   "root": "artifacts/runs",
   "summary": {
     "total_runs": 26,
     "by_status": {
-      "success": 12,
+      "success": 17,
       "failed": 1,
       "aborted": 1,
-      "unknown": 12
+      "unknown": 7
     },
     "by_source": {
       "gha": 15,
@@ -23,17 +23,17 @@
         "executed_at_utc": "2026-02-16T02:26:56.000Z",
         "path": "artifacts/runs/gha-22047930596-1"
       },
-      "CI Basic": {
-        "run_id": "gha-22047928513-1",
-        "status": "imported",
-        "executed_at_utc": "2026-02-16T02:24:06.000Z",
-        "path": "artifacts/runs/gha-22047928513-1"
-      },
       "AE Eval Fast": {
         "run_id": "gha-22047928528-1",
         "status": "success",
         "executed_at_utc": "2026-02-16T02:21:09.000Z",
         "path": "artifacts/runs/gha-22047928528-1"
+      },
+      "CI Basic": {
+        "run_id": "gha-22047928513-1",
+        "status": "success",
+        "executed_at_utc": "2026-02-16T02:19:15.000Z",
+        "path": "artifacts/runs/gha-22047928513-1"
       }
     }
   },
@@ -99,30 +99,6 @@
       "path": "artifacts/runs/gha-22047930596-1"
     },
     {
-      "run_dir": "gha-22047928513-1",
-      "run_id": "gha-22047928513-1",
-      "source": "gha",
-      "workflow_name": "CI Basic",
-      "executed_at_utc": "2026-02-16T02:24:06.000Z",
-      "status": "imported",
-      "exit_code": null,
-      "failed_step": "",
-      "optional_step_count": 0,
-      "optional_fail_count": 0,
-      "optional_failures": [],
-      "optional_results": [],
-      "pbt_compat_mode": null,
-      "pbt_compat_triggered": 0,
-      "pbt_compat_recovered": 0,
-      "artifact": {
-        "artifact_name": "ci-basic-logs",
-        "artifact_id": 5519917295,
-        "artifact_size_bytes": 2344,
-        "artifact_digest": "sha256:20e78a96abb52025fe397d355417420b11c86fa9d76433efc99a7bf6ef8b1643"
-      },
-      "path": "artifacts/runs/gha-22047928513-1"
-    },
-    {
       "run_dir": "gha-22047928528-1",
       "run_id": "gha-22047928528-1",
       "source": "gha",
@@ -145,6 +121,30 @@
         "artifact_digest": "sha256:8aa36f5d2b6a3dfe84687d545235d0b1e71db77e0900627283947423b4eb768d"
       },
       "path": "artifacts/runs/gha-22047928528-1"
+    },
+    {
+      "run_dir": "gha-22047928513-1",
+      "run_id": "gha-22047928513-1",
+      "source": "gha",
+      "workflow_name": "CI Basic",
+      "executed_at_utc": "2026-02-16T02:19:15.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "n/a",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "artifact": {
+        "artifact_name": "ci-basic-logs",
+        "artifact_id": 5519917295,
+        "artifact_size_bytes": 2344,
+        "artifact_digest": "sha256:20e78a96abb52025fe397d355417420b11c86fa9d76433efc99a7bf6ef8b1643"
+      },
+      "path": "artifacts/runs/gha-22047928513-1"
     },
     {
       "run_dir": "gha-22045315107-1",
@@ -207,30 +207,6 @@
       "path": "artifacts/runs/gha-22045315107-1"
     },
     {
-      "run_dir": "gha-22045313363-1",
-      "run_id": "gha-22045313363-1",
-      "source": "gha",
-      "workflow_name": "CI Basic",
-      "executed_at_utc": "2026-02-15T23:50:31.000Z",
-      "status": "imported",
-      "exit_code": null,
-      "failed_step": "",
-      "optional_step_count": 0,
-      "optional_fail_count": 0,
-      "optional_failures": [],
-      "optional_results": [],
-      "pbt_compat_mode": null,
-      "pbt_compat_triggered": 0,
-      "pbt_compat_recovered": 0,
-      "artifact": {
-        "artifact_name": "ci-basic-logs",
-        "artifact_id": 5519094898,
-        "artifact_size_bytes": 2351,
-        "artifact_digest": "sha256:d1411bd17db7544bc2e23dfb3e876a660a4880266a0c6c9b8be9b3ce43f2113e"
-      },
-      "path": "artifacts/runs/gha-22045313363-1"
-    },
-    {
       "run_dir": "gha-22045313375-1",
       "run_id": "gha-22045313375-1",
       "source": "gha",
@@ -253,6 +229,30 @@
         "artifact_digest": "sha256:231f8f3d7e9fee46f02bff317f74cc68f3a67cf71273b65daa6799b864f9b5a3"
       },
       "path": "artifacts/runs/gha-22045313375-1"
+    },
+    {
+      "run_dir": "gha-22045313363-1",
+      "run_id": "gha-22045313363-1",
+      "source": "gha",
+      "workflow_name": "CI Basic",
+      "executed_at_utc": "2026-02-15T23:43:06.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "n/a",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "artifact": {
+        "artifact_name": "ci-basic-logs",
+        "artifact_id": 5519094898,
+        "artifact_size_bytes": 2351,
+        "artifact_digest": "sha256:d1411bd17db7544bc2e23dfb3e876a660a4880266a0c6c9b8be9b3ce43f2113e"
+      },
+      "path": "artifacts/runs/gha-22045313363-1"
     },
     {
       "run_dir": "gha-22043610655-1",
@@ -284,30 +284,6 @@
       "path": "artifacts/runs/gha-22043610655-1"
     },
     {
-      "run_dir": "gha-22043553104-1",
-      "run_id": "gha-22043553104-1",
-      "source": "gha",
-      "workflow_name": "CI Basic",
-      "executed_at_utc": "2026-02-15T21:42:55.000Z",
-      "status": "imported",
-      "exit_code": null,
-      "failed_step": "",
-      "optional_step_count": 0,
-      "optional_fail_count": 0,
-      "optional_failures": [],
-      "optional_results": [],
-      "pbt_compat_mode": null,
-      "pbt_compat_triggered": 0,
-      "pbt_compat_recovered": 0,
-      "artifact": {
-        "artifact_name": "ci-basic-logs",
-        "artifact_id": 5518542497,
-        "artifact_size_bytes": 2343,
-        "artifact_digest": "sha256:3f8ceea2adfb987f102131a7591a6198950c4a6e624a4b8868751f12cf3769f1"
-      },
-      "path": "artifacts/runs/gha-22043553104-1"
-    },
-    {
       "run_dir": "gha-22043553101-1",
       "run_id": "gha-22043553101-1",
       "source": "gha",
@@ -330,6 +306,30 @@
         "artifact_digest": "sha256:a311f4c25ef675718e5a4163201b134a90f469301e60aa865e4c14d6a3f8f0c2"
       },
       "path": "artifacts/runs/gha-22043553101-1"
+    },
+    {
+      "run_dir": "gha-22043553104-1",
+      "run_id": "gha-22043553104-1",
+      "source": "gha",
+      "workflow_name": "CI Basic",
+      "executed_at_utc": "2026-02-15T21:40:20.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "n/a",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "artifact": {
+        "artifact_name": "ci-basic-logs",
+        "artifact_id": 5518542497,
+        "artifact_size_bytes": 2343,
+        "artifact_digest": "sha256:3f8ceea2adfb987f102131a7591a6198950c4a6e624a4b8868751f12cf3769f1"
+      },
+      "path": "artifacts/runs/gha-22043553104-1"
     },
     {
       "run_dir": "gha-22043496322-1",
@@ -360,15 +360,15 @@
       "run_id": "gha-22043496323-1",
       "source": "gha",
       "workflow_name": "CI Basic",
-      "executed_at_utc": "2026-02-15T21:38:05.000Z",
-      "status": "imported",
-      "exit_code": null,
+      "executed_at_utc": "2026-02-15T21:36:14.000Z",
+      "status": "success",
+      "exit_code": 0,
       "failed_step": "",
       "optional_step_count": 0,
       "optional_fail_count": 0,
       "optional_failures": [],
       "optional_results": [],
-      "pbt_compat_mode": null,
+      "pbt_compat_mode": "n/a",
       "pbt_compat_triggered": 0,
       "pbt_compat_recovered": 0,
       "artifact": {
@@ -378,30 +378,6 @@
         "artifact_digest": "sha256:f74b5b89637645ddb1d81023a827cb0e5cc8300c1abccac2182b70548478b47e"
       },
       "path": "artifacts/runs/gha-22043496323-1"
-    },
-    {
-      "run_dir": "gha-22037101340-1",
-      "run_id": "gha-22037101340-1",
-      "source": "gha",
-      "workflow_name": "CI Basic",
-      "executed_at_utc": "2026-02-15T21:34:21.000Z",
-      "status": "imported",
-      "exit_code": null,
-      "failed_step": "",
-      "optional_step_count": 0,
-      "optional_fail_count": 0,
-      "optional_failures": [],
-      "optional_results": [],
-      "pbt_compat_mode": null,
-      "pbt_compat_triggered": 0,
-      "pbt_compat_recovered": 0,
-      "artifact": {
-        "artifact_name": "ci-basic-logs",
-        "artifact_id": 5516629365,
-        "artifact_size_bytes": 2338,
-        "artifact_digest": "sha256:57e9644e9330ed892ab247cc8363b1fa6d97feee20ee9b473b366efeb18f32d7"
-      },
-      "path": "artifacts/runs/gha-22037101340-1"
     },
     {
       "run_dir": "gha-22037101333-1",
@@ -426,6 +402,30 @@
         "artifact_digest": "sha256:55ff2a3f486ef01311b32cc3e0282deaa92af629504316d0edcd891cb147f75f"
       },
       "path": "artifacts/runs/gha-22037101333-1"
+    },
+    {
+      "run_dir": "gha-22037101340-1",
+      "run_id": "gha-22037101340-1",
+      "source": "gha",
+      "workflow_name": "CI Basic",
+      "executed_at_utc": "2026-02-15T14:11:30.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 0,
+      "optional_fail_count": 0,
+      "optional_failures": [],
+      "optional_results": [],
+      "pbt_compat_mode": "n/a",
+      "pbt_compat_triggered": 0,
+      "pbt_compat_recovered": 0,
+      "artifact": {
+        "artifact_name": "ci-basic-logs",
+        "artifact_id": 5516629365,
+        "artifact_size_bytes": 2338,
+        "artifact_digest": "sha256:57e9644e9330ed892ab247cc8363b1fa6d97feee20ee9b473b366efeb18f32d7"
+      },
+      "path": "artifacts/runs/gha-22037101340-1"
     },
     {
       "run_dir": "gha-22036655477-1",

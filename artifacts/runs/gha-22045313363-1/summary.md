@@ -1,0 +1,12 @@
+# imported github actions artifact summary
+
+- run_id: gha-22045313363-1
+- repository: itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager
+- workflow: CI Basic
+- event: push
+- head_sha: e4c7d87662565f8ca72a1ee3f4f36a25543090ce
+- artifact_name: ci-basic-logs
+- artifact_id: 5519094898
+- artifact_size_bytes: 2351
+- artifact_digest: sha256:d1411bd17db7544bc2e23dfb3e876a660a4880266a0c6c9b8be9b3ce43f2113e
+- generated_by: scripts/import-gha-artifact.sh

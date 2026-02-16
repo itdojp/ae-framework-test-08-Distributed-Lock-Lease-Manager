@@ -32,8 +32,9 @@ Distributed Lock / Lease Manager 開発において、ae-framework で利用す�
   - `AE_RUN_OPTIONAL=1`（標準）、`0` で optional ステップを省略
   - `AE_PBT_COMPAT_MODE=1`（標準）、`pbt` 設定不整合時に互換フォールバックを許可
 - 実行入口: `scripts/run-ae-eval.sh`
-- CI成果物のリポジトリ保存: `scripts/import-gha-artifact.sh <run_id>`
+- CI成果物のリポジトリ保存: `scripts/import-gha-artifact.sh <run_id>`（`--refresh-meta` で既存取り込み先のメタデータ再補完）
 - CI成果物の最新一括同期: `scripts/sync-gha-artifacts.sh`（workflow名から最新成功runを自動解決）
+- 既存取り込みのメタデータ補完: `scripts/backfill-imported-run-metadata.sh`
 - 評価履歴インデックス生成: `scripts/generate-run-index.mjs`（`artifacts/runs/index.json` / `index.md`）
 - 実行結果の保存先: `artifacts/runs/<UTC timestamp>/`
 - 成果物コピー方針: 実行開始後に更新された `ae-framework` 側ファイルのみを保存

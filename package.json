@@ -18,8 +18,10 @@
     "traceability:generate": "node scripts/generate-traceability-report.mjs",
     "artifacts:import-gha": "bash scripts/import-gha-artifact.sh",
     "artifacts:sync-gha": "bash scripts/sync-gha-artifacts.sh",
+    "artifacts:backfill-meta": "bash scripts/backfill-imported-run-metadata.sh",
     "artifacts:index": "node scripts/generate-run-index.mjs",
-    "artifacts:sync-index": "bash scripts/sync-gha-artifacts.sh && node scripts/generate-run-index.mjs"
+    "artifacts:sync-index": "bash scripts/sync-gha-artifacts.sh && node scripts/generate-run-index.mjs",
+    "artifacts:hydrate-index": "bash scripts/backfill-imported-run-metadata.sh && node scripts/generate-run-index.mjs"
   },
   "engines": {
     "node": ">=20.11 <23"

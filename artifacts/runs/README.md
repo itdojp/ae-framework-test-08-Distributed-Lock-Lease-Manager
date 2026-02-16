@@ -15,5 +15,7 @@ GitHub Actions取り込み時は `artifacts/runs/gha-<run_id>-<attempt>/` を使
 生成コマンド:
 - `npm run artifacts:index`
 - `npm run artifacts:sync-index`
+- `npm run artifacts:backfill-meta`
+- `npm run artifacts:hydrate-index`
 
 運用ルールの詳細は `docs/specs/ARTIFACT-RETENTION-SPEC.md` を参照。
