@@ -1,22 +1,28 @@
 {
-  "generated_at_utc": "2026-02-16T02:24:07.007Z",
+  "generated_at_utc": "2026-02-16T02:28:05.372Z",
   "root": "artifacts/runs",
   "summary": {
-    "total_runs": 25,
+    "total_runs": 26,
     "by_status": {
-      "success": 11,
+      "success": 12,
       "failed": 1,
       "aborted": 1,
       "unknown": 12
     },
     "by_source": {
-      "gha": 14,
+      "gha": 15,
       "local": 11
     },
-    "optional_failure_runs": 2,
-    "pbt_compat_triggered_runs": 1,
-    "pbt_compat_recovered_runs": 1,
+    "optional_failure_runs": 3,
+    "pbt_compat_triggered_runs": 2,
+    "pbt_compat_recovered_runs": 2,
     "latest_by_workflow": {
+      "AE Eval Full": {
+        "run_id": "gha-22047930596-1",
+        "status": "success",
+        "executed_at_utc": "2026-02-16T02:26:56.000Z",
+        "path": "artifacts/runs/gha-22047930596-1"
+      },
       "CI Basic": {
         "run_id": "gha-22047928513-1",
         "status": "imported",
@@ -28,16 +34,70 @@
         "status": "success",
         "executed_at_utc": "2026-02-16T02:21:09.000Z",
         "path": "artifacts/runs/gha-22047928528-1"
-      },
-      "AE Eval Full": {
-        "run_id": "gha-22045315107-1",
-        "status": "success",
-        "executed_at_utc": "2026-02-15T23:50:51.000Z",
-        "path": "artifacts/runs/gha-22045315107-1"
       }
     }
   },
   "runs": [
+    {
+      "run_dir": "gha-22047930596-1",
+      "run_id": "gha-22047930596-1",
+      "source": "gha",
+      "workflow_name": "AE Eval Full",
+      "executed_at_utc": "2026-02-16T02:26:56.000Z",
+      "status": "success",
+      "exit_code": 0,
+      "failed_step": "",
+      "optional_step_count": 6,
+      "optional_fail_count": 1,
+      "optional_failures": [
+        {
+          "step": "pbt",
+          "exit_code": 1
+        }
+      ],
+      "optional_results": [
+        {
+          "step": "mbt",
+          "status": "success",
+          "exit_code": 0
+        },
+        {
+          "step": "pbt",
+          "status": "failed",
+          "exit_code": 1
+        },
+        {
+          "step": "pbt_compat_test_property",
+          "status": "success",
+          "exit_code": 0
+        },
+        {
+          "step": "mutation_quick",
+          "status": "success",
+          "exit_code": 0
+        },
+        {
+          "step": "verify_csp",
+          "status": "success",
+          "exit_code": 0
+        },
+        {
+          "step": "verify_tla",
+          "status": "success",
+          "exit_code": 0
+        }
+      ],
+      "pbt_compat_mode": "1",
+      "pbt_compat_triggered": 1,
+      "pbt_compat_recovered": 1,
+      "artifact": {
+        "artifact_name": "ae-eval-full-artifacts",
+        "artifact_id": 5519953483,
+        "artifact_size_bytes": 380937,
+        "artifact_digest": "sha256:dbd76b0fe2b88eea198ce8d5304d71b327b60cf4451d30ea31cc97e499365117"
+      },
+      "path": "artifacts/runs/gha-22047930596-1"
+    },
     {
       "run_dir": "gha-22047928513-1",
       "run_id": "gha-22047928513-1",
