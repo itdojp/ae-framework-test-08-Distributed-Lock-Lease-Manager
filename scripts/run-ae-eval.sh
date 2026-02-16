@@ -67,11 +67,16 @@ run_optional_pbt_compat() {
     return
   fi
 
+  # pbt 成功時は互換フォールバックを実行しない。
+  if [ "${LAST_OPTIONAL_RC}" -eq 0 ]; then
+    return
+  fi
+
   if [ ! -f "${LOG_DIR}/pbt.log" ]; then
     return
   fi
 
-  if ! grep -q "tests/property/vitest.config.ts" "${LOG_DIR}/pbt.log"; then
+  if ! grep -Eq "Could not resolve .*tests/property/vitest.config.ts|failed to load config from .*tests/property/vitest.config.ts" "${LOG_DIR}/pbt.log"; then
     return
   fi
 

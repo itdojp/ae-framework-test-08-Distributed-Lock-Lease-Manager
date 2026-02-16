@@ -27,7 +27,7 @@
 - 既定挙動: 実行開始後に更新された `ae-framework` 側成果物のみコピー
 - オプション:
   - `AE_RUN_OPTIONAL=0` で optional ステップ（mbt/pbt/mutation/formal）をスキップ
-  - `AE_PBT_COMPAT_MODE=1`（既定）で `pbt` 設定不整合時に `test:property` を補助実行し、`metadata.json` に互換実行の結果を記録
+  - `AE_PBT_COMPAT_MODE=1`（既定）で `pbt` が失敗し、かつ `tests/property/vitest.config.ts` の解決失敗を検知した場合のみ `test:property` を補助実行し、`metadata.json` に互換実行の結果を記録
 
 ## GitHub Actions
 - `CI Basic` (`.github/workflows/ci-basic.yml`):

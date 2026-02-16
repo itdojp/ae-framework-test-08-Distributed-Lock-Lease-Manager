@@ -142,3 +142,7 @@
 - `scripts/import-gha-artifact.sh` で `gha-artifact-download.json` / 合成 `metadata.json` に `run_url` / `run_api_url` を出力
 - `scripts/backfill-gha-run-links.sh` を追加し、既存 `gha-*` へ run URL を後補完
 - `index` へ `run_url` を反映し、Issue/監査からrun画面へ直接遷移できる状態にする
+26. optional `pbt` 互換フォールバック判定の厳密化:
+- `scripts/run-ae-eval.sh` の `run_optional_pbt_compat` を更新し、`pbt` 成功時はフォールバックを実行しないよう修正
+- `pbt` 失敗時も `tests/property/vitest.config.ts` の解決失敗ログがある場合のみ `pbt_compat_test_property` を起動するよう制約
+- `pbt_compat_triggered` の誤検知を防止し、metadata の評価指標精度を改善
