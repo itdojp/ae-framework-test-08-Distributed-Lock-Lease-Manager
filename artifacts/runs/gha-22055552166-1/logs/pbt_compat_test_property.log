@@ -1,0 +1,5 @@
+
+> ae-framework@1.0.0 test:property /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework
+> node scripts/testing/property-harness.mjs
+
+✓ Property harness wrote artifacts/properties/summary.json for traceId=pbt-1771231025528

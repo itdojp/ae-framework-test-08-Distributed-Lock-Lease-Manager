@@ -1,0 +1,24 @@
+
+> ae-framework@1.0.0 pipelines:mutation:quick /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework
+> bash scripts/mutation/run-scoped.sh --quick
+
+Running Stryker with patterns
+  src/api/server.ts
+Quick mode enabled: concurrency=1, timeoutMS=10000, time-limit=0s
+[32m08:37:07 (6447) INFO ProjectReader[39m Found 1 of 3335 file(s) to be mutated.
+[32m08:37:07 (6447) INFO Instrumenter[39m Instrumented 1 source file(s) with 164 mutant(s)
+[32m08:37:09 (6447) INFO ConcurrencyTokenProvider[39m Creating 1 test runner process(es).
+[32m08:37:11 (6447) INFO DryRunExecutor[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+[32m08:41:52 (6447) INFO DryRunExecutor[39m Initial test run succeeded. Ran 2130 tests in 4 minutes 40 seconds (net 144756.16077200035 ms, overhead 136160.83922799965 ms).
+[32m08:42:52 (6447) INFO MutationTestReportHelper[39m Final mutation score of 100.00 is greater than or equal to break threshold 0
+[32m08:42:52 (6447) INFO JsonReporter[39m Your report can be found at: file:///home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/reports/mutation/mutation.json
+[32m08:42:52 (6447) INFO MutationTestExecutor[39m Done in 5 minutes 45 seconds.
+Mutation score : 100%
+Total mutants  : 164
+Killed         : 152
+Survived       : 0
+Timed out      : 0
+Runtime errors : 0
+Compile errors : 0
+No coverage    : 0
+Ignored        : 12
