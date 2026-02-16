@@ -37,7 +37,7 @@
   - `metadata.json` の要約（status/exit_code/optional_fail_count）を Job Summary に出力
   - `artifacts/runs/**` のみ変更された push では自動起動しない（artifact保存ループ防止）
 - `AE Eval Full` (`.github/workflows/ae-eval-full.yml`):
-  - `workflow_dispatch` で ae-framework をクローンし、`AE_RUN_OPTIONAL=1`（optional含む）で評価実行
+  - `workflow_dispatch` / `schedule`（毎日 UTC 03:37）で ae-framework をクローンし、`AE_RUN_OPTIONAL=1`（optional含む）で評価実行
   - `metadata.json` の要約（status/exit_code/optional_fail_count）を Job Summary に出力
 - `Artifacts Maintenance` (`.github/workflows/artifacts-maintenance.yml`):
   - `schedule`（6時間ごと）/`workflow_dispatch` で run artifact 同期・メタ補完・index再生成を自動実行

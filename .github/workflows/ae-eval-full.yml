@@ -2,6 +2,8 @@ name: AE Eval Full
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "37 3 * * *"
 
 concurrency:
   group: ae-eval-full-${{ github.ref }}

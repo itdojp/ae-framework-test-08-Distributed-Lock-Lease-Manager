@@ -125,3 +125,6 @@
 - `.github/workflows/artifacts-maintenance.yml` を追加
 - 6時間ごとの定期実行 + 手動実行で `sync-gha` / `backfill-meta` / `index` 更新を自動化
 - `artifacts/runs/` に差分がある場合のみ自動コミット/Push
+21. `AE Eval Full` の定期実行化:
+- `.github/workflows/ae-eval-full.yml` に日次 `schedule`（UTC 03:37）を追加
+- full評価（optional含む）を無人で継続実行し、`Artifacts Maintenance` で取り込み・インデックス更新を自動化
