@@ -1,0 +1,16 @@
+{
+  "specification": "spec_1771224477439_wvl1txa63",
+  "properties": [
+    {
+      "name": "SafetyProperty",
+      "satisfied": false,
+      "description": "Property check for: SafetyProperty"
+    }
+  ],
+  "counterExamples": [],
+  "statistics": {
+    "statesExplored": 4350,
+    "timeElapsed": 1771224477481,
+    "memoryUsed": 0
+  }
+}
