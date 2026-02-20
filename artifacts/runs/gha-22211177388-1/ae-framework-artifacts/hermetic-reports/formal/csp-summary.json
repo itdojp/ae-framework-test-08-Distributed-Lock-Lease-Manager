@@ -1,0 +1,15 @@
+{
+  "tool": "csp",
+  "file": "spec/csp/cspx-smoke.cspm",
+  "backend": null,
+  "detailsFile": null,
+  "resultStatus": null,
+  "ran": false,
+  "status": "tool_not_available",
+  "ok": null,
+  "exitCode": null,
+  "timeMs": null,
+  "timestamp": "2026-02-20T04:29:59.819Z",
+  "output": "No CSP tool configured. Set CSP_RUN_CMD, install cspx, install FDR (refines), or install cspmchecker.",
+  "outputFile": "artifacts/hermetic-reports/formal/csp-output.txt"
+}
