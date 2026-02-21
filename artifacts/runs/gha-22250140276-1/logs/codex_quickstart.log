@@ -1,0 +1,39 @@
+
+> ae-framework@1.0.0 codex:quickstart /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework
+> node scripts/codex/quickstart.mjs
+
+[codex] Running ae quality run ...
+Failed to read version from package.json, using default: 1.0.0
+🔍 Running quality gates for development environment
+🔍 Executing quality gates for environment: development
+📋 Found 2 quality gates to execute
+🚀 Executing gates in parallel...
+📝 Quality report saved to: reports/quality-gates/quality-report-development-2026-02-21T04-17-54-936Z.json
+📝 Quality report latest updated: reports/quality-gates/quality-report-development-latest.json
+
+============================================================
+📊 QUALITY GATES SUMMARY
+============================================================
+Environment: development
+Overall Score: 0/100
+Gates: 1/2 passed
+Execution Time: 26s
+
+🧩 COMPOSITES:
+   ❌ minimal (linting, tdd)
+      Failed: linting
+
+📋 DETAILED RESULTS:
+   ❌ Code Linting
+      • Too many warnings: 7 > 0
+   ✅ Test-Driven Development
+============================================================
+❌ Some quality gates failed. Review the results above.
+
+⚠️  1 quality gate(s) failed (non-blocking)
+[codex] Generating formal spec + OpenAPI ...
+[codex] OpenAPI enriched with /health endpoint
+[codex] Generating contract/E2E test templates from OpenAPI ...
+Generated 1 contract/E2E test templates → tests/api/generated
+Summary: artifacts/codex/openapi-contract-tests.json
+[codex] Wrote summary: /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/artifacts/codex/quickstart-summary.md
