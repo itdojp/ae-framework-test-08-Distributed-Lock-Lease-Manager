@@ -1,0 +1,903 @@
+{
+  "total": 2047,
+  "rules": [
+    {
+      "rule": "Unsafe",
+      "level": "warning",
+      "count": 1067,
+      "samples": [
+        "member access .environment on an `any` value                                                             @typescript-eslint/no-unsafe-member-access",
+        "assignment of an `any` value                                                                             @typescript-eslint/no-unsafe-assignment",
+        "member access .environment on an `any` value                                                             @typescript-eslint/no-unsafe-member-access"
+      ]
+    },
+    {
+      "rule": "Unexpected",
+      "level": "warning",
+      "count": 447,
+      "samples": [
+        "any. Specify a different type  @typescript-eslint/no-explicit-any",
+        "any. Specify a different type  @typescript-eslint/no-explicit-any",
+        "any. Specify a different type                                                                        @typescript-eslint/no-explicit-any"
+      ]
+    },
+    {
+      "rule": "Async",
+      "level": "warning",
+      "count": 205,
+      "samples": [
+        "method 'assess' has no 'await' expression        @typescript-eslint/require-await",
+        "method 'assessAction' has no 'await' expression  @typescript-eslint/require-await",
+        "method 'canApply' has no 'await' expression                                                               @typescript-eslint/require-await"
+      ]
+    },
+    {
+      "rule": "'error'",
+      "level": "warning",
+      "count": 49,
+      "samples": [
+        "is defined but never used  @typescript-eslint/no-unused-vars",
+        "is defined but never used                                                                               @typescript-eslint/no-unused-vars",
+        "is defined but never used                                    @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "This",
+      "level": "warning",
+      "count": 42,
+      "samples": [
+        "assertion is unnecessary since it does not change the type of the expression                               @typescript-eslint/no-unnecessary-type-assertion",
+        "assertion is unnecessary since it does not change the type of the expression                               @typescript-eslint/no-unnecessary-type-assertion",
+        "assertion is unnecessary since it does not change the type of the expression                                                                                                                                                                                                   @typescript-eslint/no-unnecessary-type-assertion"
+      ]
+    },
+    {
+      "rule": "Invalid",
+      "level": "warning",
+      "count": 25,
+      "samples": [
+        "type \"never\" of template literal expression      @typescript-eslint/restrict-template-expressions",
+        "type \"unknown\" of template literal expression                                                           @typescript-eslint/restrict-template-expressions",
+        "type \"unknown\" of template literal expression                                                           @typescript-eslint/restrict-template-expressions"
+      ]
+    },
+    {
+      "rule": "Switch",
+      "level": "warning",
+      "count": 20,
+      "samples": [
+        "is not exhaustive. Cases not matched: \"no_drift\"              @typescript-eslint/switch-exhaustiveness-check",
+        "is not exhaustive. Cases not matched: \"invalid_literal\" | \"invalid_union\" | \"unrecognized_keys\" | \"invalid_union_discriminator\" | \"invalid_arguments\" | \"invalid_return_type\" | \"not_multiple_of\" | \"custom\" | \"invalid_intersection_types\" | \"invalid_date\" | \"not_finite\"  @typescript-eslint/switch-exhaustiveness-check",
+        "is not exhaustive. Cases not matched: \"business_logic\" | \"resource_usage\" | \"state_invariant\" | \"behavioral_constraint\" | \"integration_requirement\" | \"compliance_rule\"  @typescript-eslint/switch-exhaustiveness-check"
+      ]
+    },
+    {
+      "rule": "'context'",
+      "level": "warning",
+      "count": 20,
+      "samples": [
+        "is defined but never used                                                                                                                                             @typescript-eslint/no-unused-vars",
+        "is defined but never used                               @typescript-eslint/no-unused-vars",
+        "is defined but never used                                             @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "Promise",
+      "level": "warning",
+      "count": 12,
+      "samples": [
+        "returned in function argument where a void return was expected  @typescript-eslint/no-misused-promises",
+        "returned in function argument where a void return was expected                                                                                              @typescript-eslint/no-misused-promises",
+        "returned in function argument where a void return was expected                                                                                              @typescript-eslint/no-misused-promises"
+      ]
+    },
+    {
+      "rule": "Promises",
+      "level": "warning",
+      "count": 11,
+      "samples": [
+        "must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises",
+        "must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises",
+        "must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises"
+      ]
+    },
+    {
+      "rule": "'config'",
+      "level": "warning",
+      "count": 8,
+      "samples": [
+        "is defined but never used                                              @typescript-eslint/no-unused-vars",
+        "is defined but never used                                              @typescript-eslint/no-unused-vars",
+        "is defined but never used                                              @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'request'",
+      "level": "warning",
+      "count": 6,
+      "samples": [
+        "is defined but never used                      @typescript-eslint/no-unused-vars",
+        "is defined but never used                       @typescript-eslint/no-unused-vars",
+        "is defined but never used                                 @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'environment'",
+      "level": "warning",
+      "count": 6,
+      "samples": [
+        "is defined but never used                                                                         @typescript-eslint/no-unused-vars",
+        "is defined but never used                                                                         @typescript-eslint/no-unused-vars",
+        "is defined but never used                                             @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'target'",
+      "level": "warning",
+      "count": 4,
+      "samples": [
+        "is defined but never used                                              @typescript-eslint/no-unused-vars",
+        "is defined but never used                                              @typescript-eslint/no-unused-vars",
+        "is defined but never used                                              @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'fs'",
+      "level": "warning",
+      "count": 4,
+      "samples": [
+        "is defined but never used             @typescript-eslint/no-unused-vars",
+        "is defined but never used                                     @typescript-eslint/no-unused-vars",
+        "is defined but never used                         @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'path'",
+      "level": "warning",
+      "count": 4,
+      "samples": [
+        "is defined but never used           @typescript-eslint/no-unused-vars",
+        "is defined but never used                                   @typescript-eslint/no-unused-vars",
+        "is defined but never used                       @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'fixError'",
+      "level": "warning",
+      "count": 4,
+      "samples": [
+        "is defined but never used                                               @typescript-eslint/no-unused-vars",
+        "is defined but never used                                               @typescript-eslint/no-unused-vars",
+        "is defined but never used                                               @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "Unnecessary",
+      "level": "warning",
+      "count": 4,
+      "samples": [
+        "escape character: \\*                                                   no-useless-escape",
+        "escape character: \\+                                                   no-useless-escape",
+        "escape character: \\*                                                   no-useless-escape"
+      ]
+    },
+    {
+      "rule": "'query'",
+      "level": "warning",
+      "count": 3,
+      "samples": [
+        "is defined but never used                                 @typescript-eslint/no-unused-vars",
+        "is defined but never used                                 @typescript-eslint/no-unused-vars",
+        "is defined but never used                                 @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "Empty",
+      "level": "warning",
+      "count": 3,
+      "samples": [
+        "block statement                                                                                                                                               no-empty",
+        "block statement                                                             no-empty",
+        "block statement                                                             no-empty"
+      ]
+    },
+    {
+      "rule": "Unused",
+      "level": "warning",
+      "count": 3,
+      "samples": [
+        "eslint-disable directive (no problems were reported from 'no-process-exit')",
+        "eslint-disable directive (no problems were reported from '@typescript-eslint/no-unused-vars')",
+        "eslint-disable directive (no problems were reported from '@typescript-eslint/no-unused-vars')"
+      ]
+    },
+    {
+      "rule": "'expected'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                        @typescript-eslint/no-unused-vars",
+        "is defined but never used                        @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'actual'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                          @typescript-eslint/no-unused-vars",
+        "is defined but never used                          @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'ConformanceRuleCategory'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                                                             @typescript-eslint/no-unused-vars",
+        "is defined but never used                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'result'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                                                                                                                                              @typescript-eslint/no-unused-vars",
+        "is assigned a value but never used                             @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'nodes'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                                 @typescript-eslint/no-unused-vars",
+        "is defined but never used                                 @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'edges'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                                 @typescript-eslint/no-unused-vars",
+        "is defined but never used                                 @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'changes'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                               @typescript-eslint/no-unused-vars",
+        "is defined but never used                               @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'TestStatus'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                   @typescript-eslint/no-unused-vars",
+        "is defined but never used                       @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'suite'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                                                                               @typescript-eslint/no-unused-vars",
+        "is defined but never used                                                   @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'selector'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                                                @typescript-eslint/no-unused-vars",
+        "is defined but never used                                                @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'name'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                          @typescript-eslint/no-unused-vars",
+        "is defined but never used                          @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'attributes'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                    @typescript-eslint/no-unused-vars",
+        "is defined but never used                    @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'_result'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                       @typescript-eslint/no-unused-vars",
+        "is defined but never used                       @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'_threshold'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                    @typescript-eslint/no-unused-vars",
+        "is defined but never used                    @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'test'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                                          @typescript-eslint/no-unused-vars",
+        "is defined but never used                                          @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'dependencyAnalysis'",
+      "level": "warning",
+      "count": 2,
+      "samples": [
+        "is defined but never used                            @typescript-eslint/no-unused-vars",
+        "is defined but never used                            @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'type'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is assigned a value but never used                         @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'tsError'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                               @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'expectedHash'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                             @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'apiCall'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                             @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'rule'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'executionId'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                                                                                         @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "Implied",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "eval. Do not use the Function constructor to create functions                                                                                                           @typescript-eslint/no-implied-eval"
+      ]
+    },
+    {
+      "rule": "'ruleId'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                                                                                              @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'_itemId'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used               @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'step'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                  @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'directImpacts'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                         @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'fallbackError'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'SubProblem'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                              @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'execution'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                           @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "An",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "array of Promises may be unintentional. Consider handling the promises' fulfillment or rejection with Promise.all or similar, or explicitly marking the expression as ignored with the `void` operator  @typescript-eslint/no-floating-promises"
+      ]
+    },
+    {
+      "rule": "'task'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                                                                                                                           @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'currentContext'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is never reassigned. Use 'const' instead                            prefer-const"
+      ]
+    },
+    {
+      "rule": "'conclusions'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                              @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'constraints'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                              @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'originalData'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                             @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'data'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                                                                                    @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'TestResult'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                   @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'outputDir'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                    @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'PerformanceMetrics'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                  @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'options'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                 @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'timeout'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                 @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'fn'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                      @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'framework'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                          @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'_parsed'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is assigned a value but never used                                          @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'event'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                                                                                   @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'index'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                       @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'dashboard'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is assigned a value but never used                          @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'TaskPriority'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                                                                            @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'dependencyGraph'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                                                                         @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'R'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used  @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'allocation'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                               @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'CoverageThreshold'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used             @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'PerfThreshold'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                 @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'A11yThreshold'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                 @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'additionalAttributes'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used          @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'metrics'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                       @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'value'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                         @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'threshold'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                     @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'components'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                                                                                                                                                                                                                                @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'fileError'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                 @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'errorReqs'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used      @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'frameworkReqs'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used  @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'archReqs'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used       @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'specifications'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                         @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'content'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is never reassigned. Use 'const' instead                       prefer-const"
+      ]
+    },
+    {
+      "rule": "'description'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'applyError'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                             @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'aeConfig'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                               @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'logs'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                                           @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'MinimalObservableResult'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                                        @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'impactScores'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                  @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'E2ETestCase'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                   @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'playwrightConfig'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                              @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'viewport'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                      @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'browser'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                       @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'testSuite'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                     @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'results'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                       @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'analysis'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                                      @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'createHash'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used    @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'CompressionOptions'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                      @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'TokenStats'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                              @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "'testFiles'",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "is defined but never used                            @typescript-eslint/no-unused-vars"
+      ]
+    },
+    {
+      "rule": "A",
+      "level": "warning",
+      "count": 1,
+      "samples": [
+        "`require()` style import is forbidden             @typescript-eslint/no-require-imports"
+      ]
+    }
+  ]
+}
