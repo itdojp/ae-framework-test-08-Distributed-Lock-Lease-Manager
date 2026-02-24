@@ -1,0 +1,5 @@
+
+> ae-framework@1.0.0 mbt /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework
+> node tests/mbt/run.js
+
+✓ MBT harness wrote artifacts/mbt/summary.json (seed=1771907232170, runs=25, violations=0)
