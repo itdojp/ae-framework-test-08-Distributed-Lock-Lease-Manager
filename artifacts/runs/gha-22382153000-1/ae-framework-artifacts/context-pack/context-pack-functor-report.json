@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "context-pack-functor-report/v1",
+  "generatedAt": "2026-02-25T04:28:16.562Z",
+  "mapPath": "spec/context-pack/functor-map.json",
+  "schemaPath": "schema/context-pack-functor-map.schema.json",
+  "contextPackSources": [
+    "spec/context-pack/**/*.{yml,yaml,json}"
+  ],
+  "scannedContextPackFiles": 4,
+  "scannedObjectFiles": 4,
+  "contextPackObjectCount": 1,
+  "contextPackMorphismCount": 1,
+  "mappingObjectCount": 1,
+  "mappingMorphismCount": 1,
+  "dependencyEdges": 0,
+  "checkedEntrypoints": 1,
+  "summary": {
+    "totalViolations": 0,
+    "missingObjectMappings": 0,
+    "unknownObjectMappings": 0,
+    "missingMorphismMappings": 0,
+    "unknownMorphismMappings": 0,
+    "forbiddenDependencyViolations": 0,
+    "cycleViolations": 0,
+    "missingEntrypoints": 0
+  },
+  "status": "pass",
+  "violations": []
+}

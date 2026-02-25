@@ -1,0 +1,16 @@
+{
+  "specification": "spec_1771993642796_9u56ab2f1",
+  "properties": [
+    {
+      "name": "SafetyProperty",
+      "satisfied": true,
+      "description": "Property check for: SafetyProperty"
+    }
+  ],
+  "counterExamples": [],
+  "statistics": {
+    "statesExplored": 4350,
+    "timeElapsed": 1771993642838,
+    "memoryUsed": 0
+  }
+}

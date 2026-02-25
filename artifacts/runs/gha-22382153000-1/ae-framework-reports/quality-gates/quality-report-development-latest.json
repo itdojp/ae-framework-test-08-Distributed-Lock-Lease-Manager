@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-02-25T04:27:22.771Z",
+  "environment": "development",
+  "meta": {
+    "runId": "22382153000",
+    "createdAt": "2026-02-25T04:27:22.771Z",
+    "commitSha": "716b1f564b696859549e781f8a4e3af4f2924ac0",
+    "branch": "main"
+  },
+  "overallScore": 0,
+  "totalGates": 2,
+  "passedGates": 1,
+  "failedGates": 1,
+  "results": [
+    {
+      "gateKey": "linting",
+      "gateName": "Code Linting",
+      "passed": false,
+      "violations": [
+        "Too many warnings: 2 > 0"
+      ],
+      "executionTime": 26185,
+      "environment": "development",
+      "threshold": {
+        "maxErrors": 0,
+        "maxWarnings": 0
+      },
+      "details": {
+        "errors": 0,
+        "warnings": 2
+      }
+    },
+    {
+      "gateKey": "tdd",
+      "gateName": "Test-Driven Development",
+      "passed": true,
+      "violations": [],
+      "executionTime": 1120,
+      "environment": "development",
+      "threshold": {
+        "minTestsPerFunction": 1,
+        "maxCyclomaticComplexity": 15
+      }
+    }
+  ],
+  "summary": {
+    "byCategory": {
+      "code-quality": {
+        "passed": 0,
+        "total": 1
+      },
+      "methodology": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "executionTime": 27305,
+    "blockers": []
+  },
+  "composites": {
+    "minimal": {
+      "gates": [
+        "linting",
+        "tdd"
+      ],
+      "passed": false,
+      "failedGates": [
+        "linting"
+      ]
+    }
+  }
+}
