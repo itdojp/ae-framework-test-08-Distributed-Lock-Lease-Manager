@@ -1,0 +1,18 @@
+
+> ae-framework@1.0.0 pipelines:mutation:quick /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework
+> bash scripts/mutation/run-scoped.sh --quick
+
+Running Stryker with patterns
+  src/api/server.ts
+Quick mode enabled: concurrency=1, timeoutMS=10000, time-limit=0s
+[32m04:23:49 (6518) INFO ProjectReader[39m Found 1 of 3696 file(s) to be mutated.
+[32m04:23:50 (6518) INFO Instrumenter[39m Instrumented 1 source file(s) with 201 mutant(s)
+[32m04:23:52 (6518) INFO ConcurrencyTokenProvider[39m Creating 1 test runner process(es).
+[32m04:23:53 (6518) INFO DryRunExecutor[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+[91m04:26:25 (6518) ERROR DryRunExecutor[39m One or more tests failed in the initial test run:
+	change-package generate generates change-package json/md from changed files and event payload
+		expected 'itdojp/ae-framework-test-08-Distribut…' to be 'itdojp/ae-framework' // Object.is equality
+[91m04:26:25 (6518) ERROR Stryker[39m There were failed tests in the initial test run.
+[mutation] Stryker exited with status 1
+[mutation-report] mutation report not found: /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/reports/mutation/mutation.json, /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/reports/mutation/mutation.html, /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/reports/mutation/index.html
+ ELIFECYCLE  Command failed with exit code 1.
