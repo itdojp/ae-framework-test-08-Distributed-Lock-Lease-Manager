@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "timestamp": "2026-02-28T04:09:49Z",
+  "metadata": {
+    "generatedAtUtc": "2026-02-28T04:09:49.000Z",
+    "generatedAtLocal": "2026-02-28T04:09:49.000+00:00",
+    "timezoneOffset": "+00:00",
+    "gitCommit": "fd50253978ff5a6403e57c221608b258370dcdec",
+    "branch": "main",
+    "runner": {
+      "name": "GitHub Actions 1000317600",
+      "os": "Linux",
+      "arch": "X64",
+      "ci": true
+    },
+    "toolVersions": {
+      "node": "v22.22.0",
+      "pnpm": "10.0.0"
+    }
+  },
+  "flags": {
+    "install": "--frozen-lockfile",
+    "noFrozen": false,
+    "keepLintLog": false,
+    "enforceLint": false,
+    "runMutation": false
+  },
+  "steps": {
+    "install": {
+      "status": "success",
+      "notes": "flags=--frozen-lockfile",
+      "retried": false
+    },
+    "specCompilerBuild": {
+      "status": "success"
+    },
+    "typeCheck": {
+      "status": "success"
+    },
+    "lint": {
+      "status": "success"
+    },
+    "build": {
+      "status": "success"
+    },
+    "stateMachineValidation": {
+      "status": "success"
+    },
+    "stateMachineRender": {
+      "status": "success"
+    },
+    "contextPackValidation": {
+      "status": "success",
+      "notes": "validated spec/context-pack"
+    },
+    "contextPackFunctorValidation": {
+      "status": "success",
+      "notes": "validated context-pack functor mapping;violations=0"
+    },
+    "contextPackNaturalTransformationValidation": {
+      "status": "success",
+      "notes": "validated context-pack natural transformation mapping;violations=0"
+    },
+    "contextPackProductCoproductValidation": {
+      "status": "success",
+      "notes": "validated context-pack product/coproduct mapping;uncovered_variants=0"
+    },
+    "contextPackPhase5Validation": {
+      "status": "success",
+      "notes": "validated context-pack phase5 templates;violations=0"
+    },
+    "bddLint": {
+      "status": "success"
+    },
+    "mutationQuick": {
+      "status": "skipped",
+      "notes": null
+    },
+    "conformanceReport": {
+      "status": "skipped",
+      "notes": "runs=0;violations=0"
+    }
+  },
+  "traceability": {
+    "status": "skipped",
+    "missingCount": 0,
+    "matrixPath": null,
+    "notes": "matrix_not_found"
+  },
+  "artifacts": {
+    "lintSummary": "artifacts/verify-lite/verify-lite-lint-summary.json",
+    "lintLog": null,
+    "mutationSummary": null,
+    "mutationSurvivors": null,
+    "contextPackReportJson": "artifacts/context-pack/context-pack-validate-report.json",
+    "contextPackReportMarkdown": "artifacts/context-pack/context-pack-validate-report.md",
+    "contextPackFunctorReportJson": "artifacts/context-pack/context-pack-functor-report.json",
+    "contextPackFunctorReportMarkdown": "artifacts/context-pack/context-pack-functor-report.md",
+    "contextPackNaturalTransformationReportJson": "artifacts/context-pack/context-pack-natural-transformation-report.json",
+    "contextPackNaturalTransformationReportMarkdown": "artifacts/context-pack/context-pack-natural-transformation-report.md",
+    "contextPackProductCoproductReportJson": "artifacts/context-pack/context-pack-product-coproduct-report.json",
+    "contextPackProductCoproductReportMarkdown": "artifacts/context-pack/context-pack-product-coproduct-report.md",
+    "contextPackPhase5ReportJson": "artifacts/context-pack/context-pack-phase5-report.json",
+    "contextPackPhase5ReportMarkdown": "artifacts/context-pack/context-pack-phase5-report.md",
+    "conformanceSummary": "reports/conformance/verify-lite-summary.json",
+    "conformanceSummaryMarkdown": "reports/conformance/verify-lite-summary.md"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "context-pack-phase5-report/v1",
+  "generatedAt": "2026-02-28T04:10:43.853Z",
+  "mapPath": "spec/context-pack/phase5-templates.json",
+  "schemaPath": "schema/context-pack-phase5-templates.schema.json",
+  "contextPackSources": [
+    "spec/context-pack/**/*.{yml,yaml,json}"
+  ],
+  "scannedContextPackFiles": 4,
+  "contextPackObjectCount": 1,
+  "contextPackMorphismCount": 1,
+  "contextPackDiagramCount": 1,
+  "checkedPullbacks": 1,
+  "checkedPushouts": 1,
+  "checkedMonoidalFlows": 0,
+  "checkedKleisliPipelines": 1,
+  "checkedEvidencePaths": 4,
+  "summary": {
+    "totalViolations": 0,
+    "duplicateTemplates": 0,
+    "missingMorphismReferences": 0,
+    "missingObjectReferences": 0,
+    "missingDiagramReferences": 0,
+    "boundaryViolations": 0,
+    "missingEvidence": 0
+  },
+  "status": "pass",
+  "violations": []
+}

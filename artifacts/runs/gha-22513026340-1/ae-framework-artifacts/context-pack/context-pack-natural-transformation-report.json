@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "context-pack-natural-transformation-report/v1",
+  "generatedAt": "2026-02-28T04:10:43.404Z",
+  "mapPath": "spec/context-pack/natural-transformations.json",
+  "schemaPath": "schema/context-pack-natural-transformation.schema.json",
+  "contextPackSources": [
+    "spec/context-pack/**/*.{yml,yaml,json}"
+  ],
+  "scannedContextPackFiles": 4,
+  "contextPackMorphismCount": 1,
+  "contextPackDiagramCount": 1,
+  "contextPackAcceptanceTestCount": 1,
+  "contextPackForbiddenChangeCount": 1,
+  "checkedTransformations": 1,
+  "checkedEntrypoints": 1,
+  "checkedEvidencePatterns": 2,
+  "summary": {
+    "totalViolations": 0,
+    "missingReferences": 0,
+    "missingCommutativity": 0,
+    "missingEvidence": 0,
+    "forbiddenChangeViolations": 0,
+    "missingEntrypoints": 0
+  },
+  "status": "pass",
+  "violations": []
+}

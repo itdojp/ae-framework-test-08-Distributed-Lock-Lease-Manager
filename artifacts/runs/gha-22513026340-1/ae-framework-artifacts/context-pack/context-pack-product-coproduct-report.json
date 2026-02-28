@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "context-pack-product-coproduct-report/v1",
+  "generatedAt": "2026-02-28T04:10:43.625Z",
+  "mapPath": "spec/context-pack/product-coproduct-map.json",
+  "schemaPath": "schema/context-pack-product-coproduct.schema.json",
+  "contextPackSources": [
+    "spec/context-pack/**/*.{yml,yaml,json}"
+  ],
+  "scannedContextPackFiles": 4,
+  "contextMorphismCount": 1,
+  "productMappingCount": 1,
+  "coproductMappingCount": 1,
+  "totalFailureVariants": 1,
+  "coveredFailureVariants": 1,
+  "uncoveredFailureVariants": 0,
+  "summary": {
+    "totalViolations": 0,
+    "missingProductMappings": 0,
+    "missingCoproductMappings": 0,
+    "inputCoverageGaps": 0,
+    "variantCoverageGaps": 0,
+    "ambiguousDtoKeys": 0,
+    "missingEvidence": 0
+  },
+  "status": "pass",
+  "violations": []
+}

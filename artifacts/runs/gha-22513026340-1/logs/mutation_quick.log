@@ -1,0 +1,24 @@
+
+> ae-framework@1.0.0 pipelines:mutation:quick /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework
+> bash scripts/mutation/run-scoped.sh --quick
+
+Running Stryker with patterns
+  src/api/server.ts
+Quick mode enabled: concurrency=1, timeoutMS=10000, time-limit=0s
+[32m04:11:10 (7298) INFO ProjectReader[39m Found 1 of 3710 file(s) to be mutated.
+[32m04:11:10 (7298) INFO Instrumenter[39m Instrumented 1 source file(s) with 201 mutant(s)
+[32m04:11:12 (7298) INFO ConcurrencyTokenProvider[39m Creating 1 test runner process(es).
+[32m04:11:13 (7298) INFO DryRunExecutor[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+[91m04:16:14 (7298) ERROR DryRunExecutor[39m Initial test run timed out!
+[91m04:16:14 (7298) ERROR Stryker[39m Unexpected error occurred while running Stryker Error: Something went wrong in the initial test run
+    at DryRunExecutor.validateResultCompleted (file:///home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/node_modules/.pnpm/@stryker-mutator+core@8.7.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:76:15)
+    at DryRunExecutor.executeDryRun (file:///home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/node_modules/.pnpm/@stryker-mutator+core@8.7.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:96:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async WorkItem.execute (file:///home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/node_modules/.pnpm/@stryker-mutator+core@8.7.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:32:28)
+    at async file:///home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/node_modules/.pnpm/@stryker-mutator+core@8.7.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:69:13
+[32m04:16:14 (7298) INFO Stryker[39m This might be a known problem with a solution documented in our troubleshooting guide.
+[32m04:16:14 (7298) INFO Stryker[39m You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/
+[32m04:16:14 (7298) INFO Stryker[39m Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.
+[mutation] Stryker exited with status 1
+[mutation-report] mutation report not found: /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/reports/mutation/mutation.json, /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/reports/mutation/mutation.html, /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/reports/mutation/index.html
+ ELIFECYCLE  Command failed with exit code 1.
