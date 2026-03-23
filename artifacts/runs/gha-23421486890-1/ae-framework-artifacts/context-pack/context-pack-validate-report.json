@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "context-pack-validation-report/v1",
+  "generatedAt": "2026-03-23T04:30:57.548Z",
+  "schemaPath": "schema/context-pack-v1.schema.json",
+  "sourcePatterns": [
+    "spec/context-pack/**/*.{yml,yaml,json}"
+  ],
+  "scannedFiles": 6,
+  "validFiles": 1,
+  "invalidFiles": 0,
+  "skippedFiles": 5,
+  "status": "pass",
+  "errors": [],
+  "warnings": []
+}
