@@ -1,10 +1,10 @@
 # Run Index
 
-- generated_at_utc: 2026-03-25T04:32:50.623Z
-- total_runs: 118
-- by_status: success=103, failed=1, aborted=1, unknown=13
-- by_source: gha=107, local=11
-- optional_failure_runs: 42
+- generated_at_utc: 2026-03-26T04:35:58.300Z
+- total_runs: 119
+- by_status: success=104, failed=1, aborted=1, unknown=13
+- by_source: gha=108, local=11
+- optional_failure_runs: 43
 - pbt_compat_triggered_runs: 5
 - pbt_compat_recovered_runs: 5
 
@@ -12,7 +12,7 @@
 
 | workflow | run_id | status | executed_at_utc | path | run_url |
 | --- | --- | --- | --- | --- | --- |
-| AE Eval Full | gha-23524889420-1 | success | 2026-03-25T04:32:35.000Z | artifacts/runs/gha-23524889420-1 | https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/23524889420 |
+| AE Eval Full | gha-23577572296-1 | success | 2026-03-26T04:35:40.000Z | artifacts/runs/gha-23577572296-1 | https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/23577572296 |
 | AE Eval Fast | gha-22060415787-1 | success | 2026-02-16T11:13:24.000Z | artifacts/runs/gha-22060415787-1 | https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22060415787 |
 | CI Basic | gha-22060415783-1 | success | 2026-02-16T11:11:36.000Z | artifacts/runs/gha-22060415783-1 | https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/22060415783 |
 
@@ -20,6 +20,7 @@
 
 | run_id | source | workflow | status | exit_code | optional_fail_count | pbt_compat | executed_at_utc | path | run_url |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| gha-23577572296-1 | gha | AE Eval Full | success | 0 | 1 | 0/0 | 2026-03-26T04:35:40.000Z | artifacts/runs/gha-23577572296-1 | https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/23577572296 |
 | gha-23524889420-1 | gha | AE Eval Full | success | 0 | 1 | 0/0 | 2026-03-25T04:32:35.000Z | artifacts/runs/gha-23524889420-1 | https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/23524889420 |
 | gha-23473053579-1 | gha | AE Eval Full | success | 0 | 1 | 0/0 | 2026-03-24T04:31:26.000Z | artifacts/runs/gha-23473053579-1 | https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/23473053579 |
 | gha-23421486890-1 | gha | AE Eval Full | success | 0 | 1 | 0/0 | 2026-03-23T04:34:25.000Z | artifacts/runs/gha-23421486890-1 | https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/23421486890 |
