@@ -1,0 +1,16 @@
+{
+  "specification": "spec_1775104210237_ltpo7dp8m",
+  "properties": [
+    {
+      "name": "SafetyProperty",
+      "satisfied": true,
+      "description": "Property check for: SafetyProperty"
+    }
+  ],
+  "counterExamples": [],
+  "statistics": {
+    "statesExplored": 4350,
+    "timeElapsed": 1775104210277,
+    "memoryUsed": 0
+  }
+}
