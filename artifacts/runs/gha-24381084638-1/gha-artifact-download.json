@@ -1,0 +1,14 @@
+{
+  "repository": "itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager",
+  "run_id": 24381084638,
+  "run_attempt": 1,
+  "workflow_name": "AE Eval Full",
+  "head_sha": "a8be2f120ccebed399dab90f532408fd26d15a6b",
+  "run_url": "https://github.com/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/24381084638",
+  "run_api_url": "https://api.github.com/repos/itdojp/ae-framework-test-08-Distributed-Lock-Lease-Manager/actions/runs/24381084638",
+  "artifact_name": "ae-eval-full-artifacts",
+  "artifact_id": 6420363184,
+  "artifact_size_bytes": 45801,
+  "artifact_digest": "sha256:dbd72f7f6c6741352f6f660a2afdf85eb8b14986a42668b5f907a7247e183c4a",
+  "downloaded_at_utc": "2026-04-14T04:39:01Z"
+}
