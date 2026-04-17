@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "discovery-pack-validation-report/v1",
+  "contractId": "discovery-pack-validation-report.v1",
+  "generatedAt": "2026-04-17T04:38:08.367Z",
+  "schemaPath": "schema/discovery-pack-v1.schema.json",
+  "sourcePatterns": [
+    "spec/discovery-pack/**/*.{yml,yaml,json}"
+  ],
+  "strictApproved": false,
+  "failOn": [],
+  "scannedFiles": 1,
+  "passedFiles": 1,
+  "warningFiles": 0,
+  "failedFiles": 0,
+  "status": "pass",
+  "summary": {
+    "duplicateIds": 0,
+    "unresolvedSourceRefs": 0,
+    "unresolvedTraceRefs": 0,
+    "approvedDependsOnRejected": 0,
+    "strictApprovedViolations": 0,
+    "blockingOpenQuestions": 0,
+    "orphanApprovedRequirements": 0,
+    "orphanApprovedBusinessUseCases": 0
+  },
+  "files": [
+    {
+      "file": "spec/discovery-pack/index.yaml",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}
