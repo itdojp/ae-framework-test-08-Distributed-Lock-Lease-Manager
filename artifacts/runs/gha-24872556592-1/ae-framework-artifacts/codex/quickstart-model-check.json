@@ -1,0 +1,16 @@
+{
+  "specification": "spec_1777005725331_cv1k6fmeq",
+  "properties": [
+    {
+      "name": "SafetyProperty",
+      "satisfied": true,
+      "description": "Property check for: SafetyProperty"
+    }
+  ],
+  "counterExamples": [],
+  "statistics": {
+    "statesExplored": 4350,
+    "timeElapsed": 1777005725363,
+    "memoryUsed": 0
+  }
+}
