@@ -1,0 +1,16 @@
+{
+  "specification": "spec_1777351679724_fttl1uqph",
+  "properties": [
+    {
+      "name": "SafetyProperty",
+      "satisfied": true,
+      "description": "Property check for: SafetyProperty"
+    }
+  ],
+  "counterExamples": [],
+  "statistics": {
+    "statesExplored": 4350,
+    "timeElapsed": 1777351679765,
+    "memoryUsed": 0
+  }
+}
