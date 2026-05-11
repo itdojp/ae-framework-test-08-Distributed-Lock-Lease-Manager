@@ -1,0 +1,11 @@
+stateDiagram-v2
+  [*] --> IDLE
+  state IDLE
+  state CHECKING
+  state CONFIRMED
+  state INSUFFICIENT
+  IDLE --> CHECKING: AMOUNT_ENTERED / fetch_orderbook
+  CHECKING --> CONFIRMED: ORDERBOOK_UPDATED [can_fill_true] / show_estimate
+  CHECKING --> INSUFFICIENT: ORDERBOOK_UPDATED [can_fill_false] / show_warning
+  INSUFFICIENT --> CHECKING: AMOUNT_ENTERED / fetch_orderbook
+  CONFIRMED --> CHECKING: TIMER_10S / fetch_orderbook
