@@ -1,0 +1,6 @@
+
+> ae-framework@1.0.0 verify:csp /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework
+> node scripts/formal/verify-csp.mjs "--" "--file" "spec/csp/cspx-smoke.cspm" "--mode" "typecheck"
+
+CSP summary written: artifacts/hermetic-reports/formal/csp-summary.json
+- file=spec/csp/cspx-smoke.cspm status=tool_not_available
