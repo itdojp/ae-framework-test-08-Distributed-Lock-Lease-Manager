@@ -1,0 +1,22 @@
+
+> ae-framework@1.0.0 build /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework
+> pnpm build:spec-compiler && tsc -p configs/tsconfig/tsconfig.build.json && ( [ -f scripts/ci/ensure-bin-executables.mjs ] && node scripts/ci/ensure-bin-executables.mjs || true )
+
+
+> ae-framework@1.0.0 build:spec-compiler /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework
+> pnpm --filter @ae-framework/spec-compiler build
+
+
+> @ae-framework/spec-compiler@1.0.0 build /home/runner/work/ae-framework-test-08-Distributed-Lock-Lease-Manager/ae-framework-test-08-Distributed-Lock-Lease-Manager/.cache/ae-framework/packages/spec-compiler
+> tsc
+
+[bins] Applied executable bit to ae: ./dist/src/cli/index.js
+[bins] Already executable: ae-framework
+[bins] Applied executable bit to ae-phase: ./dist/src/cli/phase-cli.js
+[bins] Applied executable bit to ae-approve: ./dist/src/cli/approval-cli.js
+[bins] Applied executable bit to ae-slash: ./dist/src/cli/slash-cli.js
+[bins] Applied executable bit to ae-ui: ./dist/src/cli/ae-ui-alias.js
+[bins] Applied executable bit to ae-sbom: ./dist/src/cli/sbom-cli.js
+[bins] Applied executable bit to ae-resilience: ./dist/src/cli/resilience-cli.js
+[bins] Applied executable bit to ae-benchmark: ./dist/src/cli/benchmark-cli.js
+[bins] Applied executable bit to ae-server: ./dist/src/cli/server-runner.js
